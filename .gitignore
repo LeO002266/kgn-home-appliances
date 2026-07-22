@@ -1,0 +1,10 @@
+node_modules/
+.next/
+next-env.d.ts
+Menu/
+Veggi Burgers/
+siterefs/
+
+.vercel
+.env*
+tsconfig.tsbuildinfo

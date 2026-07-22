@@ -1,0 +1,25 @@
+{
+  "name": "KGN Home Appliance & Services",
+  "short_name": "KGN",
+  "description": "Home appliances, repair services & gas pipeline work in Bhilai (C.G.)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f7fc",
+  "theme_color": "#5b21b6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["shopping", "business"],
+  "lang": "en-IN",
+  "dir": "ltr"
+}
