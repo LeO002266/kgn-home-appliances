@@ -20,6 +20,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("language") as Language | null
     if (saved === "en" || saved === "hi") {
+      // localStorage doesn't exist during SSR, so this can only be read post-mount —
+      // the resulting extra render is the intended hydration-safe tradeoff (see comment above).
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguageState(saved)
     }
   }, [])
