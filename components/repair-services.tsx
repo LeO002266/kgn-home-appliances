@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Refrigerator, Waves, Microwave, AirVent, Blend, Package, Flame, Fan, Zap, Settings } from "lucide-react"
+import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Microwave, Blend, Package, Flame, Fan, Zap, Settings } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -13,9 +13,6 @@ const appliancesEn = [
   "Oven / Microwave",
   "Fan",
   "Iron",
-  "Refrigerator",
-  "Washing Machine",
-  "Air Conditioner",
   "Other Appliance",
 ]
 const appliancesHi = [
@@ -25,9 +22,6 @@ const appliancesHi = [
   "ओवन / माइक्रोवेव",
   "पंखा",
   "इस्त्री",
-  "रेफ्रिजरेटर",
-  "वाशिंग मशीन",
-  "एयर कंडीशनर",
   "अन्य अप्लायंस",
 ]
 
@@ -42,9 +36,6 @@ export function RepairServices() {
     { Icon: Microwave, en: "Oven / Microwave Repair", hi: "ओवन / माइक्रोवेव रिपेयर" },
     { Icon: Fan, en: "Fan Repair & Service", hi: "पंखा रिपेयर और सर्विस" },
     { Icon: Zap, en: "Iron Repair", hi: "इस्त्री रिपेयर" },
-    { Icon: Refrigerator, en: "Refrigerator Repair & AMC", hi: "रेफ्रिजरेटर रिपेयर और वार्षिक रखरखाव" },
-    { Icon: Waves, en: "Washing Machine Service", hi: "वाशिंग मशीन सर्विस" },
-    { Icon: AirVent, en: "AC Servicing & Repair", hi: "एयर कंडीशनर सर्विस" },
     { Icon: Settings, en: "General Appliance Maintenance", hi: "सामान्य अप्लायंस रखरखाव" },
   ]
 

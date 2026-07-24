@@ -10,10 +10,10 @@ export const faqs = [
     aHi: "हाँ — भिलाई और दुर्ग में आपके घर आकर गैस पाइपलाइन की फिटिंग और रिपेयर का काम किया जाता है। विज़िट बुक करने के लिए 91099 18786 पर कॉल करें।",
   },
   {
-    qEn: "Do you repair refrigerators, washing machines and coolers?",
-    aEn: "Yes, we repair and service all major home appliances — refrigerators, washing machines, coolers, mixer grinders, geysers and more — with doorstep service in Bhilai.",
-    qHi: "क्या आप फ्रिज, वाशिंग मशीन और कूलर की रिपेयर करते हैं?",
-    aHi: "हाँ, हम सभी प्रमुख होम अप्लायंसेज — फ्रिज, वाशिंग मशीन, कूलर, मिक्सर ग्राइंडर, गीज़र — की रिपेयर और सर्विस करते हैं। भिलाई में घर पर सर्विस उपलब्ध है।",
+    qEn: "Which appliances do you repair?",
+    aEn: "We repair and service mixer grinders (including jars and blades), gas stoves, ovens/microwaves, fans, coolers, irons and geysers — with doorstep service in Bhilai. We don't currently repair refrigerators, washing machines or ACs.",
+    qHi: "आप कौन-कौन से अप्लायंस रिपेयर करते हैं?",
+    aHi: "हम मिक्सर ग्राइंडर (जार और ब्लेड सहित), गैस चूल्हा, ओवन/माइक्रोवेव, पंखे, कूलर, इस्त्री और गीज़र की रिपेयर और सर्विस करते हैं — भिलाई में घर पर सर्विस उपलब्ध है। फिलहाल हम रेफ्रिजरेटर, वाशिंग मशीन या AC रिपेयर नहीं करते।",
   },
   {
     qEn: "Why are prices not shown on the website?",
