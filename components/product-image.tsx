@@ -2,46 +2,49 @@
 
 import { useState } from "react"
 import {
-  Refrigerator,
-  Waves,
-  Microwave,
   CookingPot,
   Blend,
   Fan,
   Home,
   Flame,
+  Wrench,
   Droplets,
   ShowerHead,
   UtensilsCrossed,
+  GlassWater,
+  SprayCan,
+  Lock,
 } from "lucide-react"
 import type { Product, CategoryId } from "@/config/products"
 import { getProductImage } from "@/config/products"
 
-const categoryIcons: Record<CategoryId, typeof Refrigerator> = {
-  refrigerators: Refrigerator,
-  "washing-machines": Waves,
-  microwaves: Microwave,
-  "pressure-cookers": CookingPot,
+const categoryIcons: Record<CategoryId, typeof Blend> = {
   "mixer-grinders": Blend,
   "gas-stoves": Flame,
+  "kitchen-accessories": Wrench,
+  "pressure-cookers": CookingPot,
+  kitchenware: UtensilsCrossed,
+  "bottles-tiffins": GlassWater,
+  "cleaning-tools": SprayCan,
+  "hardware-locks": Lock,
   "water-purifiers": Droplets,
   "water-heaters": ShowerHead,
   "fans-coolers": Fan,
-  kitchenware: UtensilsCrossed,
   other: Home,
 }
 
 const categoryGradients: Record<CategoryId, string> = {
-  refrigerators: "from-sky-100/80 via-card to-blue-50/60",
-  "washing-machines": "from-cyan-100/80 via-card to-teal-50/60",
-  microwaves: "from-amber-100/80 via-card to-orange-50/60",
-  "pressure-cookers": "from-rose-100/80 via-card to-red-50/60",
   "mixer-grinders": "from-violet-100/80 via-card to-purple-50/60",
   "gas-stoves": "from-orange-100/80 via-card to-amber-50/60",
+  "kitchen-accessories": "from-yellow-100/80 via-card to-amber-50/60",
+  "pressure-cookers": "from-rose-100/80 via-card to-red-50/60",
+  kitchenware: "from-slate-100/80 via-card to-zinc-50/60",
+  "bottles-tiffins": "from-teal-100/80 via-card to-cyan-50/60",
+  "cleaning-tools": "from-lime-100/80 via-card to-green-50/60",
+  "hardware-locks": "from-gray-200/80 via-card to-slate-100/60",
   "water-purifiers": "from-blue-100/80 via-card to-sky-50/60",
   "water-heaters": "from-red-100/80 via-card to-rose-50/60",
   "fans-coolers": "from-emerald-100/80 via-card to-green-50/60",
-  kitchenware: "from-slate-100/80 via-card to-zinc-50/60",
   other: "from-stone-200/80 via-card to-neutral-100/60",
 }
 

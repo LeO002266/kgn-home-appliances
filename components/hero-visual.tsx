@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import {
-  Refrigerator,
-  Waves,
-  Microwave,
+  Flame,
+  GlassWater,
+  Lock,
   CookingPot,
   Blend,
   Fan,
@@ -17,9 +17,9 @@ import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
 
 const applianceIcons = [
-  { Icon: Refrigerator, className: "top-[8%] left-[10%] rotate-[-8deg]" },
-  { Icon: Waves, className: "top-[12%] right-[12%] rotate-[6deg]" },
-  { Icon: Microwave, className: "top-[42%] left-[6%] rotate-[4deg]" },
+  { Icon: Flame, className: "top-[8%] left-[10%] rotate-[-8deg]" },
+  { Icon: GlassWater, className: "top-[12%] right-[12%] rotate-[6deg]" },
+  { Icon: Lock, className: "top-[42%] left-[6%] rotate-[4deg]" },
   { Icon: CookingPot, className: "bottom-[18%] left-[14%] rotate-[-4deg]" },
   { Icon: Blend, className: "bottom-[22%] right-[10%] rotate-[8deg]" },
   { Icon: Fan, className: "top-[38%] right-[8%] rotate-[-6deg]" },

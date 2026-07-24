@@ -1,65 +1,69 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Refrigerator, Waves, Microwave, CookingPot, Blend, Fan, Home, Flame, Droplets, ShowerHead, UtensilsCrossed } from "lucide-react"
+import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { categories, products, type CategoryId } from "@/config/products"
 
-const categoryIcons: Record<CategoryId, typeof Refrigerator> = {
-  refrigerators: Refrigerator,
-  "washing-machines": Waves,
-  microwaves: Microwave,
-  "pressure-cookers": CookingPot,
+const categoryIcons: Record<CategoryId, typeof Blend> = {
   "mixer-grinders": Blend,
   "gas-stoves": Flame,
+  "kitchen-accessories": Wrench,
+  "pressure-cookers": CookingPot,
+  kitchenware: UtensilsCrossed,
+  "bottles-tiffins": GlassWater,
+  "cleaning-tools": SprayCan,
+  "hardware-locks": Lock,
   "water-purifiers": Droplets,
   "water-heaters": ShowerHead,
   "fans-coolers": Fan,
-  kitchenware: UtensilsCrossed,
   other: Home,
 }
 
 // A representative product photo for each category (from /public/products/)
 const categoryImages: Record<CategoryId, string> = {
-  refrigerators: "/products/lg-fridge-340.jpg",
-  "washing-machines": "/products/ifb-wm-65.jpg",
-  microwaves: "/products/ifb-mw-20.jpg",
-  "pressure-cookers": "/products/prestige-cooker-3.jpg",
   "mixer-grinders": "/products/havells-mixer-750.jpg",
   "gas-stoves": "/products/prestige-stove-3b.jpg",
+  "kitchen-accessories": "/products/lpg-gas-pipe.jpg",
+  "pressure-cookers": "/products/prestige-cooker-3.jpg",
+  kitchenware: "/products/steel-utensil-set.jpg",
+  "bottles-tiffins": "/products/steel-tiffin-set.jpg",
+  "cleaning-tools": "/products/floor-mop-spin.jpg",
+  "hardware-locks": "/products/link-padlock.jpg",
   "water-purifiers": "/products/ro-purifier-10l.jpg",
   "water-heaters": "/products/bajaj-geyser-15l.jpg",
   "fans-coolers": "/products/symphony-cooler-45.jpg",
-  kitchenware: "/products/steel-tiffin-set.jpg",
   other: "/products/usha-iron-1100.jpg",
 }
 
 const descriptionsEn: Record<CategoryId, string> = {
-  refrigerators: "Premium fridges with modern technology",
-  "washing-machines": "Front load and top load models",
-  microwaves: "Convection & solo microwave ovens",
-  "pressure-cookers": "Electric and stainless steel cookers",
-  "mixer-grinders": "Powerful grinders for everyday use",
+  "mixer-grinders": "Powerful grinders for everyday use, all brands",
   "gas-stoves": "Glass top & steel stoves, pipeline work",
+  "kitchen-accessories": "Gas pipe, regulator, burner & kitchen tools",
+  "pressure-cookers": "Electric and stainless steel cookers",
+  kitchenware: "Steel utensils, cookware & kadai",
+  "bottles-tiffins": "Steel bottles, tiffins & flasks for daily use",
+  "cleaning-tools": "Mops, wipers, brooms & floor cleaning tools",
+  "hardware-locks": "Locks, knives & steel hardware essentials",
   "water-purifiers": "RO, UV & UF purifiers with service",
   "water-heaters": "Geysers, instant heaters & rods",
   "fans-coolers": "Ceiling & pedestal fans, air coolers",
-  kitchenware: "Steel utensils, tiffins, flasks & more",
-  other: "Irons, heaters, locks, pumps & more",
+  other: "Irons, heaters, pumps & more",
 }
 
 const descriptionsHi: Record<CategoryId, string> = {
-  refrigerators: "आधुनिक तकनीक के साथ प्रीमियम फ्रिज",
-  "washing-machines": "फ्रंट लोड और टॉप लोड मॉडल",
-  microwaves: "कन्वेक्शन और सोलो माइक्रोवेव",
-  "pressure-cookers": "इलेक्ट्रिक और स्टेनलेस स्टील कुकर",
-  "mixer-grinders": "रोज़मर्रा के उपयोग के लिए शक्तिशाली",
+  "mixer-grinders": "रोज़मर्रा के उपयोग के लिए शक्तिशाली, सभी ब्रांड",
   "gas-stoves": "ग्लास टॉप और स्टील चूल्हे, पाइपलाइन काम",
+  "kitchen-accessories": "गैस पाइप, रेगुलेटर, बर्नर और किचन टूल्स",
+  "pressure-cookers": "इलेक्ट्रिक और स्टेनलेस स्टील कुकर",
+  kitchenware: "स्टील बर्तन, कुकवेयर और कढ़ाई",
+  "bottles-tiffins": "रोज़ाना उपयोग के लिए स्टील बोतलें, टिफिन और फ्लास्क",
+  "cleaning-tools": "मॉप, वाइपर, झाड़ू और सफाई के सामान",
+  "hardware-locks": "ताले, चाकू और स्टील हार्डवेयर सामान",
   "water-purifiers": "RO, UV और UF प्यूरीफायर सर्विस के साथ",
   "water-heaters": "गीज़र, इंस्टेंट हीटर और रॉड",
   "fans-coolers": "छत और पेडेस्टल पंखे, एयर कूलर",
-  kitchenware: "स्टील बर्तन, टिफिन, फ्लास्क और अधिक",
-  other: "इस्त्री, हीटर, ताले, पंप और अधिक",
+  other: "इस्त्री, हीटर, पंप और अधिक",
 }
 
 export function CategoriesSection() {

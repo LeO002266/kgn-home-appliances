@@ -77,17 +77,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "categories.explore": "Explore the full collection",
 
     // Category Names
-    "category.refrigerators": "Refrigerators",
-    "category.washing": "Washing Machines",
-    "category.microwaves": "Microwave Ovens",
-    "category.cookers": "Pressure Cookers",
     "category.fans": "Fans & Coolers",
-    "category.irons": "Irons & Steamers",
     "category.mixers": "Mixer Grinders",
     "category.gas_stoves": "Gas Stoves",
     "category.purifiers": "Water Purifiers",
     "category.geysers": "Geysers & Heaters",
-    "category.kitchenware": "Kitchenware",
+    "category.kitchenware": "Kitchenware & Cookware",
+    "category.cleaning_tools": "Cleaning Tools",
+    "category.hardware_locks": "Hardware & Locks",
 
     // Featured Products
     "products.title": "Featured Products",
@@ -233,17 +230,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "categories.explore": "पूरा संग्रह देखें",
 
     // Category Names
-    "category.refrigerators": "रेफ्रिजरेटर",
-    "category.washing": "वाशिंग मशीन",
-    "category.microwaves": "माइक्रोवेव ओवन",
-    "category.cookers": "प्रेशर कुकर",
     "category.fans": "पंखे और कूलर",
-    "category.irons": "इस्त्री और स्टीमर",
     "category.mixers": "मिक्सर ग्राइंडर",
     "category.gas_stoves": "गैस चूल्हा",
     "category.purifiers": "वॉटर प्यूरीफायर",
     "category.geysers": "गीज़र और हीटर",
-    "category.kitchenware": "बर्तन और किचनवेयर",
+    "category.kitchenware": "बर्तन और कुकवेयर",
+    "category.cleaning_tools": "सफाई के सामान",
+    "category.hardware_locks": "हार्डवेयर और ताले",
 
     // Featured Products
     "products.title": "पॉपुलर उत्पाद",

@@ -9,7 +9,7 @@ export default function Home() {
     "@type": ["Store", "HomeAndConstructionBusiness"],
     name: "KGN Home Appliance & Services",
     description:
-      "Home appliance shop on Junwani Road, Bhilai — sales of refrigerators, washing machines, gas stoves, water purifiers, geysers, mixer grinders, fans and kitchenware, plus appliance repair, servicing and gas pipeline work.",
+      "Home appliance shop on Junwani Road, Bhilai — sales of mixer grinders, gas stoves, water purifiers, geysers, fans, kitchenware, cleaning tools and hardware, plus appliance repair, servicing and gas pipeline work.",
     url: businessConfig.siteUrl,
     telephone: "+919109918786",
     image: `${businessConfig.siteUrl}/storefront.jpg`,

@@ -4,16 +4,17 @@
 // Note: prices are intentionally NOT listed — customers call or WhatsApp for the latest price.
 
 export type CategoryId =
-  | "refrigerators"
-  | "washing-machines"
-  | "microwaves"
-  | "pressure-cookers"
   | "mixer-grinders"
   | "gas-stoves"
+  | "kitchen-accessories"
+  | "pressure-cookers"
+  | "kitchenware"
+  | "bottles-tiffins"
+  | "cleaning-tools"
+  | "hardware-locks"
   | "water-purifiers"
   | "water-heaters"
   | "fans-coolers"
-  | "kitchenware"
   | "other"
 
 export interface Product {
@@ -30,47 +31,76 @@ export interface Product {
 }
 
 export const categories: { id: CategoryId; nameEn: string; nameHi: string }[] = [
-  { id: "refrigerators", nameEn: "Refrigerators", nameHi: "रेफ्रिजरेटर" },
-  { id: "washing-machines", nameEn: "Washing Machines", nameHi: "वाशिंग मशीन" },
-  { id: "microwaves", nameEn: "Microwave Ovens", nameHi: "माइक्रोवेव ओवन" },
-  { id: "pressure-cookers", nameEn: "Pressure Cookers", nameHi: "प्रेशर कुकर" },
   { id: "mixer-grinders", nameEn: "Mixer Grinders", nameHi: "मिक्सर ग्राइंडर" },
   { id: "gas-stoves", nameEn: "Gas Stoves", nameHi: "गैस चूल्हा" },
+  { id: "kitchen-accessories", nameEn: "Kitchen Accessories", nameHi: "किचन एक्सेसरीज़" },
+  { id: "pressure-cookers", nameEn: "Pressure Cookers", nameHi: "प्रेशर कुकर" },
+  { id: "kitchenware", nameEn: "Kitchenware & Cookware", nameHi: "बर्तन और कुकवेयर" },
+  { id: "bottles-tiffins", nameEn: "Water Bottles & Tiffins", nameHi: "पानी की बोतलें और टिफिन" },
+  { id: "cleaning-tools", nameEn: "Cleaning Tools", nameHi: "सफाई के सामान" },
+  { id: "hardware-locks", nameEn: "Hardware & Locks", nameHi: "हार्डवेयर और ताले" },
   { id: "water-purifiers", nameEn: "Water Purifiers", nameHi: "वॉटर प्यूरीफायर" },
   { id: "water-heaters", nameEn: "Geysers & Water Heaters", nameHi: "गीज़र और वॉटर हीटर" },
   { id: "fans-coolers", nameEn: "Fans & Coolers", nameHi: "पंखे और कूलर" },
-  { id: "kitchenware", nameEn: "Kitchenware & Utensils", nameHi: "बर्तन और किचनवेयर" },
   { id: "other", nameEn: "Other Appliances", nameHi: "अन्य अप्लायंसेज" },
 ]
 
 export const products: Product[] = [
-  // Refrigerators
-  { id: "lg-fridge-340", nameEn: "LG Refrigerator 340L", nameHi: "LG रेफ्रिजरेटर 340L", category: "refrigerators", rating: 4.9, reviews: 342, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
-  { id: "samsung-fridge-253", nameEn: "Samsung Refrigerator 253L", nameHi: "सैमसंग रेफ्रिजरेटर 253L", category: "refrigerators", rating: 4.7, reviews: 218 },
-  { id: "whirlpool-fridge-190", nameEn: "Whirlpool Single Door 190L", nameHi: "व्हर्लपूल सिंगल डोर 190L", category: "refrigerators", rating: 4.6, reviews: 187 },
+  // Mixer Grinders — all major brands
+  { id: "havells-mixer-750", nameEn: "Havells Mixer Grinder 750W", nameHi: "हैवेल्स मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.8, reviews: 654, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
+  { id: "bajaj-mixer-500", nameEn: "Bajaj Mixer Grinder 500W", nameHi: "बजाज मिक्सर ग्राइंडर 500W", category: "mixer-grinders", rating: 4.6, reviews: 402 },
+  { id: "philips-mixer-750", nameEn: "Philips Mixer Grinder 750W", nameHi: "फिलिप्स मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.7, reviews: 318, featured: true },
+  { id: "preethi-mixer-750", nameEn: "Preethi Mixer Grinder 750W", nameHi: "प्रीति मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.8, reviews: 276 },
+  { id: "sujata-mixer-900", nameEn: "Sujata Dynamix Mixer Grinder 900W", nameHi: "सुजाता डायनामिक्स मिक्सर ग्राइंडर 900W", category: "mixer-grinders", rating: 4.7, reviews: 231 },
+  { id: "butterfly-mixer-750", nameEn: "Butterfly Matchless Mixer Grinder 750W", nameHi: "बटरफ्लाई मैचलेस मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.5, reviews: 189 },
+  { id: "maharaja-mixer-500", nameEn: "Maharaja Whiteline Mixer Grinder 500W", nameHi: "महाराजा व्हाइटलाइन मिक्सर ग्राइंडर 500W", category: "mixer-grinders", rating: 4.5, reviews: 164 },
+  { id: "panasonic-mixer-550", nameEn: "Panasonic Mixer Grinder 550W", nameHi: "पैनासोनिक मिक्सर ग्राइंडर 550W", category: "mixer-grinders", rating: 4.6, reviews: 142 },
+  { id: "inalsa-mixer-750", nameEn: "Inalsa Mixer Grinder 750W", nameHi: "इनाल्सा मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.5, reviews: 118 },
 
-  // Washing Machines
-  { id: "ifb-wm-65", nameEn: "IFB Washing Machine 6.5kg", nameHi: "IFB वाशिंग मशीन 6.5kg", category: "washing-machines", rating: 4.8, reviews: 511, featured: true },
-  { id: "lg-wm-7", nameEn: "LG Top Load 7kg", nameHi: "LG टॉप लोड 7kg", category: "washing-machines", rating: 4.7, reviews: 356 },
-  { id: "samsung-wm-6", nameEn: "Samsung Semi-Automatic 6kg", nameHi: "सैमसंग सेमी-ऑटोमैटिक 6kg", category: "washing-machines", rating: 4.5, reviews: 264 },
+  // Gas Stoves
+  { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", category: "gas-stoves", rating: 4.8, reviews: 421, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
+  { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.6, reviews: 318 },
+  { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.7, reviews: 205 },
 
-  // Microwaves
-  { id: "mw-25", nameEn: "Microwave Oven 25L", nameHi: "माइक्रोवेव ओवन 25L", category: "microwaves", rating: 4.9, reviews: 203 },
-  { id: "ifb-mw-20", nameEn: "IFB Convection Microwave 20L", nameHi: "IFB कन्वेक्शन माइक्रोवेव 20L", category: "microwaves", rating: 4.6, reviews: 142 },
+  // Kitchen Accessories — gas pipeline & stove repair materials + everyday kitchen tools
+  { id: "lpg-gas-pipe", nameEn: "LPG Gas Pipe (ISI Marked)", nameHi: "LPG गैस पाइप (ISI मार्क)", category: "kitchen-accessories", rating: 4.7, reviews: 214, featured: true },
+  { id: "gas-regulator", nameEn: "LPG Gas Regulator", nameHi: "LPG गैस रेगुलेटर", category: "kitchen-accessories", rating: 4.6, reviews: 176 },
+  { id: "stove-burner-brass", nameEn: "Brass Stove Burner (Spare Part)", nameHi: "पीतल स्टोव बर्नर (स्पेयर पार्ट)", category: "kitchen-accessories", rating: 4.5, reviews: 98 },
+  { id: "gas-lighter", nameEn: "Gas Lighter / Igniter", nameHi: "गैस लाइटर / इग्नाइटर", category: "kitchen-accessories", rating: 4.6, reviews: 143 },
+  { id: "gas-safety-valve", nameEn: "Gas Safety Valve", nameHi: "गैस सेफ्टी वाल्व", category: "kitchen-accessories", rating: 4.7, reviews: 87 },
+  { id: "kitchen-tool-set", nameEn: "Kitchen Tool Set (Tongs, Ladles & More)", nameHi: "किचन टूल सेट (चिमटा, कलछी और अधिक)", category: "kitchen-accessories", rating: 4.6, reviews: 156 },
+  { id: "chopping-board", nameEn: "Wooden Chopping Board", nameHi: "लकड़ी का चॉपिंग बोर्ड", category: "kitchen-accessories", rating: 4.5, reviews: 112 },
 
   // Pressure Cookers
   { id: "philips-cooker-5", nameEn: "Philips Pressure Cooker 5L", nameHi: "फिलिप्स प्रेशर कुकर 5L", category: "pressure-cookers", rating: 4.7, reviews: 388, featured: true },
   { id: "prestige-cooker-3", nameEn: "Prestige Cooker 3L", nameHi: "प्रेस्टीज कुकर 3L", category: "pressure-cookers", rating: 4.8, reviews: 472 },
   { id: "hawkins-cooker-5", nameEn: "Hawkins Steel Cooker 5L", nameHi: "हॉकिन्स स्टील कुकर 5L", category: "pressure-cookers", rating: 4.7, reviews: 315 },
 
-  // Mixer Grinders
-  { id: "havells-mixer-750", nameEn: "Havells Mixer Grinder 750W", nameHi: "हैवेल्स मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.8, reviews: 654, featured: true },
-  { id: "bajaj-mixer-500", nameEn: "Bajaj Mixer Grinder 500W", nameHi: "बजाज मिक्सर ग्राइंडर 500W", category: "mixer-grinders", rating: 4.6, reviews: 402 },
+  // Kitchenware & Cookware
+  { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware", rating: 4.8, reviews: 351 },
+  { id: "casserole-set", nameEn: "Insulated Casserole Set", nameHi: "इंसुलेटेड कैसरोल सेट", category: "kitchenware", rating: 4.6, reviews: 194 },
+  { id: "nonstick-cookware-set", nameEn: "Non-Stick Cookware Set", nameHi: "नॉन-स्टिक कुकवेयर सेट", category: "kitchenware", rating: 4.6, reviews: 167 },
+  { id: "steel-kadai", nameEn: "Stainless Steel Kadai", nameHi: "स्टेनलेस स्टील कढ़ाई", category: "kitchenware", rating: 4.7, reviews: 139 },
 
-  // Gas Stoves
-  { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", category: "gas-stoves", rating: 4.8, reviews: 421, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
-  { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.6, reviews: 318 },
-  { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.7, reviews: 205 },
+  // Water Bottles & Tiffins
+  { id: "steel-tiffin-set", nameEn: "Steel Tiffin Box Set", nameHi: "स्टील टिफिन बॉक्स सेट", category: "bottles-tiffins", rating: 4.7, reviews: 289 },
+  { id: "thermos-flask-1l", nameEn: "Thermos Flask 1L", nameHi: "थर्मस फ्लास्क 1L", category: "bottles-tiffins", rating: 4.5, reviews: 226 },
+  { id: "steel-water-bottle-1l", nameEn: "Stainless Steel Water Bottle 1L", nameHi: "स्टेनलेस स्टील पानी की बोतल 1L", category: "bottles-tiffins", rating: 4.6, reviews: 203, featured: true },
+  { id: "kids-tiffin-box", nameEn: "Kids Insulated Tiffin Box", nameHi: "किड्स इंसुलेटेड टिफिन बॉक्स", category: "bottles-tiffins", rating: 4.6, reviews: 158 },
+  { id: "office-tiffin-3tier", nameEn: "3-Tier Steel Tiffin Carrier", nameHi: "3-टियर स्टील टिफिन कैरियर", category: "bottles-tiffins", rating: 4.7, reviews: 121 },
+
+  // Cleaning Tools
+  { id: "floor-mop-spin", nameEn: "Spin Mop with Bucket", nameHi: "स्पिन मॉप विद बकेट", category: "cleaning-tools", rating: 4.6, reviews: 197 },
+  { id: "floor-wiper", nameEn: "Floor Wiper / Squeegee", nameHi: "फ्लोर वाइपर / स्क्वीजी", category: "cleaning-tools", rating: 4.5, reviews: 104 },
+  { id: "cleaning-bucket", nameEn: "Plastic Cleaning Bucket with Wringer", nameHi: "प्लास्टिक क्लीनिंग बकेट विद रिंगर", category: "cleaning-tools", rating: 4.4, reviews: 88 },
+  { id: "broom-set", nameEn: "Broom & Brush Set", nameHi: "झाड़ू और ब्रश सेट", category: "cleaning-tools", rating: 4.5, reviews: 132 },
+  { id: "scrub-brush", nameEn: "Multi-Surface Scrub Brush", nameHi: "मल्टी-सरफेस स्क्रब ब्रश", category: "cleaning-tools", rating: 4.4, reviews: 76 },
+
+  // Hardware & Locks
+  { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", category: "hardware-locks", rating: 4.6, reviews: 142 },
+  { id: "door-lock-mortise", nameEn: "Mortise Door Lock", nameHi: "मोर्टिस डोर लॉक", category: "hardware-locks", rating: 4.6, reviews: 118 },
+  { id: "kitchen-knife-set", nameEn: "Stainless Steel Kitchen Knife Set", nameHi: "स्टेनलेस स्टील किचन नाइफ सेट", category: "hardware-locks", rating: 4.5, reviews: 96 },
+  { id: "steel-door-hinges", nameEn: "Steel Door Hinges (Pack of 4)", nameHi: "स्टील डोर हिंज (4 का पैक)", category: "hardware-locks", rating: 4.5, reviews: 67 },
 
   // Water Purifiers
   { id: "ro-purifier-10l", nameEn: "RO Water Purifier 10L", nameHi: "RO वॉटर प्यूरीफायर 10L", category: "water-purifiers", rating: 4.7, reviews: 264, featured: true },
@@ -86,37 +116,14 @@ export const products: Product[] = [
   { id: "crompton-ceiling", nameEn: "Crompton Ceiling Fan 1200mm", nameHi: "क्रॉम्पटन सीलिंग फैन 1200mm", category: "fans-coolers", rating: 4.7, reviews: 528 },
   { id: "symphony-cooler-45", nameEn: "Symphony Air Cooler 45L", nameHi: "सिम्फनी एयर कूलर 45L", category: "fans-coolers", rating: 4.5, reviews: 236 },
 
-  // Kitchenware & Utensils
-  { id: "steel-tiffin-set", nameEn: "Steel Tiffin Box Set", nameHi: "स्टील टिफिन बॉक्स सेट", category: "kitchenware", rating: 4.7, reviews: 289 },
-  { id: "casserole-set", nameEn: "Insulated Casserole Set", nameHi: "इंसुलेटेड कैसरोल सेट", category: "kitchenware", rating: 4.6, reviews: 194 },
-  { id: "thermos-flask-1l", nameEn: "Thermos Flask 1L", nameHi: "थर्मस फ्लास्क 1L", category: "kitchenware", rating: 4.5, reviews: 226 },
-  { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware", rating: 4.8, reviews: 351 },
-
   // Other
   { id: "usha-iron-1100", nameEn: "Usha Iron 1100W", nameHi: "उषा इस्त्री 1100W", category: "other", rating: 4.6, reviews: 174 },
   { id: "bajaj-heater-2000", nameEn: "Bajaj Room Heater 2000W", nameHi: "बजाज रूम हीटर 2000W", category: "other", rating: 4.5, reviews: 163 },
   { id: "crompton-pump-1hp", nameEn: "Crompton Water Pump 1HP", nameHi: "क्रॉम्पटन वॉटर पंप 1HP", category: "other", rating: 4.7, reviews: 128 },
-  { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", category: "other", rating: 4.6, reviews: 142 },
 ]
 
 // Generic, honest selling points per category (store-level claims, no invented specs)
 export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }> = {
-  refrigerators: {
-    en: ["Energy-efficient cooling", "1-year official brand warranty", "Genuine product from authorized distributor", "Free delivery & installation in Bhilai"],
-    hi: ["बिजली की बचत वाली कूलिंग", "1 साल की आधिकारिक ब्रांड वारंटी", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "भिलाई में मुफ्त डिलीवरी और इंस्टॉलेशन"],
-  },
-  "washing-machines": {
-    en: ["Gentle yet powerful wash", "1-year official brand warranty", "Genuine product from authorized distributor", "Free delivery & installation in Bhilai"],
-    hi: ["कपड़ों के लिए सुरक्षित, दमदार धुलाई", "1 साल की आधिकारिक ब्रांड वारंटी", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "भिलाई में मुफ्त डिलीवरी और इंस्टॉलेशन"],
-  },
-  microwaves: {
-    en: ["Easy controls, even heating", "1-year official brand warranty", "Genuine product from authorized distributor", "Demo & usage guidance at the store"],
-    hi: ["आसान कंट्रोल, एक-सा हीटिंग", "1 साल की आधिकारिक ब्रांड वारंटी", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "दुकान पर डेमो और उपयोग की जानकारी"],
-  },
-  "pressure-cookers": {
-    en: ["Safe, ISI-marked build", "Manufacturer warranty included", "Genuine product from authorized distributor", "Spare gaskets & parts available in-store"],
-    hi: ["सुरक्षित, ISI मार्क वाली बनावट", "निर्माता वारंटी शामिल", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "गैस्केट और पार्ट्स दुकान पर उपलब्ध"],
-  },
   "mixer-grinders": {
     en: ["Powerful motor for daily use", "1-year official brand warranty", "Genuine product from authorized distributor", "Jars & spare parts available in-store"],
     hi: ["रोज़ के उपयोग के लिए दमदार मोटर", "1 साल की आधिकारिक ब्रांड वारंटी", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "जार और स्पेयर पार्ट्स दुकान पर उपलब्ध"],
@@ -124,6 +131,30 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
   "gas-stoves": {
     en: ["ISI-marked, safe build", "Manufacturer warranty included", "Gas pipeline fitting service available", "Installation & demo at your home"],
     hi: ["ISI मार्क, सुरक्षित बनावट", "निर्माता वारंटी शामिल", "गैस पाइपलाइन फिटिंग सेवा उपलब्ध", "घर पर इंस्टॉलेशन और डेमो"],
+  },
+  "kitchen-accessories": {
+    en: ["Genuine gas pipeline & stove spare parts", "ISI-marked safety items", "Fitting & repair service available", "Everyday kitchen tools at best rates"],
+    hi: ["असली गैस पाइपलाइन और स्टोव स्पेयर पार्ट्स", "ISI मार्क सुरक्षा सामान", "फिटिंग और रिपेयर सेवा उपलब्ध", "रोज़मर्रा के किचन टूल्स बेस्ट रेट पर"],
+  },
+  "pressure-cookers": {
+    en: ["Safe, ISI-marked build", "Manufacturer warranty included", "Genuine product from authorized distributor", "Spare gaskets & parts available in-store"],
+    hi: ["सुरक्षित, ISI मार्क वाली बनावट", "निर्माता वारंटी शामिल", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "गैस्केट और पार्ट्स दुकान पर उपलब्ध"],
+  },
+  kitchenware: {
+    en: ["Food-grade stainless steel", "Durable, long-lasting quality", "Huge variety available in-store", "Best rates in Junwani Road market"],
+    hi: ["फूड-ग्रेड स्टेनलेस स्टील", "टिकाऊ, लंबे समय चलने वाली क्वालिटी", "दुकान पर भारी वैरायटी उपलब्ध", "जुनवानी रोड मार्केट में बेस्ट रेट"],
+  },
+  "bottles-tiffins": {
+    en: ["Food-grade, leak-proof build", "Keeps food & drinks hot/cold longer", "Great for office, school & travel", "Huge variety of sizes in-store"],
+    hi: ["फूड-ग्रेड, लीक-प्रूफ बनावट", "खाना और पानी लंबे समय तक गर्म/ठंडा रखे", "ऑफिस, स्कूल और सफर के लिए बढ़िया", "दुकान पर कई साइज़ उपलब्ध"],
+  },
+  "cleaning-tools": {
+    en: ["Durable, everyday-use quality", "Easy to use, saves time", "Great for home & commercial cleaning", "Best rates in Junwani Road market"],
+    hi: ["टिकाऊ, रोज़ाना उपयोग की क्वालिटी", "उपयोग में आसान, समय की बचत", "घर और कमर्शियल सफाई के लिए बढ़िया", "जुनवानी रोड मार्केट में बेस्ट रेट"],
+  },
+  "hardware-locks": {
+    en: ["Heavy-duty, secure build", "Trusted brands only", "Genuine steel quality", "Fitting service available"],
+    hi: ["हैवी-ड्यूटी, सुरक्षित बनावट", "सिर्फ भरोसेमंद ब्रांड", "असली स्टील क्वालिटी", "फिटिंग सेवा उपलब्ध"],
   },
   "water-purifiers": {
     en: ["Clean, safe drinking water", "Manufacturer warranty included", "Filter replacement service available", "Free installation in Bhilai"],
@@ -136,10 +167,6 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
   "fans-coolers": {
     en: ["High air delivery, low noise", "Manufacturer warranty included", "Genuine product from authorized distributor", "Free delivery in Bhilai"],
     hi: ["तेज़ हवा, कम आवाज़", "निर्माता वारंटी शामिल", "अधिकृत डिस्ट्रीब्यूटर से असली प्रोडक्ट", "भिलाई में मुफ्त डिलीवरी"],
-  },
-  kitchenware: {
-    en: ["Food-grade stainless steel", "Durable, long-lasting quality", "Huge variety available in-store", "Best rates in Junwani Road market"],
-    hi: ["फूड-ग्रेड स्टेनलेस स्टील", "टिकाऊ, लंबे समय चलने वाली क्वालिटी", "दुकान पर भारी वैरायटी उपलब्ध", "जुनवानी रोड मार्केट में बेस्ट रेट"],
   },
   other: {
     en: ["Trusted brands only", "Manufacturer warranty included", "Genuine product from authorized distributor", "After-sales service & repair support"],
