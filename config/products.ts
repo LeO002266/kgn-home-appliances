@@ -60,7 +60,7 @@ export const products: Product[] = [
   // Gas Stoves
   { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", category: "gas-stoves", rating: 4.8, reviews: 421, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
   { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.6, reviews: 318 },
-  { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.7, reviews: 205 },
+  { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.7, reviews: 205, featured: true },
 
   // Kitchen Accessories — gas pipeline & stove repair materials + everyday kitchen tools
   { id: "lpg-gas-pipe", nameEn: "LPG Gas Pipe (ISI Marked)", nameHi: "LPG गैस पाइप (ISI मार्क)", category: "kitchen-accessories", rating: 4.7, reviews: 214, featured: true },

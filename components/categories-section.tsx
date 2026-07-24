@@ -1,9 +1,13 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home } from "lucide-react"
+import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home, Star } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { categories, products, type CategoryId } from "@/config/products"
+
+// Our two specialty categories get a small ribbon in the grid
+const specialtyCategories = new Set<CategoryId>(["mixer-grinders", "gas-stoves"])
 
 const categoryIcons: Record<CategoryId, typeof Blend> = {
   "mixer-grinders": Blend,
@@ -51,6 +55,48 @@ const descriptionsEn: Record<CategoryId, string> = {
   other: "Irons, heaters, pumps & more",
 }
 
+// Gradient fallback shown if a category's representative photo is missing or fails to load
+const categoryGradients: Record<CategoryId, string> = {
+  "mixer-grinders": "from-violet-100 via-white to-purple-50",
+  "gas-stoves": "from-orange-100 via-white to-amber-50",
+  "kitchen-accessories": "from-yellow-100 via-white to-amber-50",
+  "pressure-cookers": "from-rose-100 via-white to-red-50",
+  kitchenware: "from-slate-100 via-white to-zinc-50",
+  "bottles-tiffins": "from-teal-100 via-white to-cyan-50",
+  "cleaning-tools": "from-lime-100 via-white to-green-50",
+  "hardware-locks": "from-gray-200 via-white to-slate-100",
+  "water-purifiers": "from-blue-100 via-white to-sky-50",
+  "water-heaters": "from-red-100 via-white to-rose-50",
+  "fans-coolers": "from-emerald-100 via-white to-green-50",
+  other: "from-stone-200 via-white to-neutral-100",
+}
+
+function CategoryTileImage({ catId, alt }: { catId: CategoryId; alt: string }) {
+  const [failed, setFailed] = useState(false)
+  const Icon = categoryIcons[catId]
+
+  if (failed) {
+    return (
+      <div
+        className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${categoryGradients[catId]}`}
+      >
+        <Icon className="h-16 w-16 text-primary/30" strokeWidth={1.25} />
+      </div>
+    )
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={categoryImages[catId]}
+      alt={alt}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  )
+}
+
 const descriptionsHi: Record<CategoryId, string> = {
   "mixer-grinders": "रोज़मर्रा के उपयोग के लिए शक्तिशाली, सभी ब्रांड",
   "gas-stoves": "ग्लास टॉप और स्टील चूल्हे, पाइपलाइन काम",
@@ -92,19 +138,19 @@ export function CategoriesSection() {
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={categoryImages[cat.id]}
-                    alt={hi ? cat.nameHi : cat.nameEn}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <CategoryTileImage catId={cat.id} alt={hi ? cat.nameHi : cat.nameEn} />
                   <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-md">
                     <Icon className="h-4.5 w-4.5" />
                   </span>
                   <span className="absolute right-3 top-3 rounded-full bg-card/90 px-2.5 py-1 text-xs font-semibold text-foreground backdrop-blur-sm">
                     {count}
                   </span>
+                  {specialtyCategories.has(cat.id) && (
+                    <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-[#ffd54d] to-[#f0a500] px-2.5 py-1 text-[11px] font-bold text-[#2a1362] shadow-sm">
+                      <Star className="h-3 w-3 fill-[#2a1362]" />
+                      {t("specialty.badge")}
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-4 md:p-5">
                   <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">

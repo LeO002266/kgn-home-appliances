@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { BrandsStrip } from "@/components/brands-strip"
+import { SpecialtyHighlight } from "@/components/specialty-highlight"
 import { CategoriesSection } from "@/components/categories-section"
 import { FeaturedProducts } from "@/components/featured-products"
 import { RepairServices } from "@/components/repair-services"
@@ -21,6 +22,7 @@ export function PageContent() {
         <Header />
         <Hero />
         <BrandsStrip />
+        <SpecialtyHighlight />
         <CategoriesSection />
         <FeaturedProducts />
         <RepairServices />

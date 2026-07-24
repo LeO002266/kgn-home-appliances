@@ -76,6 +76,19 @@ export const translations: Record<Language, Record<string, string>> = {
     "categories.view_all": "View all products",
     "categories.explore": "Explore the full collection",
 
+    // Specialty highlight
+    "specialty.badge": "Our Specialty",
+    "specialty.title": "What We Do Best",
+    "specialty.description":
+      "The two categories customers trust us most for — huge brand variety, genuine parts, and expert service.",
+    "specialty.mixer_title": "Mixer Grinders",
+    "specialty.mixer_desc":
+      "All major brands under one roof — Bajaj, Havells, Philips, Preethi, Sujata, Butterfly & more — plus jars, blades and spare parts in-store.",
+    "specialty.gas_title": "Gas Stoves",
+    "specialty.gas_desc":
+      "Glass top & steel stoves from trusted brands, with gas pipeline fitting, burner repair and installation at your home.",
+    "specialty.cta": "Shop Now",
+
     // Category Names
     "category.fans": "Fans & Coolers",
     "category.mixers": "Mixer Grinders",
@@ -228,6 +241,19 @@ export const translations: Record<Language, Record<string, string>> = {
     "categories.description": "किचन अप्लायंसेज से लेकर घरेलू सामान तक, हमारे पास हर चीज़ है।",
     "categories.view_all": "सभी उत्पाद देखें",
     "categories.explore": "पूरा संग्रह देखें",
+
+    // Specialty highlight
+    "specialty.badge": "हमारी खासियत",
+    "specialty.title": "हमारी सबसे बड़ी विशेषज्ञता",
+    "specialty.description":
+      "वो दो कैटेगरी जिन पर ग्राहक हम पर सबसे ज़्यादा भरोसा करते हैं — भारी ब्रांड वैरायटी, असली पार्ट्स और एक्सपर्ट सर्विस।",
+    "specialty.mixer_title": "मिक्सर ग्राइंडर",
+    "specialty.mixer_desc":
+      "एक ही जगह सभी बड़े ब्रांड — बजाज, हैवेल्स, फिलिप्स, प्रीति, सुजाता, बटरफ्लाई और अधिक — साथ में जार, ब्लेड और स्पेयर पार्ट्स दुकान पर उपलब्ध।",
+    "specialty.gas_title": "गैस चूल्हा",
+    "specialty.gas_desc":
+      "भरोसेमंद ब्रांड्स के ग्लास टॉप और स्टील चूल्हे, साथ में गैस पाइपलाइन फिटिंग, बर्नर रिपेयर और घर पर इंस्टॉलेशन।",
+    "specialty.cta": "अभी खरीदें",
 
     // Category Names
     "category.fans": "पंखे और कूलर",

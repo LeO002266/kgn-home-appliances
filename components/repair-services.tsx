@@ -1,24 +1,33 @@
 "use client"
 
 import { useState } from "react"
-import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Refrigerator, Waves, Microwave, AirVent, Blend, Settings } from "lucide-react"
+import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Refrigerator, Waves, Microwave, AirVent, Blend, Package, Flame, Fan, Zap, Settings } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
+// Mixer grinders and gas stoves lead the list — our two specialty categories
 const appliancesEn = [
+  "Mixer Grinder",
+  "Mixer Grinder Jars & Blades",
+  "Gas Stove",
+  "Oven / Microwave",
+  "Fan",
+  "Iron",
   "Refrigerator",
   "Washing Machine",
-  "Microwave Oven",
   "Air Conditioner",
-  "Mixer Grinder",
   "Other Appliance",
 ]
 const appliancesHi = [
+  "मिक्सर ग्राइंडर",
+  "मिक्सर ग्राइंडर जार और ब्लेड",
+  "गैस चूल्हा",
+  "ओवन / माइक्रोवेव",
+  "पंखा",
+  "इस्त्री",
   "रेफ्रिजरेटर",
   "वाशिंग मशीन",
-  "माइक्रोवेव ओवन",
   "एयर कंडीशनर",
-  "मिक्सर ग्राइंडर",
   "अन्य अप्लायंस",
 ]
 
@@ -27,11 +36,15 @@ export function RepairServices() {
   const hi = language === "hi"
 
   const services = [
+    { Icon: Blend, en: "Mixer Grinder Repair & Service", hi: "मिक्सर ग्राइंडर रिपेयर और सर्विस" },
+    { Icon: Package, en: "Mixer Grinder Jars & Blades", hi: "मिक्सर ग्राइंडर जार और ब्लेड" },
+    { Icon: Flame, en: "Gas Stove Repair & Service", hi: "गैस चूल्हा रिपेयर और सर्विस" },
+    { Icon: Microwave, en: "Oven / Microwave Repair", hi: "ओवन / माइक्रोवेव रिपेयर" },
+    { Icon: Fan, en: "Fan Repair & Service", hi: "पंखा रिपेयर और सर्विस" },
+    { Icon: Zap, en: "Iron Repair", hi: "इस्त्री रिपेयर" },
     { Icon: Refrigerator, en: "Refrigerator Repair & AMC", hi: "रेफ्रिजरेटर रिपेयर और वार्षिक रखरखाव" },
     { Icon: Waves, en: "Washing Machine Service", hi: "वाशिंग मशीन सर्विस" },
-    { Icon: Microwave, en: "Microwave Oven Repairs", hi: "माइक्रोवेव ओवन रिपेयर" },
     { Icon: AirVent, en: "AC Servicing & Repair", hi: "एयर कंडीशनर सर्विस" },
-    { Icon: Blend, en: "Mixer Grinder Repairs", hi: "मिक्सर ग्राइंडर रिपेयर" },
     { Icon: Settings, en: "General Appliance Maintenance", hi: "सामान्य अप्लायंस रखरखाव" },
   ]
 
