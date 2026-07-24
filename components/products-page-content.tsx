@@ -1,7 +1,5 @@
 "use client"
 
-import { Suspense } from "react"
-import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, Phone } from "lucide-react"
 import { Header } from "@/components/header"
@@ -11,24 +9,16 @@ import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { ProductCard } from "@/components/product-card"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
-import { products, categories, type CategoryId } from "@/config/products"
+import { products, categories } from "@/config/products"
 
-function Catalog() {
+export function ProductsPageContent() {
   const { t, language } = useLanguage()
   const hi = language === "hi"
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const pathname = usePathname()
-
-  const activeCat = searchParams.get("category") as CategoryId | null
-  const filtered = activeCat ? products.filter((p) => p.category === activeCat) : products
-
-  const setCategory = (cat: CategoryId | null) => {
-    router.replace(cat ? `${pathname}?category=${cat}` : pathname, { scroll: false })
-  }
 
   return (
-    <>
+    <main className="min-h-screen bg-background">
+      <Header />
+
       <section className="pt-28 md:pt-36 pb-8 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
@@ -43,32 +33,21 @@ function Catalog() {
           </h1>
           <p className="mt-3 max-w-2xl text-lg text-muted-foreground text-pretty">{t("catalog.description")}</p>
 
-          {/* Category filter */}
+          {/* Category links — each goes to its own dedicated, crawlable page */}
           <div className="mt-8 flex flex-wrap gap-2">
-            <button
-              onClick={() => setCategory(null)}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                !activeCat
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
-              }`}
-            >
+            <span className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
               {t("catalog.all")} ({products.length})
-            </button>
+            </span>
             {categories.map((cat) => {
               const count = products.filter((p) => p.category === cat.id).length
               return (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => setCategory(cat.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                    activeCat === cat.id
-                      ? "bg-primary text-primary-foreground"
-                      : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                  }`}
+                  href={`/products/category/${cat.id}`}
+                  className="rounded-full px-4 py-2 text-sm font-medium border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground transition-colors"
                 >
                   {hi ? cat.nameHi : cat.nameEn} ({count})
-                </button>
+                </Link>
               )
             })}
           </div>
@@ -78,7 +57,7 @@ function Catalog() {
       <section className="pb-20 md:pb-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filtered.map((product) => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -97,17 +76,7 @@ function Catalog() {
           </div>
         </div>
       </section>
-    </>
-  )
-}
 
-export function ProductsPageContent() {
-  return (
-    <main className="min-h-screen bg-background">
-      <Header />
-      <Suspense fallback={<div className="pt-36 pb-20 text-center text-muted-foreground">…</div>}>
-        <Catalog />
-      </Suspense>
       <Footer />
       <WhatsAppButton />
       <MobileCtaBar />

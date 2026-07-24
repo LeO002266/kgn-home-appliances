@@ -174,6 +174,59 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
   },
 }
 
+// Longer, keyword-focused intro copy for each dedicated category page (SEO content block).
+// Written for real local search terms (e.g. "mixer grinder shop Bhilai") — no invented claims.
+export const categoryIntro: Record<CategoryId, { en: string; hi: string }> = {
+  "mixer-grinders": {
+    en: "Shop mixer grinders from all major brands — Bajaj, Havells, Philips, Preethi, Sujata, Butterfly, Maharaja Whiteline, Panasonic and Inalsa — at KGN Home Appliance & Services on Junwani Road, Bhilai. Every mixer grinder comes with the official brand warranty, and genuine jars and spare parts are available in-store. Call or WhatsApp us for today's best price on any model.",
+    hi: "बजाज, हैवेल्स, फिलिप्स, प्रीति, सुजाता, बटरफ्लाई, महाराजा व्हाइटलाइन, पैनासोनिक और इनाल्सा — जुनवानी रोड, भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर सभी बड़े ब्रांड्स के मिक्सर ग्राइंडर उपलब्ध हैं। हर मिक्सर ग्राइंडर पर आधिकारिक ब्रांड वारंटी और असली जार व स्पेयर पार्ट्स दुकान पर मिलते हैं। आज की बेस्ट कीमत के लिए कॉल या WhatsApp करें।",
+  },
+  "gas-stoves": {
+    en: "Buy glass-top and stainless steel gas stoves from trusted brands like Prestige and Butterfly at our Junwani Road store in Bhilai. Every stove is ISI-marked for safety, and we also handle gas pipeline fitting and stove installation at your home across Bhilai and Durg.",
+    hi: "भिलाई के जुनवानी रोड स्थित हमारी दुकान पर प्रेस्टीज और बटरफ्लाई जैसे भरोसेमंद ब्रांड्स के ग्लास टॉप और स्टेनलेस स्टील गैस चूल्हे उपलब्ध हैं। हर चूल्हा सुरक्षा के लिए ISI मार्क है, और हम भिलाई व दुर्ग में आपके घर पर गैस पाइपलाइन फिटिंग और चूल्हा इंस्टॉलेशन भी करते हैं।",
+  },
+  "kitchen-accessories": {
+    en: "Find genuine LPG gas pipes, regulators, burners, safety valves and everyday kitchen tools at KGN Home Appliance & Services, Bhilai. All gas-fitting parts are ISI-marked, and our team also provides gas pipeline repair and fitting service at your home in Bhilai and Durg.",
+    hi: "KGN होम अप्लायंस एंड सर्विसेज, भिलाई पर असली LPG गैस पाइप, रेगुलेटर, बर्नर, सेफ्टी वाल्व और रोज़मर्रा के किचन टूल्स उपलब्ध हैं। सभी गैस-फिटिंग पार्ट्स ISI मार्क हैं, और हमारी टीम भिलाई व दुर्ग में घर पर गैस पाइपलाइन रिपेयर और फिटिंग सेवा भी देती है।",
+  },
+  "pressure-cookers": {
+    en: "Shop ISI-marked pressure cookers from Prestige, Hawkins and Philips at our Junwani Road store in Bhilai. Spare gaskets, whistles and handles are available in-store, along with manufacturer warranty on every cooker.",
+    hi: "भिलाई के जुनवानी रोड स्थित हमारी दुकान पर प्रेस्टीज, हॉकिन्स और फिलिप्स के ISI मार्क प्रेशर कुकर उपलब्ध हैं। दुकान पर गैस्केट, सीटी और हैंडल जैसे स्पेयर पार्ट्स भी मिलते हैं, साथ ही हर कुकर पर निर्माता वारंटी।",
+  },
+  kitchenware: {
+    en: "Browse stainless steel utensils, cookware, kadai and casserole sets at KGN Home Appliance & Services in Bhilai. Food-grade steel, durable everyday quality and the best rates in the Junwani Road market.",
+    hi: "भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर स्टेनलेस स्टील बर्तन, कुकवेयर, कढ़ाई और कैसरोल सेट देखें। फूड-ग्रेड स्टील, टिकाऊ रोज़ाना क्वालिटी और जुनवानी रोड मार्केट में बेस्ट रेट।",
+  },
+  "bottles-tiffins": {
+    en: "Shop steel tiffin boxes, insulated flasks and water bottles for school, office and travel at our Bhilai store. Leak-proof, food-grade quality that keeps food and drinks hot or cold for hours.",
+    hi: "स्कूल, ऑफिस और सफर के लिए स्टील टिफिन बॉक्स, इंसुलेटेड फ्लास्क और पानी की बोतलें हमारी भिलाई की दुकान पर उपलब्ध हैं। लीक-प्रूफ, फूड-ग्रेड क्वालिटी जो खाना और पानी घंटों तक गर्म या ठंडा रखे।",
+  },
+  "cleaning-tools": {
+    en: "Find spin mops, floor wipers, cleaning buckets, brooms and scrub brushes at KGN Home Appliance & Services, Junwani Road, Bhilai. Durable, everyday-use quality for home and commercial cleaning at the best rates.",
+    hi: "जुनवानी रोड, भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर स्पिन मॉप, फ्लोर वाइपर, क्लीनिंग बकेट, झाड़ू और स्क्रब ब्रश उपलब्ध हैं। घर और कमर्शियल सफाई के लिए टिकाऊ, रोज़ाना उपयोग की क्वालिटी बेस्ट रेट पर।",
+  },
+  "hardware-locks": {
+    en: "Shop heavy-duty locks, kitchen knives and steel hardware essentials at our Bhilai store. Trusted brands, genuine steel quality, and fitting service available for door locks and hinges.",
+    hi: "हमारी भिलाई की दुकान पर हैवी-ड्यूटी ताले, किचन नाइफ और स्टील हार्डवेयर सामान उपलब्ध हैं। भरोसेमंद ब्रांड, असली स्टील क्वालिटी, और डोर लॉक व हिंज के लिए फिटिंग सेवा भी।",
+  },
+  "water-purifiers": {
+    en: "Buy RO, UV and UF water purifiers at KGN Home Appliance & Services, Bhilai — with free installation and filter replacement service. Manufacturer warranty included on every purifier.",
+    hi: "KGN होम अप्लायंस एंड सर्विसेज, भिलाई पर RO, UV और UF वॉटर प्यूरीफायर खरीदें — मुफ्त इंस्टॉलेशन और फिल्टर बदलने की सेवा के साथ। हर प्यूरीफायर पर निर्माता वारंटी शामिल।",
+  },
+  "water-heaters": {
+    en: "Shop geysers, instant water heaters and immersion rods from trusted brands at our Junwani Road store in Bhilai. Fast heating, power-saving models with installation service available.",
+    hi: "भिलाई के जुनवानी रोड स्थित हमारी दुकान पर भरोसेमंद ब्रांड्स के गीज़र, इंस्टेंट वॉटर हीटर और इमर्शन रॉड उपलब्ध हैं। तेज़ हीटिंग, बिजली बचाने वाले मॉडल इंस्टॉलेशन सेवा के साथ।",
+  },
+  "fans-coolers": {
+    en: "Browse ceiling fans, pedestal fans and air coolers at KGN Home Appliance & Services, Bhilai. High air delivery, low noise, and free delivery across Bhilai.",
+    hi: "भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर सीलिंग फैन, पेडेस्टल फैन और एयर कूलर देखें। तेज़ हवा, कम आवाज़ और भिलाई में मुफ्त डिलीवरी।",
+  },
+  other: {
+    en: "Find irons, room heaters, water pumps and more everyday appliances at our Junwani Road store in Bhilai. Trusted brands with manufacturer warranty and after-sales repair support.",
+    hi: "भिलाई के जुनवानी रोड स्थित हमारी दुकान पर इस्त्री, रूम हीटर, वॉटर पंप और अन्य रोज़मर्रा के अप्लायंसेज उपलब्ध हैं। निर्माता वारंटी और बिक्री के बाद रिपेयर सपोर्ट के साथ भरोसेमंद ब्रांड।",
+  },
+}
+
 // Convention: a product's photo lives at /public/products/<product-id>.jpg
 // Drop a file with that name and it appears automatically — no code change needed.
 export function getProductImage(p: Product): string {

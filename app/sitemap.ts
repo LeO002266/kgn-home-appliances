@@ -10,9 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/products`, changeFrequency: "weekly", priority: 0.9 },
     ...categories.map((c) => ({
-      url: `${base}/products?category=${c.id}`,
+      url: `${base}/products/category/${c.id}`,
       changeFrequency: "weekly" as const,
-      priority: 0.7,
+      priority: 0.8,
     })),
     ...products.map((p) => ({
       url: `${base}/products/${p.id}`,

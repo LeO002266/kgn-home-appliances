@@ -88,7 +88,7 @@ export function CategoriesSection() {
             return (
               <Link
                 key={cat.id}
-                href={`/products?category=${cat.id}`}
+                href={`/products/category/${cat.id}`}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">

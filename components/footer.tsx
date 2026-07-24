@@ -13,14 +13,14 @@ export function Footer() {
     {
       title: t("footer.shop"),
       links: [
-        { label: t("category.mixers"), href: "/products?category=mixer-grinders" },
-        { label: t("category.gas_stoves"), href: "/products?category=gas-stoves" },
-        { label: t("category.purifiers"), href: "/products?category=water-purifiers" },
-        { label: t("category.geysers"), href: "/products?category=water-heaters" },
-        { label: t("category.fans"), href: "/products?category=fans-coolers" },
-        { label: t("category.kitchenware"), href: "/products?category=kitchenware" },
-        { label: t("category.cleaning_tools"), href: "/products?category=cleaning-tools" },
-        { label: t("category.hardware_locks"), href: "/products?category=hardware-locks" },
+        { label: t("category.mixers"), href: "/products/category/mixer-grinders" },
+        { label: t("category.gas_stoves"), href: "/products/category/gas-stoves" },
+        { label: t("category.purifiers"), href: "/products/category/water-purifiers" },
+        { label: t("category.geysers"), href: "/products/category/water-heaters" },
+        { label: t("category.fans"), href: "/products/category/fans-coolers" },
+        { label: t("category.kitchenware"), href: "/products/category/kitchenware" },
+        { label: t("category.cleaning_tools"), href: "/products/category/cleaning-tools" },
+        { label: t("category.hardware_locks"), href: "/products/category/hardware-locks" },
       ],
     },
     {

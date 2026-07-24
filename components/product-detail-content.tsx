@@ -48,7 +48,7 @@ export function ProductDetailContent({ productId }: { productId: string }) {
               {t("catalog.title")}
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/products?category=${product.category}`} className="hover:text-primary transition-colors">
+            <Link href={`/products/category/${product.category}`} className="hover:text-primary transition-colors">
               {categoryName}
             </Link>
           </nav>
@@ -76,7 +76,7 @@ export function ProductDetailContent({ productId }: { productId: string }) {
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <Link
-                  href={`/products?category=${product.category}`}
+                  href={`/products/category/${product.category}`}
                   className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary hover:bg-primary/15 transition-colors"
                 >
                   <Tag className="h-3.5 w-3.5" />
