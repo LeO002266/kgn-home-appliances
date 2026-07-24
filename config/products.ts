@@ -174,6 +174,21 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
   },
 }
 
+// Non-branded search keywords per category, sourced from keyword research —
+// only for categories we actually stock (fridges/washing machines/microwaves excluded on purpose).
+export const categoryKeywords: Partial<Record<CategoryId, string[]>> = {
+  "mixer-grinders": ["mixer grinder", "mixer grinder price", "best mixer grinder", "juicer mixer grinder", "wet grinder"],
+  "gas-stoves": ["gas stove", "gas stove price", "burner gas stove", "gas chulha"],
+  "pressure-cookers": ["pressure cooker", "pressure cooker price", "cooker set"],
+  kitchenware: ["casserole set", "casserole set price", "cookware set", "hot pot casserole", "stainless steel utensils", "utensil set", "utensil set price", "kitchenware"],
+  "bottles-tiffins": ["tiffin box", "tiffin set", "tiffin set price", "lunch box", "water bottle", "flask", "flask price", "vacuum flask"],
+  "hardware-locks": ["door lock", "padlock", "padlock price"],
+  "water-purifiers": ["water purifier", "water purifier price", "ro water purifier", "uv water purifier", "best water purifier"],
+  "water-heaters": ["geyser", "geyser price", "instant geyser", "storage geyser", "water heater", "water heater price", "immersion rod", "immersion rod price", "immersion heater", "best geyser"],
+  "fans-coolers": ["fan", "ceiling fan", "ceiling fan price", "pedestal fan", "table fan", "exhaust fan", "air cooler", "air cooler price", "best air cooler", "desert cooler", "personal cooler"],
+  other: ["iron", "dry iron", "steam iron", "steam iron price", "room heater", "room heater price", "oil heater", "electric heater", "water pump", "water pump price", "submersible pump", "motor pump"],
+}
+
 // Longer, keyword-focused intro copy for each dedicated category page (SEO content block).
 // Written for real local search terms (e.g. "mixer grinder shop Bhilai") — no invented claims.
 export const categoryIntro: Record<CategoryId, { en: string; hi: string }> = {

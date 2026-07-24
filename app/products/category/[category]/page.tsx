@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { CategoryPageContent } from "@/components/category-page-content"
-import { categories, products, categoryIntro, type CategoryId } from "@/config/products"
+import { categories, products, categoryIntro, categoryKeywords, type CategoryId } from "@/config/products"
 import { businessConfig } from "@/config/business"
 
 function getCategory(id: string) {
@@ -26,10 +26,13 @@ export async function generateMetadata({
   const count = products.filter((p) => p.category === cat.id).length
   const title = `${cat.nameEn} in Bhilai`
   const description = `${cat.nameEn} (${count} models) at KGN Home Appliance & Services, Junwani Road, Bhilai. ${categoryIntro[cat.id].en}`
+  const terms = categoryKeywords[cat.id] ?? []
+  const keywords = terms.flatMap((term) => [term, `${term} Bhilai`])
 
   return {
     title,
     description,
+    keywords: keywords.length ? keywords : undefined,
     alternates: { canonical: `${businessConfig.siteUrl}/products/category/${cat.id}` },
     openGraph: { title: `${title} | KGN Home Appliance & Services`, description },
   }
