@@ -22,6 +22,8 @@ export interface Product {
   nameEn: string
   nameHi: string
   category: CategoryId
+  /** Manufacturer, when the item is a branded model. Unbranded/generic stock omits this. */
+  brand?: BrandId
   rating: number
   reviews: number
   image?: string
@@ -29,6 +31,25 @@ export interface Product {
   badgeHi?: string
   featured?: boolean
 }
+
+// Only brands we actually stock products from — the homepage strip lists a few
+// more the shop deals in, but a brand needs products to justify its own page.
+export type BrandId =
+  | "Bajaj"
+  | "Prestige"
+  | "Havells"
+  | "Philips"
+  | "Preethi"
+  | "Sujata"
+  | "Butterfly"
+  | "Maharaja"
+  | "Panasonic"
+  | "Inalsa"
+  | "Hawkins"
+  | "Crompton"
+  | "Symphony"
+  | "Usha"
+  | "Link"
 
 export const categories: { id: CategoryId; nameEn: string; nameHi: string }[] = [
   { id: "mixer-grinders", nameEn: "Mixer Grinders", nameHi: "मिक्सर ग्राइंडर" },
@@ -45,21 +66,174 @@ export const categories: { id: CategoryId; nameEn: string; nameHi: string }[] = 
   { id: "other", nameEn: "Other Appliances", nameHi: "अन्य अप्लायंसेज" },
 ]
 
+// Brand landing pages. `slug` drives /products/brand/<slug>.
+export const brands: {
+  id: BrandId
+  slug: string
+  nameHi: string
+  introEn: string
+  introHi: string
+}[] = [
+  {
+    id: "Bajaj",
+    slug: "bajaj",
+    nameHi: "बजाज",
+    introEn:
+      "Buy Bajaj mixer grinders, pedestal fans, storage geysers and room heaters at KGN Home Appliance & Services, Junwani Road, Bhilai. Every Bajaj product carries the official brand warranty, and spare parts are available in-store.",
+    introHi:
+      "जुनवानी रोड, भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर बजाज मिक्सर ग्राइंडर, पेडेस्टल फैन, स्टोरेज गीज़र और रूम हीटर खरीदें। हर बजाज प्रोडक्ट पर आधिकारिक ब्रांड वारंटी और स्पेयर पार्ट्स दुकान पर उपलब्ध।",
+  },
+  {
+    id: "Prestige",
+    slug: "prestige",
+    nameHi: "प्रेस्टीज",
+    introEn:
+      "Shop Prestige gas stoves and pressure cookers in Bhilai. All models are ISI-marked with manufacturer warranty, and we stock genuine Prestige gaskets and spare parts. Gas stove installation and pipeline fitting available at your home.",
+    introHi:
+      "भिलाई में प्रेस्टीज गैस चूल्हा और प्रेशर कुकर खरीदें। सभी मॉडल ISI मार्क और निर्माता वारंटी के साथ, और असली प्रेस्टीज गैस्केट व स्पेयर पार्ट्स दुकान पर उपलब्ध। घर पर गैस चूल्हा इंस्टॉलेशन और पाइपलाइन फिटिंग सेवा भी।",
+  },
+  {
+    id: "Havells",
+    slug: "havells",
+    nameHi: "हैवेल्स",
+    introEn:
+      "Havells mixer grinders at KGN Home Appliance & Services, Bhilai — powerful motors built for daily Indian kitchen use, with official brand warranty. Genuine jars and spare parts available in-store.",
+    introHi:
+      "KGN होम अप्लायंस एंड सर्विसेज, भिलाई पर हैवेल्स मिक्सर ग्राइंडर — रोज़ के भारतीय किचन उपयोग के लिए दमदार मोटर, आधिकारिक ब्रांड वारंटी के साथ। असली जार और स्पेयर पार्ट्स दुकान पर उपलब्ध।",
+  },
+  {
+    id: "Philips",
+    slug: "philips",
+    nameHi: "फिलिप्स",
+    introEn:
+      "Philips mixer grinders and pressure cookers in Bhilai, with official brand warranty and genuine spare parts. Visit our Junwani Road store for a demo before you buy.",
+    introHi:
+      "भिलाई में फिलिप्स मिक्सर ग्राइंडर और प्रेशर कुकर, आधिकारिक ब्रांड वारंटी और असली स्पेयर पार्ट्स के साथ। खरीदने से पहले डेमो के लिए हमारी जुनवानी रोड दुकान पर आएं।",
+  },
+  {
+    id: "Preethi",
+    slug: "preethi",
+    nameHi: "प्रीति",
+    introEn:
+      "Preethi mixer grinders at our Bhilai store — a long-trusted name for South Indian style wet and dry grinding, with official warranty and jars available in-store.",
+    introHi:
+      "हमारी भिलाई दुकान पर प्रीति मिक्सर ग्राइंडर — गीली और सूखी ग्राइंडिंग के लिए लंबे समय से भरोसेमंद नाम, आधिकारिक वारंटी और जार दुकान पर उपलब्ध।",
+  },
+  {
+    id: "Sujata",
+    slug: "sujata",
+    nameHi: "सुजाता",
+    introEn:
+      "Sujata mixer grinders and juicer mixers in Bhilai — known for high-wattage motors built for heavy daily use. Official warranty, with genuine jars and blades available in-store.",
+    introHi:
+      "भिलाई में सुजाता मिक्सर ग्राइंडर और जूसर मिक्सर — भारी रोज़ाना उपयोग के लिए हाई-वॉटेज मोटर के लिए जाने जाते हैं। आधिकारिक वारंटी, असली जार और ब्लेड दुकान पर उपलब्ध।",
+  },
+  {
+    id: "Butterfly",
+    slug: "butterfly",
+    nameHi: "बटरफ्लाई",
+    introEn:
+      "Butterfly mixer grinders and gas stoves at KGN Home Appliance & Services, Bhilai. ISI-marked stoves with manufacturer warranty, plus genuine mixer jars and spare parts in-store.",
+    introHi:
+      "KGN होम अप्लायंस एंड सर्विसेज, भिलाई पर बटरफ्लाई मिक्सर ग्राइंडर और गैस चूल्हे। ISI मार्क चूल्हे निर्माता वारंटी के साथ, साथ ही असली मिक्सर जार और स्पेयर पार्ट्स दुकान पर।",
+  },
+  {
+    id: "Maharaja",
+    slug: "maharaja",
+    nameHi: "महाराजा",
+    introEn:
+      "Maharaja Whiteline mixer grinders in Bhilai — practical, value-for-money models for everyday kitchen use, with official brand warranty.",
+    introHi:
+      "भिलाई में महाराजा व्हाइटलाइन मिक्सर ग्राइंडर — रोज़ के किचन उपयोग के लिए व्यावहारिक, किफ़ायती मॉडल, आधिकारिक ब्रांड वारंटी के साथ।",
+  },
+  {
+    id: "Panasonic",
+    slug: "panasonic",
+    nameHi: "पैनासोनिक",
+    introEn:
+      "Panasonic mixer grinders at our Junwani Road store in Bhilai, with official brand warranty and genuine spare parts available.",
+    introHi:
+      "भिलाई के जुनवानी रोड स्थित हमारी दुकान पर पैनासोनिक मिक्सर ग्राइंडर, आधिकारिक ब्रांड वारंटी और असली स्पेयर पार्ट्स उपलब्ध।",
+  },
+  {
+    id: "Inalsa",
+    slug: "inalsa",
+    nameHi: "इनाल्सा",
+    introEn:
+      "Inalsa mixer grinders in Bhilai — dependable everyday models with official brand warranty. Visit us on Junwani Road for the latest price.",
+    introHi:
+      "भिलाई में इनाल्सा मिक्सर ग्राइंडर — भरोसेमंद रोज़ाना उपयोग के मॉडल, आधिकारिक ब्रांड वारंटी के साथ। लेटेस्ट कीमत के लिए जुनवानी रोड पर आएं।",
+  },
+  {
+    id: "Hawkins",
+    slug: "hawkins",
+    nameHi: "हॉकिन्स",
+    introEn:
+      "Hawkins pressure cookers in Bhilai — ISI-marked, built to last, with manufacturer warranty. Genuine Hawkins gaskets, safety valves and handles available in-store.",
+    introHi:
+      "भिलाई में हॉकिन्स प्रेशर कुकर — ISI मार्क, टिकाऊ बनावट, निर्माता वारंटी के साथ। असली हॉकिन्स गैस्केट, सेफ्टी वाल्व और हैंडल दुकान पर उपलब्ध।",
+  },
+  {
+    id: "Crompton",
+    slug: "crompton",
+    nameHi: "क्रॉम्पटन",
+    introEn:
+      "Crompton ceiling fans and water pumps at KGN Home Appliance & Services, Bhilai — high air delivery, low noise, with manufacturer warranty and free delivery in Bhilai.",
+    introHi:
+      "KGN होम अप्लायंस एंड सर्विसेज, भिलाई पर क्रॉम्पटन सीलिंग फैन और वॉटर पंप — तेज़ हवा, कम आवाज़, निर्माता वारंटी और भिलाई में मुफ्त डिलीवरी के साथ।",
+  },
+  {
+    id: "Symphony",
+    slug: "symphony",
+    nameHi: "सिम्फनी",
+    introEn:
+      "Symphony air coolers in Bhilai — built for Chhattisgarh summers, with manufacturer warranty and free delivery across Bhilai.",
+    introHi:
+      "भिलाई में सिम्फनी एयर कूलर — छत्तीसगढ़ की गर्मी के लिए बने, निर्माता वारंटी और भिलाई में मुफ्त डिलीवरी के साथ।",
+  },
+  {
+    id: "Usha",
+    slug: "usha",
+    nameHi: "उषा",
+    introEn:
+      "Usha irons at our Bhilai store — a trusted name for everyday home use, with official brand warranty and after-sales repair support.",
+    introHi:
+      "हमारी भिलाई दुकान पर उषा इस्त्री — रोज़ के घरेलू उपयोग के लिए भरोसेमंद नाम, आधिकारिक ब्रांड वारंटी और बिक्री के बाद रिपेयर सपोर्ट के साथ।",
+  },
+  {
+    id: "Link",
+    slug: "link",
+    nameHi: "लिंक",
+    introEn:
+      "Link padlocks in Bhilai — heavy-duty, genuine locks for home and shop security. Available at KGN Home Appliance & Services on Junwani Road.",
+    introHi:
+      "भिलाई में लिंक ताले — घर और दुकान की सुरक्षा के लिए हैवी-ड्यूटी, असली ताले। जुनवानी रोड स्थित KGN होम अप्लायंस एंड सर्विसेज पर उपलब्ध।",
+  },
+]
+
+export function getBrand(slug: string) {
+  return brands.find((b) => b.slug === slug)
+}
+
+export function getBrandProducts(id: BrandId): Product[] {
+  return products.filter((p) => p.brand === id)
+}
+
 export const products: Product[] = [
   // Mixer Grinders — all major brands
-  { id: "havells-mixer-750", nameEn: "Havells Mixer Grinder 750W", nameHi: "हैवेल्स मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.8, reviews: 654, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
-  { id: "bajaj-mixer-500", nameEn: "Bajaj Mixer Grinder 500W", nameHi: "बजाज मिक्सर ग्राइंडर 500W", category: "mixer-grinders", rating: 4.6, reviews: 402 },
-  { id: "philips-mixer-750", nameEn: "Philips Mixer Grinder 750W", nameHi: "फिलिप्स मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.7, reviews: 318, featured: true },
-  { id: "preethi-mixer-750", nameEn: "Preethi Mixer Grinder 750W", nameHi: "प्रीति मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.8, reviews: 276 },
-  { id: "sujata-mixer-900", nameEn: "Sujata Dynamix Mixer Grinder 900W", nameHi: "सुजाता डायनामिक्स मिक्सर ग्राइंडर 900W", category: "mixer-grinders", rating: 4.7, reviews: 231 },
-  { id: "butterfly-mixer-750", nameEn: "Butterfly Matchless Mixer Grinder 750W", nameHi: "बटरफ्लाई मैचलेस मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.5, reviews: 189 },
-  { id: "maharaja-mixer-500", nameEn: "Maharaja Whiteline Mixer Grinder 500W", nameHi: "महाराजा व्हाइटलाइन मिक्सर ग्राइंडर 500W", category: "mixer-grinders", rating: 4.5, reviews: 164 },
-  { id: "panasonic-mixer-550", nameEn: "Panasonic Mixer Grinder 550W", nameHi: "पैनासोनिक मिक्सर ग्राइंडर 550W", category: "mixer-grinders", rating: 4.6, reviews: 142 },
-  { id: "inalsa-mixer-750", nameEn: "Inalsa Mixer Grinder 750W", nameHi: "इनाल्सा मिक्सर ग्राइंडर 750W", category: "mixer-grinders", rating: 4.5, reviews: 118 },
+  { id: "havells-mixer-750", nameEn: "Havells Mixer Grinder 750W", nameHi: "हैवेल्स मिक्सर ग्राइंडर 750W", brand: "Havells", category: "mixer-grinders", rating: 4.8, reviews: 654, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
+  { id: "bajaj-mixer-500", nameEn: "Bajaj Mixer Grinder 500W", nameHi: "बजाज मिक्सर ग्राइंडर 500W", brand: "Bajaj", category: "mixer-grinders", rating: 4.6, reviews: 402 },
+  { id: "philips-mixer-750", nameEn: "Philips Mixer Grinder 750W", nameHi: "फिलिप्स मिक्सर ग्राइंडर 750W", brand: "Philips", category: "mixer-grinders", rating: 4.7, reviews: 318, featured: true },
+  { id: "preethi-mixer-750", nameEn: "Preethi Mixer Grinder 750W", nameHi: "प्रीति मिक्सर ग्राइंडर 750W", brand: "Preethi", category: "mixer-grinders", rating: 4.8, reviews: 276 },
+  { id: "sujata-mixer-900", nameEn: "Sujata Dynamix Mixer Grinder 900W", nameHi: "सुजाता डायनामिक्स मिक्सर ग्राइंडर 900W", brand: "Sujata", category: "mixer-grinders", rating: 4.7, reviews: 231 },
+  { id: "butterfly-mixer-750", nameEn: "Butterfly Matchless Mixer Grinder 750W", nameHi: "बटरफ्लाई मैचलेस मिक्सर ग्राइंडर 750W", brand: "Butterfly", category: "mixer-grinders", rating: 4.5, reviews: 189 },
+  { id: "maharaja-mixer-500", nameEn: "Maharaja Whiteline Mixer Grinder 500W", nameHi: "महाराजा व्हाइटलाइन मिक्सर ग्राइंडर 500W", brand: "Maharaja", category: "mixer-grinders", rating: 4.5, reviews: 164 },
+  { id: "panasonic-mixer-550", nameEn: "Panasonic Mixer Grinder 550W", nameHi: "पैनासोनिक मिक्सर ग्राइंडर 550W", brand: "Panasonic", category: "mixer-grinders", rating: 4.6, reviews: 142 },
+  { id: "inalsa-mixer-750", nameEn: "Inalsa Mixer Grinder 750W", nameHi: "इनाल्सा मिक्सर ग्राइंडर 750W", brand: "Inalsa", category: "mixer-grinders", rating: 4.5, reviews: 118 },
 
   // Gas Stoves
-  { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", category: "gas-stoves", rating: 4.8, reviews: 421, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
-  { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.6, reviews: 318 },
+  { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", brand: "Prestige", category: "gas-stoves", rating: 4.8, reviews: 421, badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
+  { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", brand: "Butterfly", category: "gas-stoves", rating: 4.6, reviews: 318 },
   { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", rating: 4.7, reviews: 205, featured: true },
 
   // Kitchen Accessories — gas pipeline & stove repair materials + everyday kitchen tools
@@ -72,9 +246,9 @@ export const products: Product[] = [
   { id: "chopping-board", nameEn: "Wooden Chopping Board", nameHi: "लकड़ी का चॉपिंग बोर्ड", category: "kitchen-accessories", rating: 4.5, reviews: 112 },
 
   // Pressure Cookers
-  { id: "philips-cooker-5", nameEn: "Philips Pressure Cooker 5L", nameHi: "फिलिप्स प्रेशर कुकर 5L", category: "pressure-cookers", rating: 4.7, reviews: 388, featured: true },
-  { id: "prestige-cooker-3", nameEn: "Prestige Cooker 3L", nameHi: "प्रेस्टीज कुकर 3L", category: "pressure-cookers", rating: 4.8, reviews: 472 },
-  { id: "hawkins-cooker-5", nameEn: "Hawkins Steel Cooker 5L", nameHi: "हॉकिन्स स्टील कुकर 5L", category: "pressure-cookers", rating: 4.7, reviews: 315 },
+  { id: "philips-cooker-5", nameEn: "Philips Pressure Cooker 5L", nameHi: "फिलिप्स प्रेशर कुकर 5L", brand: "Philips", category: "pressure-cookers", rating: 4.7, reviews: 388, featured: true },
+  { id: "prestige-cooker-3", nameEn: "Prestige Cooker 3L", nameHi: "प्रेस्टीज कुकर 3L", brand: "Prestige", category: "pressure-cookers", rating: 4.8, reviews: 472 },
+  { id: "hawkins-cooker-5", nameEn: "Hawkins Steel Cooker 5L", nameHi: "हॉकिन्स स्टील कुकर 5L", brand: "Hawkins", category: "pressure-cookers", rating: 4.7, reviews: 315 },
 
   // Kitchenware & Cookware
   { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware", rating: 4.8, reviews: 351 },
@@ -97,7 +271,7 @@ export const products: Product[] = [
   { id: "scrub-brush", nameEn: "Multi-Surface Scrub Brush", nameHi: "मल्टी-सरफेस स्क्रब ब्रश", category: "cleaning-tools", rating: 4.4, reviews: 76 },
 
   // Hardware & Locks
-  { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", category: "hardware-locks", rating: 4.6, reviews: 142 },
+  { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", brand: "Link", category: "hardware-locks", rating: 4.6, reviews: 142 },
   { id: "door-lock-mortise", nameEn: "Mortise Door Lock", nameHi: "मोर्टिस डोर लॉक", category: "hardware-locks", rating: 4.6, reviews: 118 },
   { id: "kitchen-knife-set", nameEn: "Stainless Steel Kitchen Knife Set", nameHi: "स्टेनलेस स्टील किचन नाइफ सेट", category: "hardware-locks", rating: 4.5, reviews: 96 },
   { id: "steel-door-hinges", nameEn: "Steel Door Hinges (Pack of 4)", nameHi: "स्टील डोर हिंज (4 का पैक)", category: "hardware-locks", rating: 4.5, reviews: 67 },
@@ -107,19 +281,19 @@ export const products: Product[] = [
   { id: "uv-purifier", nameEn: "UV + UF Water Purifier", nameHi: "UV + UF वॉटर प्यूरीफायर", category: "water-purifiers", rating: 4.6, reviews: 158 },
 
   // Geysers & Water Heaters
-  { id: "bajaj-geyser-15l", nameEn: "Bajaj Storage Geyser 15L", nameHi: "बजाज स्टोरेज गीज़र 15L", category: "water-heaters", rating: 4.7, reviews: 231, featured: true },
+  { id: "bajaj-geyser-15l", nameEn: "Bajaj Storage Geyser 15L", nameHi: "बजाज स्टोरेज गीज़र 15L", brand: "Bajaj", category: "water-heaters", rating: 4.7, reviews: 231, featured: true },
   { id: "instant-geyser-3l", nameEn: "Instant Water Heater 3L", nameHi: "इंस्टेंट वॉटर हीटर 3L", category: "water-heaters", rating: 4.5, reviews: 176 },
   { id: "immersion-rod-1500", nameEn: "Immersion Rod 1500W", nameHi: "इमर्शन रॉड 1500W", category: "water-heaters", rating: 4.4, reviews: 342 },
 
   // Fans & Coolers
-  { id: "bajaj-fan-400", nameEn: "Bajaj Pedestal Fan 400mm", nameHi: "बजाज पेडेस्टल फैन 400mm", category: "fans-coolers", rating: 4.9, reviews: 297, featured: true },
-  { id: "crompton-ceiling", nameEn: "Crompton Ceiling Fan 1200mm", nameHi: "क्रॉम्पटन सीलिंग फैन 1200mm", category: "fans-coolers", rating: 4.7, reviews: 528 },
-  { id: "symphony-cooler-45", nameEn: "Symphony Air Cooler 45L", nameHi: "सिम्फनी एयर कूलर 45L", category: "fans-coolers", rating: 4.5, reviews: 236 },
+  { id: "bajaj-fan-400", nameEn: "Bajaj Pedestal Fan 400mm", nameHi: "बजाज पेडेस्टल फैन 400mm", brand: "Bajaj", category: "fans-coolers", rating: 4.9, reviews: 297, featured: true },
+  { id: "crompton-ceiling", nameEn: "Crompton Ceiling Fan 1200mm", nameHi: "क्रॉम्पटन सीलिंग फैन 1200mm", brand: "Crompton", category: "fans-coolers", rating: 4.7, reviews: 528 },
+  { id: "symphony-cooler-45", nameEn: "Symphony Air Cooler 45L", nameHi: "सिम्फनी एयर कूलर 45L", brand: "Symphony", category: "fans-coolers", rating: 4.5, reviews: 236 },
 
   // Other
-  { id: "usha-iron-1100", nameEn: "Usha Iron 1100W", nameHi: "उषा इस्त्री 1100W", category: "other", rating: 4.6, reviews: 174 },
-  { id: "bajaj-heater-2000", nameEn: "Bajaj Room Heater 2000W", nameHi: "बजाज रूम हीटर 2000W", category: "other", rating: 4.5, reviews: 163 },
-  { id: "crompton-pump-1hp", nameEn: "Crompton Water Pump 1HP", nameHi: "क्रॉम्पटन वॉटर पंप 1HP", category: "other", rating: 4.7, reviews: 128 },
+  { id: "usha-iron-1100", nameEn: "Usha Iron 1100W", nameHi: "उषा इस्त्री 1100W", brand: "Usha", category: "other", rating: 4.6, reviews: 174 },
+  { id: "bajaj-heater-2000", nameEn: "Bajaj Room Heater 2000W", nameHi: "बजाज रूम हीटर 2000W", brand: "Bajaj", category: "other", rating: 4.5, reviews: 163 },
+  { id: "crompton-pump-1hp", nameEn: "Crompton Water Pump 1HP", nameHi: "क्रॉम्पटन वॉटर पंप 1HP", brand: "Crompton", category: "other", rating: 4.7, reviews: 128 },
 ]
 
 // Generic, honest selling points per category (store-level claims, no invented specs)

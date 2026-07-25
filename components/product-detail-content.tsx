@@ -10,7 +10,7 @@ import { ProductCard } from "@/components/product-card"
 import { ProductImage } from "@/components/product-image"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
-import { getProduct, getRelatedProducts, categories, categoryFeatures } from "@/config/products"
+import { getProduct, getRelatedProducts, categories, categoryFeatures, brands } from "@/config/products"
 
 export function ProductDetailContent({ productId }: { productId: string }) {
   const { t, language } = useLanguage()
@@ -25,6 +25,7 @@ export function ProductDetailContent({ productId }: { productId: string }) {
   const categoryName = cat ? (hi ? cat.nameHi : cat.nameEn) : ""
   const features = categoryFeatures[product.category][hi ? "hi" : "en"]
   const related = getRelatedProducts(product)
+  const brand = product.brand ? brands.find((b) => b.id === product.brand) : undefined
 
   const enquiryUrl = getWhatsAppUrl(
     `${businessConfig.whatsappMessages.priceEnquiry} ${product.nameEn}. ${
@@ -82,6 +83,15 @@ export function ProductDetailContent({ productId }: { productId: string }) {
                   <Tag className="h-3.5 w-3.5" />
                   {categoryName}
                 </Link>
+                {brand && (
+                  <Link
+                    href={`/products/brand/${brand.slug}`}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    <BadgeCheck className="h-3.5 w-3.5" />
+                    {hi ? brand.nameHi : brand.id}
+                  </Link>
+                )}
               </div>
               <h1 className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground text-balance">
                 {name}

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { businessConfig } from "@/config/business"
-import { products, categories } from "@/config/products"
+import { products, categories, brands } from "@/config/products"
 
 // Auto-generated sitemap: home, catalog, every category filter, every product page.
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,6 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/products/category/${c.id}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    ...brands.map((b) => ({
+      url: `${base}/products/brand/${b.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
     ...products.map((p) => ({
       url: `${base}/products/${p.id}`,

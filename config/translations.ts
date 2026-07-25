@@ -17,6 +17,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "catalog.not_found_title": "Looking for something else?",
     "catalog.not_found_desc": "We stock many more models in-store. Call us and we'll check availability for you right away.",
 
+    // Brand pages
+    "brand.authorized": "Authorized Dealer",
+    "brand.available_in": "Available in:",
+    "brand.more_models": "We stock more models from this brand in-store. Call us and we'll check availability right away.",
+    "brand.other_brands": "Other Brands We Stock",
+    "brand.shop_by_brand": "Shop by Brand",
+
     // Form & module strings (added)
     "contact.phone": "Phone Number",
     "contact.name_placeholder": "Your name",
@@ -182,6 +189,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "catalog.back_home": "होम पर वापस",
     "catalog.not_found_title": "कुछ और चाहिए?",
     "catalog.not_found_desc": "दुकान में और भी कई मॉडल उपलब्ध हैं। हमें कॉल करें, हम तुरंत उपलब्धता बताएंगे।",
+
+    // Brand pages
+    "brand.authorized": "अधिकृत डीलर",
+    "brand.available_in": "इन श्रेणियों में उपलब्ध:",
+    "brand.more_models": "इस ब्रांड के और भी मॉडल दुकान पर उपलब्ध हैं। हमें कॉल करें, हम तुरंत उपलब्धता बताएंगे।",
+    "brand.other_brands": "हमारे पास उपलब्ध अन्य ब्रांड",
+    "brand.shop_by_brand": "ब्रांड के अनुसार खरीदें",
 
     // Form & module strings (added)
     "contact.phone": "फ़ोन नंबर",

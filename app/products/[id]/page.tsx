@@ -36,6 +36,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     name: product.nameEn,
     image: `${base}${getProductImage(product)}`,
     category: cat?.nameEn,
+    ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
     url: `${base}/products/${product.id}`,
     offers: {
       "@type": "Offer",
