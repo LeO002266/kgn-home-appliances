@@ -21,11 +21,12 @@ export function Header() {
   const activeSection = useScrollSpy(isHome ? homeSectionIds : [])
 
   const navLinks = [
-    { href: "/#categories", label: t("nav.categories"), sectionId: "categories" },
-    { href: "/products", label: t("nav.shop"), sectionId: null },
-    { href: "/#repairs", label: t("nav.repairs"), sectionId: "repairs" },
-    { href: "/#reviews", label: t("nav.reviews"), sectionId: "reviews" },
-    { href: "/#contact", label: t("nav.contact"), sectionId: "contact" },
+    { href: "/products", label: t("nav.shop"), sectionId: null, match: "/products" },
+    { href: "/services", label: t("nav.services"), sectionId: null, match: "/services" },
+    { href: "/blog", label: t("nav.blog"), sectionId: null, match: "/blog" },
+    { href: "/#repairs", label: t("nav.repairs"), sectionId: "repairs", match: null },
+    { href: "/#reviews", label: t("nav.reviews"), sectionId: "reviews", match: null },
+    { href: "/#contact", label: t("nav.contact"), sectionId: "contact", match: null },
   ]
 
   useEffect(() => {
@@ -35,13 +36,13 @@ export function Header() {
     }
   }, [isOpen])
 
-  const isLinkActive = (sectionId: string | null) =>
-    sectionId && isHome && activeSection === sectionId
-      ? true
-      : !sectionId && pathname.startsWith("/products")
+  // Section links light up via scroll-spy on the homepage; route links light up
+  // whenever the current path sits under them.
+  const isLinkActive = (link: { sectionId: string | null; match: string | null }) =>
+    link.match ? pathname.startsWith(link.match) : Boolean(isHome && activeSection === link.sectionId)
 
-  const linkClass = (sectionId: string | null, onMobile = false) => {
-    const isActive = isLinkActive(sectionId)
+  const linkClass = (link: { sectionId: string | null; match: string | null }, onMobile = false) => {
+    const isActive = isLinkActive(link)
 
     return cn(
       onMobile
@@ -70,7 +71,7 @@ export function Header() {
           {/* Center nav — desktop */}
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={linkClass(link.sectionId)}>
+              <Link key={link.href} href={link.href} className={linkClass(link)}>
                 {link.label}
               </Link>
             ))}
@@ -118,7 +119,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={linkClass(link.sectionId, true)}
+                  className={linkClass(link, true)}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

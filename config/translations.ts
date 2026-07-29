@@ -61,6 +61,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.repairs": "Repair & Services",
     "nav.contact": "Contact",
     "nav.shop_now": "Shop Now",
+    "nav.services": "Services",
+    "nav.blog": "Blog",
+
+    // Services page
+    "services.title": "Services",
+    "services.heading": "Appliance Repair & Gas Pipeline Services in Bhilai",
+    "services.description":
+      "Sales and repairing at the same counter. We service mixer grinders, gas stoves, ovens and microwaves, fans, irons and geysers, and we do LPG gas pipeline fitting at your home across Bhilai and Durg.",
+    "services.areas_title": "Areas We Serve",
+    "services.areas_desc":
+      "Doorstep repair and gas pipeline work across Bhilai and Durg. Free delivery within Bhilai on products bought from the store.",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.description":
+      "Buying guides, repair advice and safety checklists written from behind our counter on Junwani Road — so you know what to ask before you buy or book a repair.",
+    "blog.min_read": "min read",
+    "blog.read_more": "Read more",
+    "blog.related": "More from the blog",
+    "blog.faq_title": "Frequently asked questions",
+    "blog.cta_title": "Still not sure which one to buy?",
+    "blog.cta_desc":
+      "Tell us how you will use it and we will suggest the right model, then share today's best price. Repairs can be booked the same way.",
 
     // Hero Section
     "hero.badge": "Trusted by thousands of homes",
@@ -234,6 +257,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.repairs": "रिपेयर सेवाएँ",
     "nav.contact": "संपर्क",
     "nav.shop_now": "अभी खरीदें",
+    "nav.services": "सर्विसेज",
+    "nav.blog": "ब्लॉग",
+
+    // Services page
+    "services.title": "सर्विसेज",
+    "services.heading": "भिलाई में अप्लायंस रिपेयर और गैस पाइपलाइन सेवाएँ",
+    "services.description":
+      "बिक्री और रिपेयरिंग एक ही काउंटर पर। हम मिक्सर ग्राइंडर, गैस चूल्हा, ओवन और माइक्रोवेव, पंखे, इस्त्री और गीज़र की सर्विस करते हैं, और भिलाई व दुर्ग में आपके घर पर LPG गैस पाइपलाइन फिटिंग का काम करते हैं।",
+    "services.areas_title": "हम इन इलाकों में सेवा देते हैं",
+    "services.areas_desc":
+      "भिलाई और दुर्ग में घर पर रिपेयर और गैस पाइपलाइन का काम। दुकान से खरीदे गए प्रोडक्ट पर भिलाई में मुफ्त डिलीवरी।",
+
+    // Blog
+    "blog.title": "ब्लॉग",
+    "blog.description":
+      "जुनवानी रोड की हमारी दुकान के अनुभव से लिखी गई खरीद गाइड, रिपेयर सलाह और सुरक्षा जाँच सूचियाँ — ताकि खरीदने या रिपेयर बुक करने से पहले आपको पता हो कि क्या पूछना है।",
+    "blog.min_read": "मिनट पढ़ें",
+    "blog.read_more": "पूरा पढ़ें",
+    "blog.related": "ब्लॉग से और भी",
+    "blog.faq_title": "अक्सर पूछे जाने वाले सवाल",
+    "blog.cta_title": "अब भी तय नहीं कर पा रहे कि कौन सा लें?",
+    "blog.cta_desc":
+      "बताइए आप इसे कैसे उपयोग करेंगे, हम सही मॉडल सुझाएँगे और आज की बेस्ट कीमत बताएंगे। रिपेयर भी इसी तरह बुक हो सकती है।",
 
     // Hero Section
     "hero.badge": "हजारों घरों द्वारा विश्वसनीय",

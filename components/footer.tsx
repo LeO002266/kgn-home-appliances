@@ -4,10 +4,11 @@ import Link from "next/link"
 import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
+import { getSortedPosts } from "@/config/blog"
 import { LogoMark } from "./logo"
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const columns = [
     {
@@ -27,6 +28,8 @@ export function Footer() {
       title: t("footer.company"),
       links: [
         { label: t("footer.about_us"), href: "/#why-us" },
+        { label: t("nav.services"), href: "/services" },
+        { label: t("nav.blog"), href: "/blog" },
         { label: t("nav.reviews"), href: "/#reviews" },
         { label: t("nav.repairs"), href: "/#repairs" },
         { label: t("nav.contact"), href: "/#contact" },
@@ -120,7 +123,23 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+        {/* Internal linking — keeps every guide one click from any page */}
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#ffd54d]">{t("blog.title")}</h4>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
+            {getSortedPosts().map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="text-sm text-white/60 hover:text-white transition-colors"
+              >
+                {language === "hi" ? post.titleHi : post.titleEn}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-sm text-white/50">
             © {new Date().getFullYear()} KGN Home Appliance & Services. {t("footer.copyright")}.
           </p>

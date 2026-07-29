@@ -1,7 +1,7 @@
 // FAQ content — used by the homepage FAQ section (bilingual display)
 // and by the FAQPage structured data in app/page.tsx (English).
 // Q&As target what locals actually search for ("gas pipeline fitting Bhilai",
-// "fridge repair near me").
+// "mixer grinder repair near me").
 export const faqs = [
   {
     qEn: "Do you do gas pipeline fitting at home in Bhilai?",
@@ -11,9 +11,9 @@ export const faqs = [
   },
   {
     qEn: "Which appliances do you repair?",
-    aEn: "We repair and service mixer grinders (including jars and blades), gas stoves, ovens/microwaves, fans, coolers, irons and geysers — with doorstep service in Bhilai. We don't currently repair refrigerators, washing machines or ACs.",
+    aEn: "We repair and service mixer grinders (including jars and blades), gas stoves, ovens/microwaves, fans, coolers, irons and geysers — with doorstep service across Bhilai and Durg.",
     qHi: "आप कौन-कौन से अप्लायंस रिपेयर करते हैं?",
-    aHi: "हम मिक्सर ग्राइंडर (जार और ब्लेड सहित), गैस चूल्हा, ओवन/माइक्रोवेव, पंखे, कूलर, इस्त्री और गीज़र की रिपेयर और सर्विस करते हैं — भिलाई में घर पर सर्विस उपलब्ध है। फिलहाल हम रेफ्रिजरेटर, वाशिंग मशीन या AC रिपेयर नहीं करते।",
+    aHi: "हम मिक्सर ग्राइंडर (जार और ब्लेड सहित), गैस चूल्हा, ओवन/माइक्रोवेव, पंखे, कूलर, इस्त्री और गीज़र की रिपेयर और सर्विस करते हैं — भिलाई और दुर्ग में घर पर सर्विस उपलब्ध है।",
   },
   {
     qEn: "Why are prices not shown on the website?",

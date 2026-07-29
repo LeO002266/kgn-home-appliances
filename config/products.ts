@@ -349,7 +349,7 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
 }
 
 // Non-branded search keywords per category, sourced from keyword research —
-// only for categories we actually stock (fridges/washing machines/microwaves excluded on purpose).
+// only for the categories we actually stock and sell.
 export const categoryKeywords: Partial<Record<CategoryId, string[]>> = {
   "mixer-grinders": ["mixer grinder", "mixer grinder price", "best mixer grinder", "juicer mixer grinder", "wet grinder"],
   "gas-stoves": ["gas stove", "gas stove price", "burner gas stove", "gas chulha"],
