@@ -4,9 +4,11 @@ export const businessConfig = {
   name: "KGN Home Appliance & Services",
   tagline: "Home Appliances, Repair Services & Gas Pipeline Work",
 
-  // ⚠️ Change this to your real domain once you buy one (e.g. https://kgnbhilai.com)
-  // Live site URL — ⚠️ update this when you buy a custom domain
-  siteUrl: "https://kgn-home-appliances.vercel.app",
+  // Live site URL. Every canonical tag, the sitemap, robots.txt, llms.txt and
+  // all structured data are built from this one value — if it ever disagrees
+  // with the domain visitors actually land on, Google is told the "real" page
+  // lives somewhere else and the live domain stops ranking for its own content.
+  siteUrl: "https://www.kgnhomeappliances.shop",
 
   // Contact Information
   contact: {

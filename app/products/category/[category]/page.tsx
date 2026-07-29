@@ -25,16 +25,22 @@ export async function generateMetadata({
 
   const count = products.filter((p) => p.category === cat.id).length
   const title = `${cat.nameEn} in Bhilai`
-  const description = `${cat.nameEn} (${count} models) at KGN Home Appliance & Services, Junwani Road, Bhilai. ${categoryIntro[cat.id].en}`
+  // Kept near 160 characters so Google shows the whole line instead of cutting it.
+  const description = `${cat.nameEn} at KGN Home Appliance & Services, Junwani Road, Bhilai — ${count} models, genuine products with brand warranty. Call 91099 18786 for today's price.`
   const terms = categoryKeywords[cat.id] ?? []
   const keywords = terms.flatMap((term) => [term, `${term} Bhilai`])
+  const url = `${businessConfig.siteUrl}/products/category/${cat.id}`
 
   return {
     title,
     description,
     keywords: keywords.length ? keywords : undefined,
-    alternates: { canonical: `${businessConfig.siteUrl}/products/category/${cat.id}` },
-    openGraph: { title: `${title} | KGN Home Appliance & Services`, description },
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${title} | KGN Home Appliance & Services`,
+      description: categoryIntro[cat.id].en,
+      url,
+    },
   }
 }
 

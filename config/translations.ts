@@ -36,6 +36,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.success": "Opening WhatsApp with your message. Send it to reach us!",
     "products.enquire": "Enquire",
     "products.price_on_request": "Price on Request",
+    "products.warranty_short": "Brand warranty",
     "products.call_now": "Call Now",
     "products.whatsapp": "WhatsApp",
     "repair.book_title": "Book a Repair",
@@ -61,9 +62,32 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.repairs": "Repair & Services",
     "nav.contact": "Contact",
     "nav.shop_now": "Shop Now",
+    "nav.services": "Services",
+    "nav.blog": "Blog",
+
+    // Services page
+    "services.title": "Services",
+    "services.heading": "Appliance Repair & Gas Pipeline Services in Bhilai",
+    "services.description":
+      "Sales and repairing at the same counter. We service mixer grinders, gas stoves, ovens and microwaves, fans, irons and geysers, and we do LPG gas pipeline fitting at your home across Bhilai and Durg.",
+    "services.areas_title": "Areas We Serve",
+    "services.areas_desc":
+      "Doorstep repair and gas pipeline work across Bhilai and Durg. Free delivery within Bhilai on products bought from the store.",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.description":
+      "Buying guides, repair advice and safety checklists written from behind our counter on Junwani Road — so you know what to ask before you buy or book a repair.",
+    "blog.min_read": "min read",
+    "blog.read_more": "Read more",
+    "blog.related": "More from the blog",
+    "blog.faq_title": "Frequently asked questions",
+    "blog.cta_title": "Still not sure which one to buy?",
+    "blog.cta_desc":
+      "Tell us how you will use it and we will suggest the right model, then share today's best price. Repairs can be booked the same way.",
 
     // Hero Section
-    "hero.badge": "Trusted by thousands of homes",
+    "hero.badge": "Sales & repair on Junwani Road, Bhilai",
     "hero.title": "Quality Home Appliances & Repair Services — All in One Place",
     "hero.description":
       "Shop premium home appliances, kitchen essentials, and household products. Get reliable appliance repair and servicing from experienced technicians.",
@@ -74,6 +98,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.warranty": "1-year warranty on all appliances",
     "hero.call_for_price": "Call for best price",
     "hero.rating_label": "customer rating",
+    "hero.warranty_badge": "Genuine • Warranty",
     "hero.gas_pipeline": "Gas pipeline work done",
 
     // Categories
@@ -133,9 +158,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "why.feature4_title": "Quick Service",
     "why.feature4_desc": "Fast delivery and same-day repair service in most cases.",
 
-    // Reviews
+    // Reviews — the shop shows no testimonials until it has real ones
     "reviews.title": "Customer Reviews",
     "reviews.subtitle": "What our customers say",
+    "reviews.invite_title": "Bought from us? Tell people how it went",
+    "reviews.invite_desc":
+      "We would rather show you real reviews than write our own. If you have shopped with us or had a repair done, a few honest lines on Google help other families in Bhilai find a shop they can trust.",
+    "reviews.invite_prompt": "It takes under a minute, and it genuinely helps a small local shop.",
+    "reviews.write_google": "Write a Google review",
+    "reviews.send_feedback": "Send feedback on WhatsApp",
 
     // Contact Section
     "contact.title": "Contact & Location",
@@ -209,6 +240,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.success": "WhatsApp खुल रहा है। संदेश भेजकर हम तक पहुंचाएं!",
     "products.enquire": "पूछें",
     "products.price_on_request": "कीमत के लिए संपर्क करें",
+    "products.warranty_short": "ब्रांड वारंटी",
     "products.call_now": "कॉल करें",
     "products.whatsapp": "WhatsApp",
     "repair.book_title": "रिपेयर बुक करें",
@@ -234,9 +266,32 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.repairs": "रिपेयर सेवाएँ",
     "nav.contact": "संपर्क",
     "nav.shop_now": "अभी खरीदें",
+    "nav.services": "सर्विसेज",
+    "nav.blog": "ब्लॉग",
+
+    // Services page
+    "services.title": "सर्विसेज",
+    "services.heading": "भिलाई में अप्लायंस रिपेयर और गैस पाइपलाइन सेवाएँ",
+    "services.description":
+      "बिक्री और रिपेयरिंग एक ही काउंटर पर। हम मिक्सर ग्राइंडर, गैस चूल्हा, ओवन और माइक्रोवेव, पंखे, इस्त्री और गीज़र की सर्विस करते हैं, और भिलाई व दुर्ग में आपके घर पर LPG गैस पाइपलाइन फिटिंग का काम करते हैं।",
+    "services.areas_title": "हम इन इलाकों में सेवा देते हैं",
+    "services.areas_desc":
+      "भिलाई और दुर्ग में घर पर रिपेयर और गैस पाइपलाइन का काम। दुकान से खरीदे गए प्रोडक्ट पर भिलाई में मुफ्त डिलीवरी।",
+
+    // Blog
+    "blog.title": "ब्लॉग",
+    "blog.description":
+      "जुनवानी रोड की हमारी दुकान के अनुभव से लिखी गई खरीद गाइड, रिपेयर सलाह और सुरक्षा जाँच सूचियाँ — ताकि खरीदने या रिपेयर बुक करने से पहले आपको पता हो कि क्या पूछना है।",
+    "blog.min_read": "मिनट पढ़ें",
+    "blog.read_more": "पूरा पढ़ें",
+    "blog.related": "ब्लॉग से और भी",
+    "blog.faq_title": "अक्सर पूछे जाने वाले सवाल",
+    "blog.cta_title": "अब भी तय नहीं कर पा रहे कि कौन सा लें?",
+    "blog.cta_desc":
+      "बताइए आप इसे कैसे उपयोग करेंगे, हम सही मॉडल सुझाएँगे और आज की बेस्ट कीमत बताएंगे। रिपेयर भी इसी तरह बुक हो सकती है।",
 
     // Hero Section
-    "hero.badge": "हजारों घरों द्वारा विश्वसनीय",
+    "hero.badge": "जुनवानी रोड, भिलाई पर बिक्री और रिपेयर",
     "hero.title": "गुणवत्ता वाले होम अप्लायंसेज़ और रिपेयर सेवाएँ — एक ही जगह",
     "hero.description":
       "प्रीमियम होम अप्लायंसेज़, किचन सामान और घरेलू उत्पाद खरीदें। अनुभवी तकनीशियनों से भरोसेमंद अप्लायंस रिपेयर और सर्विसिंग प्राप्त करें।",
@@ -247,6 +302,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.warranty": "सभी अप्लायंसेज पर 1 साल की वारंटी",
     "hero.call_for_price": "बेस्ट कीमत के लिए कॉल करें",
     "hero.rating_label": "ग्राहक रेटिंग",
+    "hero.warranty_badge": "असली • वारंटी",
     "hero.gas_pipeline": "गैस पाइपलाइन का काम किया जाता है",
 
     // Categories
@@ -309,6 +365,12 @@ export const translations: Record<Language, Record<string, string>> = {
     // Reviews
     "reviews.title": "ग्राहक समीक्षा",
     "reviews.subtitle": "हमारे ग्राहक क्या कहते हैं",
+    "reviews.invite_title": "हमसे सामान लिया है? अपना अनुभव बताइए",
+    "reviews.invite_desc":
+      "हम अपनी तरफ से लिखे रिव्यू दिखाने के बजाय असली रिव्यू दिखाना पसंद करेंगे। अगर आपने हमसे खरीदारी की है या रिपेयर करवाई है, तो Google पर दो सच्ची लाइनें भिलाई के दूसरे परिवारों को भरोसेमंद दुकान ढूंढने में मदद करती हैं।",
+    "reviews.invite_prompt": "इसमें एक मिनट से भी कम लगता है, और एक छोटी लोकल दुकान को इससे सच में मदद मिलती है।",
+    "reviews.write_google": "Google पर रिव्यू लिखें",
+    "reviews.send_feedback": "WhatsApp पर फीडबैक भेजें",
 
     // Contact Section
     "contact.title": "संपर्क और स्थान",

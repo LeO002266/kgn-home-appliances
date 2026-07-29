@@ -1,9 +1,14 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Fraunces } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { businessConfig } from "@/config/business"
 import "./globals.css"
+
+// Optional — set in .env.local / Vercel env vars. Both are no-ops when unset.
+const gaId = process.env.NEXT_PUBLIC_GA_ID
+const searchConsoleId = process.env.NEXT_PUBLIC_GSC_VERIFICATION
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,7 +83,17 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  // Search Console HTML-tag verification — only rendered once the env var is set.
+  ...(searchConsoleId ? { verification: { google: searchConsoleId } } : {}),
+  category: "Home Appliances",
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -99,11 +114,58 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Sitewide identity graph. Page-level schema (Store, Product, BlogPosting,
+  // Service) references the same business; this gives Google one stable
+  // Organization node and a WebSite node to attach everything to.
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${businessConfig.siteUrl}/#organization`,
+        name: businessConfig.name,
+        url: businessConfig.siteUrl,
+        logo: { "@type": "ImageObject", url: `${businessConfig.siteUrl}/icon-512.png` },
+        image: `${businessConfig.siteUrl}/storefront.jpg`,
+        telephone: businessConfig.contact.phone,
+        email: businessConfig.contact.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "In front of Shikhar Complex, Near Surya Mall, Junwani Road",
+          addressLocality: "Bhilai",
+          addressRegion: "Chhattisgarh",
+          addressCountry: "IN",
+        },
+        sameAs: [businessConfig.social.instagram, businessConfig.social.facebook],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${businessConfig.siteUrl}/#website`,
+        url: businessConfig.siteUrl,
+        name: businessConfig.name,
+        inLanguage: ["en-IN", "hi-IN"],
+        publisher: { "@id": `${businessConfig.siteUrl}/#organization` },
+      },
+    ],
+  }
+
   return (
     <html lang="en" className="bg-background">
       <body className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
         {children}
         <Analytics />
+        {gaId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   )
