@@ -9,6 +9,26 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400, // 31 days
   },
+  async redirects() {
+    return [
+      {
+        // The vercel.app deployment URL serves the same site as the custom
+        // domain. Left alone, that is duplicate content on two hosts and Google
+        // has to guess which one to rank. Send every hit to the real domain.
+        source: "/:path*",
+        has: [{ type: "host", value: "kgn-home-appliances.vercel.app" }],
+        destination: "https://www.kgnhomeappliances.shop/:path*",
+        permanent: true,
+      },
+      {
+        // Same for the bare domain, so www is the one indexed version.
+        source: "/:path*",
+        has: [{ type: "host", value: "kgnhomeappliances.shop" }],
+        destination: "https://www.kgnhomeappliances.shop/:path*",
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
