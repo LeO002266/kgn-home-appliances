@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Star, MessageCircle, Phone, CheckCircle2, ChevronRight, Truck, ShieldCheck, BadgeCheck, ArrowRight, Tag } from "lucide-react"
+import { MessageCircle, Phone, CheckCircle2, ChevronRight, Truck, ShieldCheck, BadgeCheck, ArrowRight, Tag } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -97,21 +97,9 @@ export function ProductDetailContent({ productId }: { productId: string }) {
                 {name}
               </h1>
 
-              <div className="mt-4 flex items-center gap-2">
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`h-5 w-5 ${
-                        i < Math.round(product.rating) ? "fill-amber-400 text-amber-400" : "text-border"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <span className="font-medium text-foreground">{product.rating}</span>
-                <span className="text-muted-foreground">
-                  ({product.reviews} {t("product.reviews_label")})
-                </span>
+              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
+                <ShieldCheck className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">{t("products.warranty_short")}</span>
               </div>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-2.5">

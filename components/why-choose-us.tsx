@@ -2,6 +2,7 @@
 
 import { ShieldCheck, Wrench, IndianRupee, Phone } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
+import { brands, products } from "@/config/products"
 
 const featuresEn = [
   {
@@ -86,11 +87,12 @@ export function WhyChooseUs() {
         </div>
 
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 rounded-3xl bg-gradient-to-br from-primary to-primary/80 p-8 md:p-10 shadow-lg">
+          {/* Only countable, verifiable facts here — no invented customer numbers. */}
           {[
-            { stat: language === "hi" ? "5,000+" : "5,000+", label: language === "hi" ? "खुश ग्राहक" : "Happy customers" },
-            { stat: "50+", label: language === "hi" ? "अप्लायंसेज" : "Products" },
-            { stat: "4.8/5", label: language === "hi" ? "औसत रेटिंग" : "Average rating" },
-            { stat: "24/7", label: language === "hi" ? "सहायता" : "Support" },
+            { stat: `${brands.length}`, label: language === "hi" ? "ब्रांड उपलब्ध" : "Brands stocked" },
+            { stat: `${products.length}+`, label: language === "hi" ? "प्रोडक्ट" : "Products listed" },
+            { stat: "2", label: language === "hi" ? "शहरों में सेवा" : "Cities served" },
+            { stat: "7", label: language === "hi" ? "दिन खुला" : "Days open" },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-accent">{item.stat}</p>

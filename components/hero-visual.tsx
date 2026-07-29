@@ -9,7 +9,7 @@ import {
   Blend,
   Fan,
   Home,
-  Star,
+  ShieldCheck,
   Phone,
 } from "lucide-react"
 import Image from "next/image"
@@ -81,10 +81,10 @@ export function HeroVisual() {
         </span>
       </a>
 
+      {/* Factual badge — no invented rating. */}
       <div className="absolute -top-3 right-4 sm:-top-4 sm:right-8 flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 shadow-md">
-        <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-        <span className="text-sm font-semibold text-foreground">4.8</span>
-        <span className="text-xs text-muted-foreground hidden sm:inline">{t("hero.rating_label")}</span>
+        <ShieldCheck className="h-4 w-4 text-primary" />
+        <span className="text-sm font-semibold text-foreground">{t("hero.warranty_badge")}</span>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Star, MessageCircle, Phone } from "lucide-react"
+import { ShieldCheck, MessageCircle, Phone } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import type { Product } from "@/config/products"
@@ -47,10 +47,9 @@ export function ProductCard({ product }: { product: Product }) {
         </Link>
 
         <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5">
-          <span className="inline-flex items-center gap-1.5 text-sm">
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <span className="font-medium text-foreground">{product.rating}</span>
-            <span className="text-muted-foreground">({product.reviews})</span>
+          <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+            <ShieldCheck className="h-4 w-4 text-primary" />
+            {t("products.warranty_short")}
           </span>
           <span className="rounded-full bg-primary/8 px-2.5 py-1 text-xs font-semibold text-primary">
             {t("products.price_on_request")}
