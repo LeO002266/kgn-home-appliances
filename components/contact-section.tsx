@@ -6,6 +6,57 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle2 } from "lucide-
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
+// Click-to-load facade for the Google Maps embed. The iframe is only created
+// after the visitor taps, so Googlebot's page render never requests
+// google.com/maps (whose robots.txt blocks crawlers — Search Console flagged
+// it on every crawl) and the homepage skips ~1 MB of Maps JS until needed.
+function MapEmbed() {
+  const { t } = useLanguage()
+  const [loaded, setLoaded] = useState(false)
+
+  if (loaded) {
+    return (
+      <div className="rounded-2xl border border-border overflow-hidden shadow-lg h-80">
+        <iframe
+          title="KGN Home Appliances location on Google Maps"
+          width="100%"
+          height="100%"
+          src={businessConfig.googleMaps.embedUrl}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    )
+  }
+
+  return (
+    <div className="relative flex h-80 flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-gradient-to-br from-secondary via-card to-accent/10 p-6 text-center shadow-lg">
+      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <MapPin className="h-7 w-7" />
+      </span>
+      <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">{businessConfig.contact.address}</p>
+      <div className="flex flex-col sm:flex-row gap-2.5">
+        <button
+          type="button"
+          onClick={() => setLoaded(true)}
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+        >
+          {t("contact.load_map")}
+        </button>
+        <a
+          href={businessConfig.googleMaps.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
+        >
+          {t("footer.directions")}
+        </a>
+      </div>
+    </div>
+  )
+}
+
 function StorefrontPhoto() {
   const [failed, setFailed] = useState(false)
   if (failed) return null
@@ -171,18 +222,8 @@ export function ContactSection() {
             {/* Storefront photo — /public/storefront.jpg */}
             <StorefrontPhoto />
 
-            {/* Google Maps embed — reads from config/business.ts */}
-            <div className="rounded-2xl border border-border overflow-hidden shadow-lg h-80">
-              <iframe
-                title="KGN Home Appliances location on Google Maps"
-                width="100%"
-                height="100%"
-                src={businessConfig.googleMaps.embedUrl}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+            {/* Google Maps — click-to-load facade, see MapEmbed above */}
+            <MapEmbed />
 
             {/* Contact form — validates, then opens WhatsApp with the message prefilled */}
             <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-border bg-card p-6">
