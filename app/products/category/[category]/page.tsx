@@ -38,7 +38,14 @@ export async function generateMetadata({
   // Kept near 160 characters so Google shows the whole line instead of cutting it.
   const description = `${cat.nameEn} at KGN Home Appliance & Services, Junwani Road, Bhilai — ${count} models, genuine products with brand warranty. Call 91099 18786 for today's price.`
   const terms = categoryKeywords[cat.id] ?? []
-  const keywords = terms.flatMap((term) => [term, `${term} Bhilai`])
+  // "near me" and locality phrases belong here and in page copy — not in the
+  // URL slug, which Google treats as keyword stuffing.
+  const keywords = [
+    ...terms.flatMap((term) => [term, `${term} Bhilai`, `${term} near me`]),
+    `${cat.nameEn} shop near me`,
+    `${cat.nameEn} Smriti Nagar Bhilai`,
+    `${cat.nameEn} Junwani Road Bhilai`,
+  ]
   const url = `${businessConfig.siteUrl}${categoryUrl(cat.id)}`
 
   return {

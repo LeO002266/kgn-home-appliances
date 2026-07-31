@@ -3,6 +3,10 @@
 // To show a real photo: put the image in /public/products/ and set image: "/products/your-file.jpg"
 // Note: prices are intentionally NOT listed — customers call or WhatsApp for the latest price.
 
+// Which photos actually exist in /public/products — regenerated on every
+// build by next.config.mjs, so dropping a photo in still "just works".
+import productImageManifest from "./product-image-manifest.json"
+
 export type CategoryId =
   | "mixer-grinders"
   | "gas-stoves"
@@ -437,6 +441,18 @@ export function idFromLocalSlug(slug: string): string | undefined {
 // Drop a file with that name and it appears automatically — no code change needed.
 export function getProductImage(p: Product): string {
   return p.image ?? `/products/${p.id}.jpg`
+}
+
+// True only when the photo file really exists — pages use this so they never
+// emit an <img>, OG tag or schema URL that would 404.
+export function hasProductPhoto(p: Product): boolean {
+  if (p.image) return true
+  return (productImageManifest as string[]).includes(`${p.id}.jpg`)
+}
+
+/** Same check for a raw "/products/<file>" path (e.g. hand-picked tile images). */
+export function productImageFileExists(src: string): boolean {
+  return (productImageManifest as string[]).includes(src.replace(/^\/products\//, ""))
 }
 
 export function getProduct(id: string): Product | undefined {

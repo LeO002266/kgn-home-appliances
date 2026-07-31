@@ -16,7 +16,7 @@ import {
   Lock,
 } from "lucide-react"
 import type { Product, CategoryId } from "@/config/products"
-import { getProductImage } from "@/config/products"
+import { getProductImage, hasProductPhoto } from "@/config/products"
 
 const categoryIcons: Record<CategoryId, typeof Blend> = {
   "mixer-grinders": Blend,
@@ -61,7 +61,7 @@ export function ProductImage({
   const Icon = categoryIcons[product.category]
   const gradient = categoryGradients[product.category]
 
-  if (failed) {
+  if (failed || !hasProductPhoto(product)) {
     return (
       <div className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${gradient}`}>
         <div className="flex flex-col items-center gap-2">

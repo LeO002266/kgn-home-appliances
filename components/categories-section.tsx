@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home, Star } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
-import { categories, categoryUrl, products, type CategoryId } from "@/config/products"
+import { categories, categoryUrl, products, productImageFileExists, type CategoryId } from "@/config/products"
 
 // Our two specialty categories get a small ribbon in the grid
 const specialtyCategories = new Set<CategoryId>(["mixer-grinders", "gas-stoves"])
@@ -75,7 +75,7 @@ function CategoryTileImage({ catId, alt }: { catId: CategoryId; alt: string }) {
   const [failed, setFailed] = useState(false)
   const Icon = categoryIcons[catId]
 
-  if (failed) {
+  if (failed || !productImageFileExists(categoryImages[catId])) {
     return (
       <div
         className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${categoryGradients[catId]}`}

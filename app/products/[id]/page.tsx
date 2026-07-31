@@ -6,6 +6,7 @@ import {
   products,
   getProduct,
   getProductImage,
+  hasProductPhoto,
   categories,
   categoryIntro,
   productUrl,
@@ -35,15 +36,31 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       product.nameEn,
       `${product.nameEn} price`,
       `${product.nameEn} Bhilai`,
+      `${product.nameEn} near me`,
       ...(product.brand ? [`${product.brand} Bhilai`, `${product.brand} dealer Bhilai`] : []),
-      ...(cat ? [`${cat.nameEn} Bhilai`, `${cat.nameEn} shop Bhilai`] : []),
+      ...(cat
+        ? [
+            `${cat.nameEn} Bhilai`,
+            `${cat.nameEn} shop Bhilai`,
+            `${cat.nameEn} shop near me`,
+            `${cat.nameEn} Smriti Nagar Bhilai`,
+            `${cat.nameEn} Junwani Road Bhilai`,
+          ]
+        : []),
     ],
     alternates: { canonical: url },
     openGraph: {
       title: `${product.nameEn} | ${businessConfig.name}`,
       description,
       url,
-      images: [{ url: getProductImage(product), alt: `${product.nameEn} available at ${businessConfig.name}, Bhilai` }],
+      images: [
+        {
+          // Fall back to the storefront photo when this product has no photo
+          // yet, so the OG image URL never 404s.
+          url: hasProductPhoto(product) ? getProductImage(product) : "/storefront.jpg",
+          alt: `${product.nameEn} available at ${businessConfig.name}, Bhilai`,
+        },
+      ],
     },
   }
 }
@@ -69,7 +86,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     "@type": "Product",
     name: product.nameEn,
     description: cat ? categoryIntro[cat.id].en : undefined,
-    image: `${base}${getProductImage(product)}`,
+    image: hasProductPhoto(product) ? `${base}${getProductImage(product)}` : `${base}/storefront.jpg`,
     category: cat?.nameEn,
     ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
     url: `${base}${productUrl(product.id)}`,
