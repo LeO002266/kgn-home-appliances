@@ -418,11 +418,16 @@ export const categoryIntro: Record<CategoryId, { en: string; hi: string }> = {
   },
 }
 
-// Public URLs for categories and products carry an "-in-bhilai" suffix so the
-// location sits in the URL itself (local SEO). Internal ids stay clean — only
-// these helpers know about the suffix, and the routes redirect legacy
-// suffix-less URLs permanently to the new ones.
-export const LOCAL_URL_SUFFIX = "-in-bhilai"
+// Public URLs for categories and products carry an "-in-bhilai-near-me"
+// suffix so the location keywords sit in the URL itself. Internal ids stay
+// clean — only these helpers know about the suffix, and the routes redirect
+// legacy URL forms permanently to the current ones.
+export const LOCAL_URL_SUFFIX = "-in-bhilai-near-me"
+
+/** Resolves an id out of legacy URL forms: bare id or the old "-in-bhilai" slug. */
+export function legacyIdFromSlug(slug: string): string {
+  return slug.endsWith("-in-bhilai") ? slug.slice(0, -"-in-bhilai".length) : slug
+}
 
 export function categoryUrl(id: CategoryId | string): string {
   return `/products/category/${id}${LOCAL_URL_SUFFIX}`

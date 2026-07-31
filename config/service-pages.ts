@@ -36,7 +36,7 @@ export interface ServiceLandingPage {
 
 export const servicePages: ServiceLandingPage[] = [
   {
-    slug: "mixer-grinder-repair-bhilai",
+    slug: "mixer-grinder-repair-bhilai-near-me",
     serviceId: "mixer-grinder-repair",
     h1En: "Mixer Grinder Repair in Bhilai",
     h1Hi: "भिलाई में मिक्सर ग्राइंडर रिपेयर",
@@ -110,7 +110,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "mixer-grinders",
   },
   {
-    slug: "gas-stove-repair-bhilai",
+    slug: "gas-stove-repair-bhilai-near-me",
     serviceId: "gas-stove-repair",
     h1En: "Gas Stove Repair in Bhilai",
     h1Hi: "भिलाई में गैस चूल्हा रिपेयर",
@@ -184,7 +184,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "gas-stoves",
   },
   {
-    slug: "pressure-cooker-repair-bhilai",
+    slug: "pressure-cooker-repair-bhilai-near-me",
     serviceId: "pressure-cooker-repair",
     h1En: "Pressure Cooker Repair in Bhilai",
     h1Hi: "भिलाई में प्रेशर कुकर रिपेयर",
@@ -258,7 +258,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "pressure-cookers",
   },
   {
-    slug: "gas-pipeline-fitting-bhilai",
+    slug: "gas-pipeline-fitting-bhilai-near-me",
     serviceId: "gas-pipeline-work",
     h1En: "Gas Pipeline Fitting & Repair in Bhilai",
     h1Hi: "भिलाई में गैस पाइपलाइन फिटिंग और रिपेयर",
@@ -332,7 +332,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "gas-stoves",
   },
   {
-    slug: "water-purifier-service-bhilai",
+    slug: "water-purifier-service-bhilai-near-me",
     serviceId: "water-purifier-service",
     h1En: "Water Purifier Installation & Service in Bhilai",
     h1Hi: "भिलाई में वॉटर प्यूरीफायर इंस्टॉलेशन और सर्विस",
@@ -400,7 +400,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "water-purifiers",
   },
   {
-    slug: "geyser-installation-bhilai",
+    slug: "geyser-installation-bhilai-near-me",
     serviceId: "geyser-installation",
     h1En: "Geyser Installation & Service in Bhilai",
     h1Hi: "भिलाई में गीज़र इंस्टॉलेशन और सर्विस",
@@ -465,7 +465,7 @@ export const servicePages: ServiceLandingPage[] = [
     relatedCategoryId: "water-heaters",
   },
   {
-    slug: "fan-repair-bhilai",
+    slug: "fan-repair-bhilai-near-me",
     serviceId: "fan-repair",
     h1En: "Fan Repair & Service in Bhilai",
     h1Hi: "भिलाई में पंखा रिपेयर और सर्विस",

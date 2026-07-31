@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { ServiceLandingContent } from "@/components/service-landing-content"
 import { servicePages, getServicePage } from "@/config/service-pages"
@@ -35,7 +35,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ServiceLandingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const page = getServicePage(slug)
-  if (!page) notFound()
+  if (!page) {
+    // Legacy slug without the -near-me suffix — 301 to the current URL.
+    const legacy = getServicePage(`${slug}-near-me`)
+    if (legacy) permanentRedirect(`/services/${legacy.slug}`)
+    notFound()
+  }
 
   const base = businessConfig.siteUrl
   const url = `${base}/services/${page.slug}`

@@ -11,13 +11,15 @@ import {
   categoryIntro,
   productUrl,
   idFromLocalSlug,
+  legacyIdFromSlug,
+  LOCAL_URL_SUFFIX,
 } from "@/config/products"
 import { businessConfig } from "@/config/business"
 
 // Pre-build a page for every product in config/products.ts, at the
-// keyword-rich "<id>-in-bhilai" slug.
+// keyword-rich local slug.
 export function generateStaticParams() {
-  return products.map((p) => ({ id: `${p.id}-in-bhilai` }))
+  return products.map((p) => ({ id: `${p.id}${LOCAL_URL_SUFFIX}` }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -69,9 +71,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   const { id } = await params
   const product = getProduct(idFromLocalSlug(id) ?? "")
   if (!product) {
-    // Legacy suffix-less URL (e.g. /products/havells-mixer-750) —
-    // 301 to the new -in-bhilai slug so indexed links keep working.
-    const legacy = getProduct(id)
+    // Legacy URL form (bare id or old "-in-bhilai" slug) —
+    // 301 straight to the current slug so indexed links keep working.
+    const legacy = getProduct(legacyIdFromSlug(id))
     if (legacy) permanentRedirect(productUrl(legacy.id))
     notFound()
   }
