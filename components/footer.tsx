@@ -172,6 +172,38 @@ export function Footer() {
           </p>
           <p className="text-sm text-white/50">{businessConfig.contact.address}</p>
         </div>
+
+        {/* CC BY-SA attribution for the three Wikimedia Commons product photos — required by the license */}
+        <p className="mt-4 text-center md:text-left text-xs text-white/35">
+          Some photos via{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:A_Floor_Squeegee.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            MinhVN123
+          </a>
+          ,{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:LP-Gas-Hose-japanese.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            Wikimedia Commons
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:LPG_small_cylinder_Adapter_Australia.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            contributors
+          </a>{" "}
+          (CC BY-SA)
+        </p>
       </div>
     </footer>
   )
