@@ -353,16 +353,18 @@ export const categoryFeatures: Record<CategoryId, { en: string[]; hi: string[] }
 // Non-branded search keywords per category, sourced from keyword research —
 // only for the categories we actually stock and sell.
 export const categoryKeywords: Partial<Record<CategoryId, string[]>> = {
-  "mixer-grinders": ["mixer grinder", "mixer grinder price", "best mixer grinder", "juicer mixer grinder", "wet grinder"],
-  "gas-stoves": ["gas stove", "gas stove price", "burner gas stove", "gas chulha"],
-  "pressure-cookers": ["pressure cooker", "pressure cooker price", "cooker set"],
-  kitchenware: ["casserole set", "casserole set price", "cookware set", "hot pot casserole", "stainless steel utensils", "utensil set", "utensil set price", "kitchenware"],
-  "bottles-tiffins": ["tiffin box", "tiffin set", "tiffin set price", "lunch box", "water bottle", "flask", "flask price", "vacuum flask"],
-  "hardware-locks": ["door lock", "padlock", "padlock price"],
-  "water-purifiers": ["water purifier", "water purifier price", "ro water purifier", "uv water purifier", "best water purifier"],
-  "water-heaters": ["geyser", "geyser price", "instant geyser", "storage geyser", "water heater", "water heater price", "immersion rod", "immersion rod price", "immersion heater", "best geyser"],
-  "fans-coolers": ["fan", "ceiling fan", "ceiling fan price", "pedestal fan", "table fan", "exhaust fan", "air cooler", "air cooler price", "best air cooler", "desert cooler", "personal cooler"],
-  other: ["iron", "dry iron", "steam iron", "steam iron price", "room heater", "room heater price", "oil heater", "electric heater", "water pump", "water pump price", "submersible pump", "motor pump"],
+  "mixer-grinders": ["mixer grinder", "mixer grinder price", "mixer grinder shop", "best mixer grinder", "juicer mixer grinder", "wet grinder", "mixer shop"],
+  "gas-stoves": ["gas stove", "gas stove price", "gas stove shop", "burner gas stove", "gas chulha", "gas chulha shop"],
+  "kitchen-accessories": ["kitchen accessories", "kitchen accessories shop", "gas pipe", "gas regulator", "gas lighter", "gas stove spare parts", "kitchen items shop"],
+  "pressure-cookers": ["pressure cooker", "pressure cooker price", "pressure cooker shop", "cooker set", "cooker shop"],
+  kitchenware: ["casserole set", "casserole set price", "cookware set", "hot pot casserole", "stainless steel utensils", "utensil set", "utensil set price", "kitchenware", "kitchenware shop", "bartan shop", "steel bartan shop"],
+  "bottles-tiffins": ["tiffin box", "tiffin set", "tiffin set price", "lunch box", "water bottle", "flask", "flask price", "vacuum flask", "tiffin shop", "water bottle shop"],
+  "cleaning-tools": ["cleaning tools", "cleaning items shop", "spin mop", "floor wiper", "broom", "jhadu", "cleaning bucket", "pocha"],
+  "hardware-locks": ["door lock", "padlock", "padlock price", "hardware shop", "lock shop", "door lock shop"],
+  "water-purifiers": ["water purifier", "water purifier price", "water purifier shop", "ro water purifier", "uv water purifier", "best water purifier", "ro shop"],
+  "water-heaters": ["geyser", "geyser price", "geyser shop", "instant geyser", "storage geyser", "water heater", "water heater price", "immersion rod", "immersion rod price", "immersion heater", "best geyser"],
+  "fans-coolers": ["fan", "fan shop", "ceiling fan", "ceiling fan price", "pedestal fan", "table fan", "exhaust fan", "air cooler", "air cooler price", "air cooler shop", "best air cooler", "desert cooler", "personal cooler", "cooler shop"],
+  other: ["iron", "dry iron", "steam iron", "steam iron price", "room heater", "room heater price", "oil heater", "electric heater", "water pump", "water pump price", "submersible pump", "motor pump", "electric iron shop"],
 }
 
 // Longer, keyword-focused intro copy for each dedicated category page (SEO content block).
