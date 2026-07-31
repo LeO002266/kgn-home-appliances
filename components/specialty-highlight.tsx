@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Blend, Flame, ArrowRight, Sparkles, Star } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
-import { products } from "@/config/products"
+import { products, categoryUrl } from "@/config/products"
 
 export function SpecialtyHighlight() {
   const { t } = useLanguage()
@@ -14,7 +14,7 @@ export function SpecialtyHighlight() {
   const cards = [
     {
       Icon: Blend,
-      href: "/products/category/mixer-grinders",
+      href: categoryUrl("mixer-grinders"),
       title: t("specialty.mixer_title"),
       desc: t("specialty.mixer_desc"),
       count: mixerCount,
@@ -22,7 +22,7 @@ export function SpecialtyHighlight() {
     },
     {
       Icon: Flame,
-      href: "/products/category/gas-stoves",
+      href: categoryUrl("gas-stoves"),
       title: t("specialty.gas_title"),
       desc: t("specialty.gas_desc"),
       count: gasCount,

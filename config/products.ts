@@ -414,6 +414,25 @@ export const categoryIntro: Record<CategoryId, { en: string; hi: string }> = {
   },
 }
 
+// Public URLs for categories and products carry an "-in-bhilai" suffix so the
+// location sits in the URL itself (local SEO). Internal ids stay clean — only
+// these helpers know about the suffix, and the routes redirect legacy
+// suffix-less URLs permanently to the new ones.
+export const LOCAL_URL_SUFFIX = "-in-bhilai"
+
+export function categoryUrl(id: CategoryId | string): string {
+  return `/products/category/${id}${LOCAL_URL_SUFFIX}`
+}
+
+export function productUrl(id: string): string {
+  return `/products/${id}${LOCAL_URL_SUFFIX}`
+}
+
+/** Strips the -in-bhilai suffix; returns undefined when the slug doesn't carry it. */
+export function idFromLocalSlug(slug: string): string | undefined {
+  return slug.endsWith(LOCAL_URL_SUFFIX) ? slug.slice(0, -LOCAL_URL_SUFFIX.length) : undefined
+}
+
 // Convention: a product's photo lives at /public/products/<product-id>.jpg
 // Drop a file with that name and it appears automatically — no code change needed.
 export function getProductImage(p: Product): string {

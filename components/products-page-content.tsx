@@ -9,7 +9,7 @@ import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { ProductCard } from "@/components/product-card"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
-import { products, categories } from "@/config/products"
+import { products, categories, categoryUrl } from "@/config/products"
 
 export function ProductsPageContent() {
   const { t, language } = useLanguage()
@@ -43,7 +43,7 @@ export function ProductsPageContent() {
               return (
                 <Link
                   key={cat.id}
-                  href={`/products/category/${cat.id}`}
+                  href={categoryUrl(cat.id)}
                   className="rounded-full px-4 py-2 text-sm font-medium border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground transition-colors"
                 >
                   {hi ? cat.nameHi : cat.nameEn} ({count})

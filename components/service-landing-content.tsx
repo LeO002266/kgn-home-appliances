@@ -20,7 +20,7 @@ import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import { services, serviceAreas } from "@/config/services"
 import { servicePages, getServicePage } from "@/config/service-pages"
 import { getBlogPost } from "@/config/blog"
-import { categories } from "@/config/products"
+import { categories, categoryUrl } from "@/config/products"
 
 export function ServiceLandingContent({ slug }: { slug: string }) {
   const { t, language } = useLanguage()
@@ -153,7 +153,7 @@ export function ServiceLandingContent({ slug }: { slug: string }) {
               <div>
                 <h2 className="font-serif text-xl font-semibold text-foreground">{t("svc.browse_new")}</h2>
                 <Link
-                  href={`/products/category/${category.id}`}
+                  href={categoryUrl(category.id)}
                   className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
                 >
                   <ShoppingBag className="h-4 w-4 text-primary" />

@@ -23,7 +23,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(businessConfig.siteUrl),
   title: {
-    default: "KGN Home Appliance & Services | Appliance Shop & Repair in Bhilai, Junwani Road",
+    default: "KGN Home Appliances & Repairing in Bhilai, Chhattisgarh",
     template: "%s | KGN Home Appliance & Services, Bhilai",
   },
   description:
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   creator: "KGN Home Appliances",
   publisher: "KGN Home Appliances",
   openGraph: {
-    title: "KGN Home Appliance & Services | Appliance Shop & Repair in Bhilai",
+    title: "KGN Home Appliances & Repairing in Bhilai, Chhattisgarh",
     description:
       "Home appliances, repair services & gas pipeline work on Junwani Road, Bhilai. Genuine products with warranty. Call or WhatsApp for best price.",
     url: businessConfig.siteUrl,
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KGN Home Appliance & Services | Bhilai",
+    title: "KGN Home Appliances & Repairing in Bhilai, Chhattisgarh",
     description: "Appliance shop, repair services & gas pipeline work on Junwani Road, Bhilai",
     images: ["/storefront.jpg"],
   },
@@ -124,6 +124,7 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": `${businessConfig.siteUrl}/#organization`,
         name: businessConfig.name,
+        alternateName: "KGN Home Appliances & Repairing",
         url: businessConfig.siteUrl,
         logo: { "@type": "ImageObject", url: `${businessConfig.siteUrl}/icon-512.png` },
         image: `${businessConfig.siteUrl}/storefront.jpg`,
@@ -139,10 +140,13 @@ export default function RootLayout({
         sameAs: [businessConfig.social.instagram, businessConfig.social.facebook],
       },
       {
+        // WebSite name/alternateName are what Google shows as the "site name"
+        // next to the URL in search results.
         "@type": "WebSite",
         "@id": `${businessConfig.siteUrl}/#website`,
         url: businessConfig.siteUrl,
-        name: businessConfig.name,
+        name: "KGN Home Appliances & Repairing",
+        alternateName: businessConfig.name,
         inLanguage: ["en-IN", "hi-IN"],
         publisher: { "@id": `${businessConfig.siteUrl}/#organization` },
       },

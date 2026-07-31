@@ -5,7 +5,7 @@ import { ShieldCheck, MessageCircle, Phone } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import type { Product } from "@/config/products"
-import { categories } from "@/config/products"
+import { categories, productUrl } from "@/config/products"
 import { ProductImage } from "@/components/product-image"
 
 export function ProductCard({ product }: { product: Product }) {
@@ -27,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:-translate-y-1">
       {/* Image and title link to the product's own page */}
       <Link
-        href={`/products/${product.id}`}
+        href={productUrl(product.id)}
         className="relative block aspect-square overflow-hidden bg-white"
       >
         {badge && (
@@ -40,7 +40,7 @@ export function ProductCard({ product }: { product: Product }) {
 
       <div className="flex flex-1 flex-col p-5">
         <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{categoryName}</span>
-        <Link href={`/products/${product.id}`}>
+        <Link href={productUrl(product.id)}>
           <h3 className="mt-1 text-base font-semibold leading-snug text-foreground hover:text-primary transition-colors">
             {name}
           </h3>

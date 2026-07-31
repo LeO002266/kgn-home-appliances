@@ -98,10 +98,12 @@ export const translations: Record<Language, Record<string, string>> = {
       "Tell us how you will use it and we will suggest the right model, then share today's best price. Repairs can be booked the same way.",
 
     // Hero Section
-    "hero.badge": "Sales & repair on Junwani Road, Bhilai",
-    "hero.title": "Quality Home Appliances & Repair Services — All in One Place",
+    "hero.badge": "KGN Home Appliance & Services — Junwani Road, Bhilai",
+    "hero.title_line1": "Home Appliances & Repairing",
+    "hero.title_line2": "in Bhilai, Chhattisgarh",
     "hero.description":
-      "Shop premium home appliances, kitchen essentials, and household products. Get reliable appliance repair and servicing from experienced technicians.",
+      "Mixer grinders, gas stoves, coolers, geysers and kitchen essentials from Bajaj, Prestige, Usha, Hawkins and more — with repair at the same counter and doorstep service across Bhilai & Durg.",
+    "hero.one_counter": "Sales & repair at one counter",
     "hero.cta_shop": "Shop Products",
     "hero.cta_repair": "Book a Repair",
     "hero.cta_browse": "Browse Categories",
@@ -313,10 +315,12 @@ export const translations: Record<Language, Record<string, string>> = {
       "बताइए आप इसे कैसे उपयोग करेंगे, हम सही मॉडल सुझाएँगे और आज की बेस्ट कीमत बताएंगे। रिपेयर भी इसी तरह बुक हो सकती है।",
 
     // Hero Section
-    "hero.badge": "जुनवानी रोड, भिलाई पर बिक्री और रिपेयर",
-    "hero.title": "गुणवत्ता वाले होम अप्लायंसेज़ और रिपेयर सेवाएँ — एक ही जगह",
+    "hero.badge": "KGN होम अप्लायंस एंड सर्विसेज — जुनवानी रोड, भिलाई",
+    "hero.title_line1": "होम अप्लायंसेज़ और रिपेयरिंग",
+    "hero.title_line2": "भिलाई, छत्तीसगढ़ में",
     "hero.description":
-      "प्रीमियम होम अप्लायंसेज़, किचन सामान और घरेलू उत्पाद खरीदें। अनुभवी तकनीशियनों से भरोसेमंद अप्लायंस रिपेयर और सर्विसिंग प्राप्त करें।",
+      "बजाज, प्रेस्टीज, उषा, हॉकिन्स और अन्य ब्रांड के मिक्सर ग्राइंडर, गैस चूल्हे, कूलर, गीज़र और किचन का सामान — उसी काउंटर पर रिपेयर, और भिलाई व दुर्ग में घर पर सर्विस।",
+    "hero.one_counter": "बिक्री और रिपेयर एक ही काउंटर पर",
     "hero.cta_shop": "उत्पाद खरीदें",
     "hero.cta_repair": "रिपेयर बुक करें",
     "hero.cta_browse": "श्रेणियाँ देखें",

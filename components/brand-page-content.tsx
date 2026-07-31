@@ -9,7 +9,7 @@ import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { ProductCard } from "@/components/product-card"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
-import { brands, categories, getBrand, getBrandProducts } from "@/config/products"
+import { brands, categories, categoryUrl, getBrand, getBrandProducts } from "@/config/products"
 
 export function BrandPageContent({ slug }: { slug: string }) {
   const { t, language } = useLanguage()
@@ -72,7 +72,7 @@ export function BrandPageContent({ slug }: { slug: string }) {
               {brandCategories.map((c) => (
                 <Link
                   key={c.id}
-                  href={`/products/category/${c.id}`}
+                  href={categoryUrl(c.id)}
                   className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium text-muted-foreground hover:border-primary/40 hover:text-foreground transition-colors"
                 >
                   {hi ? c.nameHi : c.nameEn}

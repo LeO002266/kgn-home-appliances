@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { LanguageProvider } from "@/context/language-context"
 import { ProductsPageContent } from "@/components/products-page-content"
-import { products, categories } from "@/config/products"
+import { products, categories, categoryUrl } from "@/config/products"
 import { businessConfig } from "@/config/business"
 
 const description =
@@ -42,7 +42,7 @@ export default function ProductsPage() {
         "@type": "ListItem",
         position: i + 1,
         name: c.nameEn,
-        url: `${base}/products/category/${c.id}`,
+        url: `${base}${categoryUrl(c.id)}`,
       })),
     },
   }

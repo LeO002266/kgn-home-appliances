@@ -3,7 +3,7 @@ import { PageContent } from "@/components/page-content"
 import { LanguageProvider } from "@/context/language-context"
 import { faqs } from "@/config/faqs"
 import { businessConfig } from "@/config/business"
-import { categories } from "@/config/products"
+import { categories, categoryUrl } from "@/config/products"
 import { services } from "@/config/services"
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export default function Home() {
       itemListElement: categories.map((c) => ({
         "@type": "OfferCatalog",
         name: c.nameEn,
-        url: `${base}/products/category/${c.id}`,
+        url: `${base}${categoryUrl(c.id)}`,
       })),
     },
   }

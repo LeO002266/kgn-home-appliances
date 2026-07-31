@@ -1,22 +1,31 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { ProductDetailContent } from "@/components/product-detail-content"
-import { products, getProduct, getProductImage, categories, categoryIntro } from "@/config/products"
+import {
+  products,
+  getProduct,
+  getProductImage,
+  categories,
+  categoryIntro,
+  productUrl,
+  idFromLocalSlug,
+} from "@/config/products"
 import { businessConfig } from "@/config/business"
 
-// Pre-build a page for every product in config/products.ts
+// Pre-build a page for every product in config/products.ts, at the
+// keyword-rich "<id>-in-bhilai" slug.
 export function generateStaticParams() {
-  return products.map((p) => ({ id: p.id }))
+  return products.map((p) => ({ id: `${p.id}-in-bhilai` }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params
-  const product = getProduct(id)
+  const product = getProduct(idFromLocalSlug(id) ?? "")
   if (!product) return { title: "Product not found" }
 
   const cat = categories.find((c) => c.id === product.category)
-  const url = `${businessConfig.siteUrl}/products/${product.id}`
+  const url = `${businessConfig.siteUrl}${productUrl(product.id)}`
   const description = `${product.nameEn} at ${businessConfig.name}, Junwani Road, Bhilai — genuine product from an authorized distributor with official brand warranty. Call or WhatsApp 91099 18786 for today's best price.`
 
   return {
@@ -41,8 +50,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const product = getProduct(id)
-  if (!product) notFound()
+  const product = getProduct(idFromLocalSlug(id) ?? "")
+  if (!product) {
+    // Legacy suffix-less URL (e.g. /products/havells-mixer-750) —
+    // 301 to the new -in-bhilai slug so indexed links keep working.
+    const legacy = getProduct(id)
+    if (legacy) permanentRedirect(productUrl(legacy.id))
+    notFound()
+  }
 
   const base = businessConfig.siteUrl
   const cat = categories.find((c) => c.id === product.category)
@@ -57,7 +72,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     image: `${base}${getProductImage(product)}`,
     category: cat?.nameEn,
     ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
-    url: `${base}/products/${product.id}`,
+    url: `${base}${productUrl(product.id)}`,
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
@@ -73,7 +88,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: base },
       { "@type": "ListItem", position: 2, name: "Products", item: `${base}/products` },
-      { "@type": "ListItem", position: 3, name: product.nameEn, item: `${base}/products/${product.id}` },
+      { "@type": "ListItem", position: 3, name: product.nameEn, item: `${base}${productUrl(product.id)}` },
     ],
   }
 
@@ -81,7 +96,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     <LanguageProvider>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <ProductDetailContent productId={id} />
+      <ProductDetailContent productId={product.id} />
     </LanguageProvider>
   )
 }

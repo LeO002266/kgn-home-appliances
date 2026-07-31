@@ -1,5 +1,5 @@
 import { businessConfig } from "@/config/business"
-import { categories, brands, products } from "@/config/products"
+import { categories, brands, products, categoryUrl } from "@/config/products"
 import { services } from "@/config/services"
 import { getServicePageByServiceId } from "@/config/service-pages"
 import { serviceAreaPages } from "@/config/areas"
@@ -48,7 +48,7 @@ export function GET(): Response {
     "",
     ...categories.map(
       (c) =>
-        `- [${c.nameEn}](${base}/products/category/${c.id}): ${products.filter((p) => p.category === c.id).length} models listed`,
+        `- [${c.nameEn}](${base}${categoryUrl(c.id)}): ${products.filter((p) => p.category === c.id).length} models listed`,
     ),
     "",
     "## Brands stocked",

@@ -5,6 +5,7 @@ import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import { getSortedPosts } from "@/config/blog"
+import { categoryUrl } from "@/config/products"
 import { servicePages } from "@/config/service-pages"
 import { serviceAreaPages } from "@/config/areas"
 import { LogoMark } from "./logo"
@@ -16,14 +17,14 @@ export function Footer() {
     {
       title: t("footer.shop"),
       links: [
-        { label: t("category.mixers"), href: "/products/category/mixer-grinders" },
-        { label: t("category.gas_stoves"), href: "/products/category/gas-stoves" },
-        { label: t("category.purifiers"), href: "/products/category/water-purifiers" },
-        { label: t("category.geysers"), href: "/products/category/water-heaters" },
-        { label: t("category.fans"), href: "/products/category/fans-coolers" },
-        { label: t("category.kitchenware"), href: "/products/category/kitchenware" },
-        { label: t("category.cleaning_tools"), href: "/products/category/cleaning-tools" },
-        { label: t("category.hardware_locks"), href: "/products/category/hardware-locks" },
+        { label: t("category.mixers"), href: categoryUrl("mixer-grinders") },
+        { label: t("category.gas_stoves"), href: categoryUrl("gas-stoves") },
+        { label: t("category.purifiers"), href: categoryUrl("water-purifiers") },
+        { label: t("category.geysers"), href: categoryUrl("water-heaters") },
+        { label: t("category.fans"), href: categoryUrl("fans-coolers") },
+        { label: t("category.kitchenware"), href: categoryUrl("kitchenware") },
+        { label: t("category.cleaning_tools"), href: categoryUrl("cleaning-tools") },
+        { label: t("category.hardware_locks"), href: categoryUrl("hardware-locks") },
       ],
     },
     {

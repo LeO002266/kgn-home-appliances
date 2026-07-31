@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home, Star } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
-import { categories, products, type CategoryId } from "@/config/products"
+import { categories, categoryUrl, products, type CategoryId } from "@/config/products"
 
 // Our two specialty categories get a small ribbon in the grid
 const specialtyCategories = new Set<CategoryId>(["mixer-grinders", "gas-stoves"])
@@ -134,7 +134,7 @@ export function CategoriesSection() {
             return (
               <Link
                 key={cat.id}
-                href={`/products/category/${cat.id}`}
+                href={categoryUrl(cat.id)}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-white">

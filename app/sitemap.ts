@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { businessConfig } from "@/config/business"
-import { products, categories, brands } from "@/config/products"
+import { products, categories, brands, categoryUrl, productUrl } from "@/config/products"
 import { blogPosts } from "@/config/blog"
 import { servicePages } from "@/config/service-pages"
 import { serviceAreaPages } from "@/config/areas"
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     ...categories.map((c) => ({
-      url: `${base}/products/category/${c.id}`,
+      url: `${base}${categoryUrl(c.id)}`,
       lastModified: buildDate,
       changeFrequency: "weekly" as const,
       priority: 0.8,
@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     ...products.map((p) => ({
-      url: `${base}/products/${p.id}`,
+      url: `${base}${productUrl(p.id)}`,
       lastModified: buildDate,
       changeFrequency: "monthly" as const,
       priority: 0.8,

@@ -9,7 +9,7 @@ import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import { getBlogPost, getRelatedPosts, type BlogBlock } from "@/config/blog"
-import { categories } from "@/config/products"
+import { categories, categoryUrl } from "@/config/products"
 
 function Block({ block, hi }: { block: BlogBlock; hi: boolean }) {
   const lang = hi ? "hi" : "en"
@@ -160,7 +160,7 @@ export function BlogPostContent({ slug }: { slug: string }) {
               </a>
               {relatedCategory && (
                 <Link
-                  href={`/products/category/${relatedCategory.id}`}
+                  href={categoryUrl(relatedCategory.id)}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
                 >
                   {hi ? relatedCategory.nameHi : relatedCategory.nameEn}

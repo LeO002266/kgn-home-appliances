@@ -9,7 +9,7 @@ import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { ProductCard } from "@/components/product-card"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
-import { products, categories, categoryFeatures, categoryIntro, type CategoryId } from "@/config/products"
+import { products, categories, categoryFeatures, categoryIntro, categoryUrl, type CategoryId } from "@/config/products"
 
 export function CategoryPageContent({ categoryId }: { categoryId: CategoryId }) {
   const { t, language } = useLanguage()
@@ -107,7 +107,7 @@ export function CategoryPageContent({ categoryId }: { categoryId: CategoryId }) 
             {otherCategories.map((c) => (
               <Link
                 key={c.id}
-                href={`/products/category/${c.id}`}
+                href={categoryUrl(c.id)}
                 className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground hover:border-primary/40 hover:text-foreground transition-colors"
               >
                 {hi ? c.nameHi : c.nameEn}

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { BrandPageContent } from "@/components/brand-page-content"
-import { brands, getBrand, getBrandProducts } from "@/config/products"
+import { brands, getBrand, getBrandProducts, productUrl } from "@/config/products"
 import { businessConfig } from "@/config/business"
 
 // Pre-build a page for every brand we stock products from
@@ -61,7 +61,7 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
       itemListElement: brandProducts.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `${base}/products/${p.id}`,
+        url: `${base}${productUrl(p.id)}`,
         name: p.nameEn,
       })),
     },

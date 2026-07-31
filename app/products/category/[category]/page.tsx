@@ -1,17 +1,27 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { CategoryPageContent } from "@/components/category-page-content"
-import { categories, products, categoryIntro, categoryKeywords, type CategoryId } from "@/config/products"
+import {
+  categories,
+  products,
+  categoryIntro,
+  categoryKeywords,
+  categoryUrl,
+  productUrl,
+  idFromLocalSlug,
+  type CategoryId,
+} from "@/config/products"
 import { businessConfig } from "@/config/business"
 
-function getCategory(id: string) {
-  return categories.find((c) => c.id === id)
+function getCategory(slug: string) {
+  return categories.find((c) => c.id === idFromLocalSlug(slug))
 }
 
-// Pre-build a page for every category in config/products.ts
+// Pre-build a page for every category in config/products.ts, at the
+// keyword-rich "<id>-in-bhilai" slug.
 export function generateStaticParams() {
-  return categories.map((c) => ({ category: c.id }))
+  return categories.map((c) => ({ category: `${c.id}-in-bhilai` }))
 }
 
 export async function generateMetadata({
@@ -29,7 +39,7 @@ export async function generateMetadata({
   const description = `${cat.nameEn} at KGN Home Appliance & Services, Junwani Road, Bhilai — ${count} models, genuine products with brand warranty. Call 91099 18786 for today's price.`
   const terms = categoryKeywords[cat.id] ?? []
   const keywords = terms.flatMap((term) => [term, `${term} Bhilai`])
-  const url = `${businessConfig.siteUrl}/products/category/${cat.id}`
+  const url = `${businessConfig.siteUrl}${categoryUrl(cat.id)}`
 
   return {
     title,
@@ -47,7 +57,13 @@ export async function generateMetadata({
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params
   const cat = getCategory(category)
-  if (!cat) notFound()
+  if (!cat) {
+    // Legacy suffix-less URL (e.g. /products/category/mixer-grinders) —
+    // 301 to the new -in-bhilai slug so indexed links keep working.
+    const legacy = categories.find((c) => c.id === category)
+    if (legacy) permanentRedirect(categoryUrl(legacy.id))
+    notFound()
+  }
 
   const base = businessConfig.siteUrl
   const categoryProducts = products.filter((p) => p.category === cat.id)
@@ -59,13 +75,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     "@type": "CollectionPage",
     name: `${cat.nameEn} — KGN Home Appliance & Services, Bhilai`,
     description: categoryIntro[cat.id].en,
-    url: `${base}/products/category/${cat.id}`,
+    url: `${base}${categoryUrl(cat.id)}`,
     mainEntity: {
       "@type": "ItemList",
       itemListElement: categoryProducts.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `${base}/products/${p.id}`,
+        url: `${base}${productUrl(p.id)}`,
         name: p.nameEn,
       })),
     },
@@ -77,7 +93,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: base },
       { "@type": "ListItem", position: 2, name: "Products", item: `${base}/products` },
-      { "@type": "ListItem", position: 3, name: cat.nameEn, item: `${base}/products/category/${cat.id}` },
+      { "@type": "ListItem", position: 3, name: cat.nameEn, item: `${base}${categoryUrl(cat.id)}` },
     ],
   }
 
