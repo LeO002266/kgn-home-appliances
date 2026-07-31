@@ -69,10 +69,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.title": "Services",
     "services.heading": "Appliance Repair & Gas Pipeline Services in Bhilai",
     "services.description":
-      "Sales and repairing at the same counter. We service mixer grinders, gas stoves, ovens and microwaves, fans, irons and geysers, and we do LPG gas pipeline fitting at your home across Bhilai and Durg.",
+      "Sales and repairing at the same counter. We service mixer grinders, gas stoves, pressure cookers, ovens and microwaves, fans, irons and geysers, and we do LPG gas pipeline fitting at your home across Bhilai and Durg.",
     "services.areas_title": "Areas We Serve",
     "services.areas_desc":
       "Doorstep repair and gas pipeline work across Bhilai and Durg. Free delivery within Bhilai on products bought from the store.",
+
+    // Service landing & area pages
+    "svc.what_we_handle": "What we handle",
+    "svc.faq_title": "Frequently asked questions",
+    "svc.guides_title": "Helpful guides",
+    "svc.browse_new": "Browse new models",
+    "svc.other_services": "Other repair services",
+    "svc.view_details": "View details",
+    "svc.all_services": "All services",
+    "areas.services_here": "Popular services in this area",
+    "areas.other_areas": "Other areas we serve",
 
     // Blog
     "blog.title": "Blog",
@@ -273,10 +284,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.title": "सर्विसेज",
     "services.heading": "भिलाई में अप्लायंस रिपेयर और गैस पाइपलाइन सेवाएँ",
     "services.description":
-      "बिक्री और रिपेयरिंग एक ही काउंटर पर। हम मिक्सर ग्राइंडर, गैस चूल्हा, ओवन और माइक्रोवेव, पंखे, इस्त्री और गीज़र की सर्विस करते हैं, और भिलाई व दुर्ग में आपके घर पर LPG गैस पाइपलाइन फिटिंग का काम करते हैं।",
+      "बिक्री और रिपेयरिंग एक ही काउंटर पर। हम मिक्सर ग्राइंडर, गैस चूल्हा, प्रेशर कुकर, ओवन और माइक्रोवेव, पंखे, इस्त्री और गीज़र की सर्विस करते हैं, और भिलाई व दुर्ग में आपके घर पर LPG गैस पाइपलाइन फिटिंग का काम करते हैं।",
     "services.areas_title": "हम इन इलाकों में सेवा देते हैं",
     "services.areas_desc":
       "भिलाई और दुर्ग में घर पर रिपेयर और गैस पाइपलाइन का काम। दुकान से खरीदे गए प्रोडक्ट पर भिलाई में मुफ्त डिलीवरी।",
+
+    // Service landing & area pages
+    "svc.what_we_handle": "हम क्या-क्या ठीक करते हैं",
+    "svc.faq_title": "अक्सर पूछे जाने वाले सवाल",
+    "svc.guides_title": "उपयोगी गाइड",
+    "svc.browse_new": "नए मॉडल देखें",
+    "svc.other_services": "अन्य रिपेयर सेवाएँ",
+    "svc.view_details": "पूरी जानकारी देखें",
+    "svc.all_services": "सभी सेवाएँ",
+    "areas.services_here": "इस इलाके की लोकप्रिय सेवाएँ",
+    "areas.other_areas": "अन्य सेवा क्षेत्र",
 
     // Blog
     "blog.title": "ब्लॉग",

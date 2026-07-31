@@ -11,9 +11,9 @@ export const faqs = [
   },
   {
     qEn: "Which appliances do you repair?",
-    aEn: "We repair and service mixer grinders (including jars and blades), gas stoves, ovens/microwaves, fans, coolers, irons and geysers — with doorstep service across Bhilai and Durg.",
+    aEn: "We repair and service mixer grinders (including jars and blades), gas stoves, pressure cookers, ovens/microwaves, fans, coolers, irons and geysers — with doorstep service across Bhilai and Durg.",
     qHi: "आप कौन-कौन से अप्लायंस रिपेयर करते हैं?",
-    aHi: "हम मिक्सर ग्राइंडर (जार और ब्लेड सहित), गैस चूल्हा, ओवन/माइक्रोवेव, पंखे, कूलर, इस्त्री और गीज़र की रिपेयर और सर्विस करते हैं — भिलाई और दुर्ग में घर पर सर्विस उपलब्ध है।",
+    aHi: "हम मिक्सर ग्राइंडर (जार और ब्लेड सहित), गैस चूल्हा, प्रेशर कुकर, ओवन/माइक्रोवेव, पंखे, कूलर, इस्त्री और गीज़र की रिपेयर और सर्विस करते हैं — भिलाई और दुर्ग में घर पर सर्विस उपलब्ध है।",
   },
   {
     qEn: "Why are prices not shown on the website?",

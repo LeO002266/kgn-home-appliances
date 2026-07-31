@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next"
 import { businessConfig } from "@/config/business"
 import { products, categories, brands } from "@/config/products"
 import { blogPosts } from "@/config/blog"
+import { servicePages } from "@/config/service-pages"
+import { serviceAreaPages } from "@/config/areas"
 
 // Auto-generated sitemap: home, services, catalog, every category and brand
 // filter, every product page, and every blog post. Adding an entry to any of
@@ -18,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services`, lastModified: buildDate, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/products`, lastModified: buildDate, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/blog`, lastModified: buildDate, changeFrequency: "weekly", priority: 0.8 },
+    ...servicePages.map((p) => ({
+      url: `${base}/services/${p.slug}`,
+      lastModified: buildDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    ...serviceAreaPages.map((a) => ({
+      url: `${base}/service-areas/${a.slug}`,
+      lastModified: buildDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     ...categories.map((c) => ({
       url: `${base}/products/category/${c.id}`,
       lastModified: buildDate,

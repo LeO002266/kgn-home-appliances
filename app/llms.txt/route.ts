@@ -1,6 +1,8 @@
 import { businessConfig } from "@/config/business"
 import { categories, brands, products } from "@/config/products"
 import { services } from "@/config/services"
+import { getServicePageByServiceId } from "@/config/service-pages"
+import { serviceAreaPages } from "@/config/areas"
 import { getSortedPosts } from "@/config/blog"
 import { faqs } from "@/config/faqs"
 
@@ -32,7 +34,15 @@ export function GET(): Response {
     "",
     "## Services",
     "",
-    ...services.map((s) => `- [${s.nameEn}](${base}/services#${s.id}): ${s.descEn}`),
+    ...services.map((s) => {
+      const landing = getServicePageByServiceId(s.id)
+      const url = landing ? `${base}/services/${landing.slug}` : `${base}/services#${s.id}`
+      return `- [${s.nameEn}](${url}): ${s.descEn}`
+    }),
+    "",
+    "## Service areas",
+    "",
+    ...serviceAreaPages.map((a) => `- [${a.nameEn}](${base}/service-areas/${a.slug}): ${a.metaDescription}`),
     "",
     "## Product categories",
     "",

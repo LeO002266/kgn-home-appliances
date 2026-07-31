@@ -5,6 +5,8 @@ import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import { getSortedPosts } from "@/config/blog"
+import { servicePages } from "@/config/service-pages"
+import { serviceAreaPages } from "@/config/areas"
 import { LogoMark } from "./logo"
 
 export function Footer() {
@@ -123,8 +125,32 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Internal linking — keeps every guide one click from any page */}
+        {/* Internal linking — keeps every service page, area page and guide one click from any page */}
         <div className="mt-12 border-t border-white/10 pt-8">
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-[#ffd54d]">{t("nav.repairs")}</h4>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
+            {servicePages.map((page) => (
+              <Link
+                key={page.slug}
+                href={`/services/${page.slug}`}
+                className="text-sm text-white/60 hover:text-white transition-colors"
+              >
+                {language === "hi" ? page.h1Hi : page.h1En}
+              </Link>
+            ))}
+            {serviceAreaPages.map((area) => (
+              <Link
+                key={area.slug}
+                href={`/service-areas/${area.slug}`}
+                className="text-sm text-white/60 hover:text-white transition-colors"
+              >
+                {language === "hi" ? area.nameHi : area.nameEn}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 border-t border-white/10 pt-8">
           <h4 className="text-sm font-semibold uppercase tracking-wide text-[#ffd54d]">{t("blog.title")}</h4>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
             {getSortedPosts().map((post) => (

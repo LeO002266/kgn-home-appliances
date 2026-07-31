@@ -1,57 +1,32 @@
 "use client"
 
 import Link from "next/link"
-import {
-  ChevronRight,
-  Blend,
-  Package,
-  Flame,
-  CookingPot,
-  Wrench,
-  Microwave,
-  Fan,
-  Zap,
-  Droplets,
-  ShowerHead,
-  Settings,
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
-  CheckCircle2,
-} from "lucide-react"
+import { ChevronRight, Phone, MessageCircle, MapPin, Clock, Wrench } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
-import { services, serviceAreas, type ServiceIconId } from "@/config/services"
-import { getServicePageByServiceId } from "@/config/service-pages"
-import { serviceAreaPages } from "@/config/areas"
+import { servicePages } from "@/config/service-pages"
+import { serviceAreaPages, getAreaPage } from "@/config/areas"
 
-const icons: Record<ServiceIconId, typeof Blend> = {
-  mixer: Blend,
-  jars: Package,
-  stove: Flame,
-  cooker: CookingPot,
-  pipeline: Wrench,
-  microwave: Microwave,
-  fan: Fan,
-  iron: Zap,
-  purifier: Droplets,
-  geyser: ShowerHead,
-  maintenance: Settings,
-}
-
-export function ServicesPageContent() {
+export function AreaPageContent({ slug }: { slug: string }) {
   const { t, language } = useLanguage()
   const hi = language === "hi"
+
+  const area = getAreaPage(slug)
+  if (!area) return null
+
+  const heading = hi ? `${area.nameHi} में अप्लायंस रिपेयर` : `Appliance Repair in ${area.nameEn}`
+  const otherAreas = serviceAreaPages.filter((a) => a.slug !== area.slug)
+  const whatsappMessage = `${businessConfig.whatsappMessages.repair} (${area.nameEn})`
 
   return (
     <main className="min-h-screen bg-background">
       <Header />
 
+      {/* Hero */}
       <section className="pt-28 md:pt-36 pb-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -59,15 +34,23 @@ export function ServicesPageContent() {
               {t("nav.home")}
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground font-medium">{t("services.title")}</span>
+            <Link href="/services" className="hover:text-primary transition-colors">
+              {t("services.title")}
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <span className="text-foreground font-medium">{hi ? area.nameHi : area.nameEn}</span>
           </nav>
 
           <h1 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-balance text-foreground">
-            {t("services.heading")}
+            {heading}
           </h1>
-          <p className="mt-3 max-w-2xl text-lg text-muted-foreground text-pretty leading-relaxed">
-            {t("services.description")}
-          </p>
+          <div className="mt-4 max-w-3xl space-y-4">
+            {(hi ? area.introHi : area.introEn).map((para) => (
+              <p key={para.slice(0, 40)} className="text-lg text-muted-foreground text-pretty leading-relaxed">
+                {para}
+              </p>
+            ))}
+          </div>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
@@ -78,7 +61,7 @@ export function ServicesPageContent() {
               {businessConfig.contact.phoneDisplay}
             </a>
             <a
-              href={getWhatsAppUrl(businessConfig.whatsappMessages.repair)}
+              href={getWhatsAppUrl(whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
@@ -90,86 +73,68 @@ export function ServicesPageContent() {
         </div>
       </section>
 
-      <section className="pb-16 md:pb-20 bg-background">
+      {/* Popular services in this area */}
+      <section className="pb-14 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
-              const Icon = icons[service.icon]
-              const points = hi ? service.pointsHi : service.pointsEn
-              const landingPage = getServicePageByServiceId(service.id)
-
-              return (
-                <article
-                  key={service.id}
-                  id={service.id}
-                  className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40 scroll-mt-24"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <h2 className="mt-4 font-serif text-xl font-semibold leading-snug text-foreground">
-                    {hi ? service.nameHi : service.nameEn}
-                  </h2>
-                  <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {hi ? service.descHi : service.descEn}
-                  </p>
-                  <ul className="mt-4 space-y-2 border-t border-border pt-4">
-                    {points.map((point) => (
-                      <li key={point} className="flex items-start gap-2 text-sm text-foreground">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {landingPage && (
-                    <Link
-                      href={`/services/${landingPage.slug}`}
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                    >
-                      {t("svc.view_details")}
-                      <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  )}
-                </article>
-              )
-            })}
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+            {t("areas.services_here")}
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {servicePages.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/services/${p.slug}`}
+                className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Wrench className="h-4 w-4" />
+                </span>
+                <span className="text-sm font-semibold leading-snug text-foreground">{hi ? p.h1Hi : p.h1En}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Local SEO block — service areas, address and hours as crawlable text */}
-      <section className="pb-20 md:pb-28 bg-secondary/30 pt-14">
+      {/* FAQ */}
+      <section className="pb-14 bg-secondary/30 pt-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+            {t("svc.faq_title")}
+          </h2>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            {area.faqs.map((faq) => (
+              <div key={faq.qEn} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-semibold text-foreground leading-snug">{hi ? faq.qHi : faq.qEn}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{hi ? faq.aHi : faq.aEn}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Other areas + contact card */}
+      <section className="pb-20 md:pb-28 bg-background pt-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
-                {t("services.areas_title")}
+                {t("areas.other_areas")}
               </h2>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{t("services.areas_desc")}</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {serviceAreas.map((area) => {
-                  const areaPage = serviceAreaPages.find((a) => a.nameEn === area)
-                  return areaPage ? (
-                    <Link
-                      key={area}
-                      href={`/service-areas/${areaPage.slug}`}
-                      className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground hover:border-primary/50 hover:text-primary transition-colors"
-                    >
-                      {hi ? areaPage.nameHi : areaPage.nameEn}
-                    </Link>
-                  ) : (
-                    <span
-                      key={area}
-                      className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground"
-                    >
-                      {area}
-                    </span>
-                  )
-                })}
+                {otherAreas.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/service-areas/${a.slug}`}
+                    className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground hover:border-primary/50 hover:text-primary transition-colors"
+                  >
+                    {hi ? a.nameHi : a.nameEn}
+                  </Link>
+                ))}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-6 md:p-8">
+            <div className="rounded-3xl border border-border bg-card p-6 md:p-8 h-fit">
               <h2 className="font-serif text-xl font-semibold text-foreground">{t("contact.visit")}</h2>
               <div className="mt-5 grid gap-4 text-sm">
                 <div className="flex gap-3">
@@ -196,7 +161,7 @@ export function ServicesPageContent() {
                 <div className="flex gap-3">
                   <MessageCircle className="h-5 w-5 shrink-0 text-[#25D366]" />
                   <a
-                    href={getWhatsAppUrl(businessConfig.whatsappMessages.repair)}
+                    href={getWhatsAppUrl(whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-foreground hover:text-primary transition-colors"

@@ -6,6 +6,7 @@ export type ServiceIconId =
   | "mixer"
   | "jars"
   | "stove"
+  | "cooker"
   | "pipeline"
   | "microwave"
   | "fan"
@@ -67,6 +68,19 @@ export const services: ServiceItem[] = [
     keywords: ["gas stove repair Bhilai", "gas burner replacement", "gas stove servicing"],
     pointsEn: ["Brass burner cleaning & replacement", "Knob, valve and igniter repair", "Flame and leak check"],
     pointsHi: ["पीतल बर्नर की सफाई और बदलाव", "नॉब, वाल्व और इग्नाइटर रिपेयर", "लौ और लीक की जाँच"],
+  },
+  {
+    id: "pressure-cooker-repair",
+    icon: "cooker",
+    nameEn: "Pressure Cooker Repair",
+    nameHi: "प्रेशर कुकर रिपेयर",
+    descEn:
+      "Gasket, whistle and safety valve replacement, handle and lid work for pressure cookers of all major brands — with genuine Hawkins and Prestige spares in stock.",
+    descHi:
+      "सभी बड़े ब्रांड के प्रेशर कुकर की गैस्केट, सीटी और सेफ्टी वाल्व बदलना, हैंडल और ढक्कन का काम — हॉकिन्स और प्रेस्टीज के असली स्पेयर स्टॉक में।",
+    keywords: ["pressure cooker repair Bhilai", "cooker gasket replacement", "cooker whistle repair"],
+    pointsEn: ["Gasket & sealing ring replacement", "Whistle and safety valve work", "Handle & lid repair"],
+    pointsHi: ["गैस्केट और सीलिंग रिंग बदलना", "सीटी और सेफ्टी वाल्व का काम", "हैंडल और ढक्कन रिपेयर"],
   },
   {
     id: "gas-pipeline-work",
