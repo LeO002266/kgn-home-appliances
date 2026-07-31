@@ -67,7 +67,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Services page
     "services.title": "Services",
-    "services.heading": "Appliance Repair & Gas Pipeline Services in Bhilai",
+    "services.heading": "Home Appliance Repair Services in Bhilai",
     "services.description":
       "Sales and repairing at the same counter. We service mixer grinders, gas stoves, pressure cookers, ovens and microwaves, fans, irons and geysers, and we do LPG gas pipeline fitting at your home across Bhilai and Durg.",
     "services.areas_title": "Areas We Serve",
@@ -282,7 +282,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Services page
     "services.title": "सर्विसेज",
-    "services.heading": "भिलाई में अप्लायंस रिपेयर और गैस पाइपलाइन सेवाएँ",
+    "services.heading": "भिलाई में होम अप्लायंस रिपेयर सेवाएँ",
     "services.description":
       "बिक्री और रिपेयरिंग एक ही काउंटर पर। हम मिक्सर ग्राइंडर, गैस चूल्हा, प्रेशर कुकर, ओवन और माइक्रोवेव, पंखे, इस्त्री और गीज़र की सर्विस करते हैं, और भिलाई व दुर्ग में आपके घर पर LPG गैस पाइपलाइन फिटिंग का काम करते हैं।",
     "services.areas_title": "हम इन इलाकों में सेवा देते हैं",

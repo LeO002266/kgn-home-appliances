@@ -4,7 +4,7 @@ import { ServicesPageContent } from "@/components/services-page-content"
 import { services, serviceAreas } from "@/config/services"
 import { businessConfig } from "@/config/business"
 
-const title = "Appliance Repair & Gas Pipeline Services in Bhilai"
+const title = "Home Appliance Repair Services in Bhilai"
 const description =
   "Doorstep appliance repair in Bhilai & Durg — mixer grinders, gas stoves, ovens, fans, irons and geysers — plus LPG gas pipeline fitting with ISI-marked parts. Call 91099 18786."
 
