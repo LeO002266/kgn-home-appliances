@@ -8,7 +8,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { MobileCtaBar } from "@/components/mobile-cta-bar"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
-import { servicePages } from "@/config/service-pages"
+import { servicePages, getComboSlug } from "@/config/service-pages"
 import { serviceAreaPages, getAreaPage } from "@/config/areas"
 
 export function AreaPageContent({ slug }: { slug: string }) {
@@ -83,7 +83,7 @@ export function AreaPageContent({ slug }: { slug: string }) {
             {servicePages.map((p) => (
               <Link
                 key={p.slug}
-                href={`/services/${p.slug}`}
+                href={`/services/${getComboSlug(p.serviceId, area.slug) ?? p.slug}`}
                 className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">

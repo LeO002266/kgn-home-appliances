@@ -2,13 +2,14 @@ import type { Metadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
 import { LanguageProvider } from "@/context/language-context"
 import { ServiceLandingContent } from "@/components/service-landing-content"
-import { servicePages, getServicePage } from "@/config/service-pages"
+import { allServicePages, getServicePage } from "@/config/service-pages"
 import { serviceAreas } from "@/config/services"
 import { businessConfig } from "@/config/business"
 
-// Pre-build a landing page for every entry in config/service-pages.ts
+// Pre-build every service landing page — hand-written and the generated
+// service × locality combinations.
 export function generateStaticParams() {
-  return servicePages.map((p) => ({ slug: p.slug }))
+  return allServicePages.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

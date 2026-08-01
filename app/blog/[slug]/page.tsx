@@ -20,7 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.metaTitleEn,
     description: post.metaDescriptionEn,
-    keywords: post.keywords,
+    // Post-specific terms plus the local variants people actually type
+    // ("<term> near me", "<term> Bhilai", locality names).
+    keywords: [
+      ...post.keywords,
+      ...post.keywords.slice(0, 4).flatMap((k) => [`${k} near me`, `${k} Bhilai`]),
+      "home appliances shop near me Bhilai",
+      "home appliances Smriti Nagar Bhilai",
+      "home appliances Junwani Road Bhilai",
+      "appliance repair near me Bhilai",
+    ],
     alternates: { canonical: url },
     openGraph: {
       title: post.titleEn,

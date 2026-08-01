@@ -243,6 +243,7 @@ export const products: Product[] = [
   { id: "gas-regulator", nameEn: "LPG Gas Regulator", nameHi: "LPG गैस रेगुलेटर", category: "kitchen-accessories" },
   { id: "stove-burner-brass", nameEn: "Brass Stove Burner (Spare Part)", nameHi: "पीतल स्टोव बर्नर (स्पेयर पार्ट)", category: "kitchen-accessories" },
   { id: "gas-lighter", nameEn: "Gas Lighter / Igniter", nameHi: "गैस लाइटर / इग्नाइटर", category: "kitchen-accessories" },
+  { id: "butane-fuel-can", nameEn: "Butane Fuel Can", nameHi: "ब्यूटेन फ्यूल कैन", category: "kitchen-accessories" },
   { id: "gas-safety-valve", nameEn: "Gas Safety Valve", nameHi: "गैस सेफ्टी वाल्व", category: "kitchen-accessories" },
   { id: "kitchen-tool-set", nameEn: "Kitchen Tool Set (Tongs, Ladles & More)", nameHi: "किचन टूल सेट (चिमटा, कलछी और अधिक)", category: "kitchen-accessories" },
   { id: "chopping-board", nameEn: "Wooden Chopping Board", nameHi: "लकड़ी का चॉपिंग बोर्ड", category: "kitchen-accessories" },
@@ -255,10 +256,12 @@ export const products: Product[] = [
   // Kitchenware & Cookware
   { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware" },
   { id: "casserole-set", nameEn: "Insulated Casserole Set", nameHi: "इंसुलेटेड कैसरोल सेट", category: "kitchenware" },
+  { id: "insulated-hotpot", nameEn: "Insulated Hotpot", nameHi: "इंसुलेटेड हॉटपॉट", category: "kitchenware" },
   { id: "nonstick-cookware-set", nameEn: "Non-Stick Cookware Set", nameHi: "नॉन-स्टिक कुकवेयर सेट", category: "kitchenware" },
   { id: "steel-kadai", nameEn: "Stainless Steel Kadai", nameHi: "स्टेनलेस स्टील कढ़ाई", category: "kitchenware" },
 
   // Water Bottles & Tiffins
+  { id: "copper-water-bottle-1l", nameEn: "Copper Water Bottle 1L", nameHi: "तांबे की पानी की बोतल 1L", category: "bottles-tiffins", featured: true },
   { id: "steel-tiffin-set", nameEn: "Steel Tiffin Box Set", nameHi: "स्टील टिफिन बॉक्स सेट", category: "bottles-tiffins" },
   { id: "thermos-flask-1l", nameEn: "Thermos Flask 1L", nameHi: "थर्मस फ्लास्क 1L", category: "bottles-tiffins" },
   { id: "steel-water-bottle-1l", nameEn: "Stainless Steel Water Bottle 1L", nameHi: "स्टेनलेस स्टील पानी की बोतल 1L", category: "bottles-tiffins", featured: true },
@@ -295,7 +298,13 @@ export const products: Product[] = [
   // Other
   { id: "usha-iron-1100", nameEn: "Usha Iron 1100W", nameHi: "उषा इस्त्री 1100W", brand: "Usha", category: "other" },
   { id: "bajaj-heater-2000", nameEn: "Bajaj Room Heater 2000W", nameHi: "बजाज रूम हीटर 2000W", brand: "Bajaj", category: "other" },
+  { id: "room-heater-parts", nameEn: "Room Heater Spare Parts", nameHi: "रूम हीटर स्पेयर पार्ट्स", category: "other" },
   { id: "crompton-pump-1hp", nameEn: "Crompton Water Pump 1HP", nameHi: "क्रॉम्पटन वॉटर पंप 1HP", brand: "Crompton", category: "other" },
+  { id: "induction-cooktop", nameEn: "Induction Cooktop", nameHi: "इंडक्शन कुकटॉप", category: "other", featured: true },
+  { id: "kitchen-chimney", nameEn: "Kitchen Chimney", nameHi: "किचन चिमनी", category: "other" },
+  { id: "otg-oven", nameEn: "OTG Oven", nameHi: "OTG ओवन", category: "other" },
+  { id: "electric-rice-cooker", nameEn: "Electric Rice Cooker", nameHi: "इलेक्ट्रिक राइस कुकर", category: "other" },
+  { id: "led-torch-lamp", nameEn: "LED Torch & Emergency Lamp", nameHi: "LED टॉर्च और इमरजेंसी लैंप", category: "other" },
 ]
 
 // Generic, honest selling points per category (store-level claims, no invented specs)

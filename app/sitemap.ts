@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { businessConfig } from "@/config/business"
 import { products, categories, brands, categoryUrl, productUrl } from "@/config/products"
 import { blogPosts } from "@/config/blog"
-import { servicePages } from "@/config/service-pages"
+import { servicePages, serviceAreaComboPages } from "@/config/service-pages"
 import { serviceAreaPages } from "@/config/areas"
 
 // Auto-generated sitemap: home, services, catalog, every category and brand
@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: buildDate,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+    })),
+    ...serviceAreaComboPages.map((p) => ({
+      url: `${base}/services/${p.slug}`,
+      lastModified: buildDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     ...serviceAreaPages.map((a) => ({
       url: `${base}/service-areas/${a.slug}`,

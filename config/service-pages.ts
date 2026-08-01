@@ -3,6 +3,12 @@
 // becomes a page at /services/<slug> with its own metadata, FAQ schema and
 // internal links. Content must describe work the shop actually does — the
 // same rule as config/services.ts.
+//
+// Below the hand-written pages, one page per service per locality
+// ("mixer grinder repair Smriti Nagar") is generated automatically, so every
+// "<service> <area>" search has a matching URL.
+
+import { serviceAreaPages, type ServiceAreaPage } from "./areas"
 
 export interface ServicePageFaq {
   qEn: string
@@ -32,6 +38,8 @@ export interface ServiceLandingPage {
   relatedBlogSlugs: string[]
   /** Optional category id from config/products.ts for a "shop new" cross-link. */
   relatedCategoryId?: string
+  /** Set on generated service × locality pages — the locality they target. */
+  areaSlug?: string
 }
 
 export const servicePages: ServiceLandingPage[] = [
@@ -534,11 +542,83 @@ export const servicePages: ServiceLandingPage[] = [
   },
 ]
 
+// --- Generated service × locality pages -----------------------------------
+
+const MAIN_SLUG_SUFFIX = "-bhilai-near-me"
+
+/** "mixer-grinder-repair-bhilai-near-me" → "mixer-grinder-repair" */
+function serviceBaseSlug(page: ServiceLandingPage): string {
+  return page.slug.slice(0, -MAIN_SLUG_SUFFIX.length)
+}
+
+/** Combo URL slug — Durg is its own city, so it doesn't get "-bhilai". */
+function comboSlug(page: ServiceLandingPage, areaSlug: string): string {
+  return areaSlug === "durg"
+    ? `${serviceBaseSlug(page)}-durg-near-me`
+    : `${serviceBaseSlug(page)}-${areaSlug}-bhilai-near-me`
+}
+
+function buildComboPage(parent: ServiceLandingPage, area: ServiceAreaPage): ServiceLandingPage {
+  // Parent H1s follow a fixed shape: "<Service> in Bhilai" / "भिलाई में <सेवा>".
+  const serviceNameEn = parent.h1En.replace(/ in Bhilai$/, "")
+  const serviceNameHi = parent.h1Hi.replace(/^भिलाई में /, "")
+  const inAreaEn = area.slug === "durg" ? area.nameEn : `${area.nameEn}, Bhilai`
+  const inAreaHi = area.slug === "durg" ? area.nameHi : `${area.nameHi}, भिलाई`
+
+  return {
+    ...parent,
+    slug: comboSlug(parent, area.slug),
+    areaSlug: area.slug,
+    h1En: `${serviceNameEn} in ${inAreaEn}`,
+    h1Hi: `${inAreaHi} में ${serviceNameHi}`,
+    metaTitle: `${serviceNameEn} in ${area.nameEn} | Doorstep Service`,
+    metaDescription: `${serviceNameEn} for homes in ${inAreaEn} — doorstep visits plus counter service at KGN Home Appliance & Services, Junwani Road. Call 91099 18786.`,
+    keywords: [
+      `${serviceNameEn} ${area.nameEn}`,
+      `${serviceNameEn} ${area.nameEn} near me`,
+      `${serviceNameEn} near me`,
+      ...parent.keywords,
+    ],
+    introEn: [
+      `Need ${serviceNameEn.toLowerCase()} in ${area.nameEn}? ${area.nameEn} is part of our regular service area — we make doorstep visits for repair and installation work, and our shop on Junwani Road is close enough for quick counter repairs. Call 91099 18786 or WhatsApp 96916 53698 to book.`,
+      ...parent.introEn,
+    ],
+    introHi: [
+      `${area.nameHi} में ${serviceNameHi} चाहिए? ${area.nameHi} हमारे नियमित सेवा क्षेत्र में है — रिपेयर और इंस्टॉलेशन के लिए हम घर पर विज़िट करते हैं, और जुनवानी रोड की हमारी दुकान काउंटर रिपेयर के लिए पास ही है। बुक करने के लिए 91099 18786 पर कॉल या 96916 53698 पर WhatsApp करें।`,
+      ...parent.introHi,
+    ],
+    faqs: [
+      {
+        qEn: `Do you provide ${serviceNameEn.toLowerCase()} in ${area.nameEn}?`,
+        aEn: `Yes — ${area.nameEn} is part of our regular service area. Book a doorstep visit on 91099 18786, or bring smaller appliances to our shop on Junwani Road, Bhilai.`,
+        qHi: `क्या आप ${area.nameHi} में ${serviceNameHi} की सेवा देते हैं?`,
+        aHi: `हाँ — ${area.nameHi} हमारे नियमित सेवा क्षेत्र में है। 91099 18786 पर डोरस्टेप विज़िट बुक करें, या छोटे अप्लायंस जुनवानी रोड, भिलाई की हमारी दुकान पर लाएँ।`,
+      },
+      ...parent.faqs,
+    ],
+  }
+}
+
+/** One page per service per locality — e.g. mixer-grinder-repair-smriti-nagar-bhilai-near-me. */
+export const serviceAreaComboPages: ServiceLandingPage[] = servicePages.flatMap((p) =>
+  serviceAreaPages.map((a) => buildComboPage(p, a)),
+)
+
+/** Every service landing page, hand-written and generated. */
+export const allServicePages: ServiceLandingPage[] = [...servicePages, ...serviceAreaComboPages]
+
 export function getServicePage(slug: string): ServiceLandingPage | undefined {
-  return servicePages.find((p) => p.slug === slug)
+  return allServicePages.find((p) => p.slug === slug)
 }
 
 /** Landing page for a given services.ts entry, if one exists — used to link service cards. */
 export function getServicePageByServiceId(serviceId: string): ServiceLandingPage | undefined {
   return servicePages.find((p) => p.serviceId === serviceId)
+}
+
+/** Slug of the locality variant of a service page — used for internal links. */
+export function getComboSlug(serviceId: string, areaSlug: string): string | undefined {
+  const page = servicePages.find((p) => p.serviceId === serviceId)
+  if (!page) return undefined
+  return serviceAreaPages.some((a) => a.slug === areaSlug) ? comboSlug(page, areaSlug) : undefined
 }
