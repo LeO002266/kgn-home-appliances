@@ -1,15 +1,18 @@
 import { readdirSync, writeFileSync } from "node:fs"
 
-// Regenerate the product-photo manifest on every build/dev start. The site
-// uses it to know which /public/products photos actually exist, so product
-// pages never reference an image that would 404 (Search Console flags those).
-// The "drop a photo in and it appears" convention still holds — the manifest
-// refreshes itself on the next build.
-const productImageFiles = readdirSync(new URL("./public/products", import.meta.url))
-writeFileSync(
-  new URL("./config/product-image-manifest.json", import.meta.url),
-  `${JSON.stringify(productImageFiles.sort(), null, 2)}\n`,
-)
+// Regenerate the product-photo manifest on every build/dev start when possible.
+// The site uses it to know which /public/products photos actually exist, so
+// product pages never reference an image that would 404.
+try {
+  const productImageFiles = readdirSync(new URL("./public/products", import.meta.url))
+  writeFileSync(
+    new URL("./config/product-image-manifest.json", import.meta.url),
+    `${JSON.stringify(productImageFiles.sort(), null, 2)}\n`,
+  )
+} catch (err) {
+  // Ignore filesystem errors in read-only environments (e.g. CI / Vercel build runners)
+  console.warn("Notice: could not update product-image-manifest.json dynamically:", err)
+}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

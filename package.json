@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "manifest": "node scripts/generate-manifest.mjs",
+    "prebuild": "npm run manifest",
+    "predev": "npm run manifest",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
