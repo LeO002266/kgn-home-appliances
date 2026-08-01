@@ -43,10 +43,12 @@ export async function generateMetadata({
   // "near me" and locality phrases belong here and in page copy — not in the
   // URL slug, which Google treats as keyword stuffing.
   const keywords = [
-    ...terms.flatMap((term) => [term, `${term} Bhilai`, `${term} near me`]),
+    ...terms.flatMap((term) => [term, `${term} Bhilai`, `${term} in Bhilai`, `${term} near me`]),
     `${cat.nameEn} shop near me`,
+    `${cat.nameEn} shop in Bhilai`,
     `${cat.nameEn} Smriti Nagar Bhilai`,
     `${cat.nameEn} Junwani Road Bhilai`,
+    `${cat.nameEn} Durg`,
   ]
   const url = `${businessConfig.siteUrl}${categoryUrl(cat.id)}`
 
