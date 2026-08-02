@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter, Fraunces } from "next/font/google"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { businessConfig } from "@/config/business"
 import "./globals.css"
 
@@ -179,6 +180,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
         {children}
         <Analytics />
+        <SpeedInsights />
         {gaId && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
