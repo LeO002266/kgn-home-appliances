@@ -19,6 +19,7 @@ import {
   MapPin,
   Clock,
   CheckCircle2,
+  Wind,
 } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -42,6 +43,7 @@ const icons: Record<ServiceIconId, typeof Blend> = {
   purifier: Droplets,
   geyser: ShowerHead,
   maintenance: Settings,
+  chimney: Wind,
 }
 
 export function ServicesPageContent() {

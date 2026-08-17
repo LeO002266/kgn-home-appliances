@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Microwave, Blend, Package, Flame, Fan, Zap, Settings } from "lucide-react"
+import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Microwave, Blend, Package, Flame, Fan, Zap, Settings, Wind } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -13,6 +13,7 @@ const appliancesEn = [
   "Oven / Microwave",
   "Fan",
   "Iron",
+  "Kitchen Chimney",
   "Other Appliance",
 ]
 const appliancesHi = [
@@ -22,6 +23,7 @@ const appliancesHi = [
   "ओवन / माइक्रोवेव",
   "पंखा",
   "इस्त्री",
+  "किचन चिमनी",
   "अन्य अप्लायंस",
 ]
 
@@ -36,6 +38,7 @@ export function RepairServices() {
     { Icon: Microwave, en: "Oven / Microwave Repair", hi: "ओवन / माइक्रोवेव रिपेयर" },
     { Icon: Fan, en: "Fan Repair & Service", hi: "पंखा रिपेयर और सर्विस" },
     { Icon: Zap, en: "Iron Repair", hi: "इस्त्री रिपेयर" },
+    { Icon: Wind, en: "Kitchen Chimney Service & Repair", hi: "किचन चिमनी सर्विस और रिपेयर" },
     { Icon: Settings, en: "General Appliance Maintenance", hi: "सामान्य अप्लायंस रखरखाव" },
   ]
 

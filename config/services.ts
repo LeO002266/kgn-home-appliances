@@ -14,6 +14,7 @@ export type ServiceIconId =
   | "purifier"
   | "geyser"
   | "maintenance"
+  | "chimney"
 
 export interface ServiceItem {
   id: string
@@ -155,6 +156,19 @@ export const services: ServiceItem[] = [
     keywords: ["geyser installation Bhilai", "geyser service", "water heater repair Bhilai"],
     pointsEn: ["Wall mounting & connection", "Safety valve check", "Tank flushing for hard water"],
     pointsHi: ["दीवार पर फिटिंग और कनेक्शन", "सेफ्टी वाल्व की जाँच", "कठोर पानी के लिए टैंक फ्लशिंग"],
+  },
+  {
+    id: "kitchen-chimney-repair",
+    icon: "chimney",
+    nameEn: "Kitchen Chimney Repair & Service",
+    nameHi: "किचन चिमनी रिपेयर और सर्विस",
+    descEn:
+      "Filter cleaning and deep chemical servicing, motor repair, touch-panel and sensor faults, and new installation for chimneys of all brands — including Sunflame, Faber and Glen.",
+    descHi:
+      "सभी ब्रांड की चिमनी — जैसे सनफ्लेम (Sunflame), फेबर और ग्लेन — के फिल्टर की सफाई, डीप सर्विसिंग, मोटर रिपेयर, टच-पैनल व सेंसर की खराबी और नया इंस्टॉलेशन।",
+    keywords: ["kitchen chimney repair Bhilai", "chimney service near me", "Sunflame chimney repair"],
+    pointsEn: ["Filter cleaning & deep service", "Motor & suction repair", "Touch panel & sensor fix"],
+    pointsHi: ["फिल्टर की सफाई और डीप सर्विस", "मोटर और सक्शन रिपेयर", "टच पैनल और सेंसर रिपेयर"],
   },
   {
     id: "general-maintenance",

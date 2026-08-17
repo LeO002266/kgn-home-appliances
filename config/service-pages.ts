@@ -671,6 +671,81 @@ export const servicePages: ServiceLandingPage[] = [
     relatedBlogSlugs: [],
     relatedCategoryId: "other",
   },
+  {
+    slug: "kitchen-chimney-bhilai-near-me",
+    serviceId: "kitchen-chimney-repair",
+    h1En: "Kitchen Chimney Repair & Service in Bhilai",
+    h1Hi: "भिलाई में किचन चिमनी रिपेयर और सर्विस",
+    metaTitle: "Kitchen Chimney Repair in Bhilai | Sunflame & Multi-brand Service",
+    metaDescription:
+      "Kitchen chimney repair and filter cleaning in Bhilai. We fix motor suction issues, touch panel and motion sensor faults, auto-clean system errors, and do new installations. Authorised support for Sunflame SF-Genial and major brands. Call 91099 18786.",
+    keywords: [
+      "kitchen chimney repair Bhilai",
+      "kitchen chimney service near me",
+      "chimney sunflame Bhilai",
+      "Sunflame chimney service Smriti Nagar",
+      "kitchen chimney near me",
+      "kitchen chimney near Smriti Nagar",
+      "KGN Home Appliances chimney service",
+      "किचन चिमनी रिपेयर भिलाई",
+    ],
+    introEn: [
+      "A kitchen chimney that has lost its suction power, makes excessive noise, or has a faulty touch control panel can quickly ruin your cooking experience with grease and smoke. At KGN Home Appliances, we specialize in kitchen chimney repair, deep chemical filter cleaning, ducting, and new installations across Bhilai and Durg, including Smriti Nagar, Junwani, Nehru Nagar, and Kohka.",
+      "We provide expert service for all major chimney brands, especially Sunflame (including the popular SF-Genial auto-clean series with filterless technology and motion sensors). Whether you need motor repair, capacitor replacement, touch/sensor panel repair, or complete duct installation with high-quality pipes, our team delivers reliable work at your doorstep.",
+    ],
+    introHi: [
+      "किचन चिमनी जो धुआं खींचना बंद कर चुकी है, बहुत तेज़ आवाज़ करती है, या जिसका टच पैनल काम नहीं कर रहा, वह आपकी रसोई को तेल और धुएं से भर सकती है। KGN होम अप्लायंसेज में हम चिमनी रिपेयर, फिल्टर की डीप केमिकल क्लीनिंग, डक्टिंग और नई चिमनी इंस्टॉलेशन में माहिर हैं। हम स्मृति नगर, जुनवानी, नेहरू नगर और कोहका समेत पूरे भिलाई और दुर्ग में घर पर सेवा प्रदान करते हैं।",
+      "हम सभी बड़े ब्रांड्स, विशेष रूप से सनफ्लेम (Sunflame SF-Genial सीरीज़) की चिमनी की सर्विस करते हैं, जिसमें फिल्टरलेस टेक्नोलॉजी, मोशन सेंसर और ऑटो-क्लीन फीचर्स शामिल हैं। मोटर रिपेयर, कैपेसिटर बदलने, टच/सेंसर पैनल ठीक करने से लेकर मजबूत पाइप के साथ डक्ट लगाने तक, हमारी टीम पूरी ईमानदारी से काम करती है।"
+    ],
+    workEn: [
+      "Filter deep chemical cleaning & degreasing",
+      "Motor repair and rewinding (with warranty)",
+      "Touch panel and motion sensor fault repairs",
+      "Auto-clean heating element diagnostic & fix",
+      "Suction fan and capacitor replacement",
+      "New chimney installation and core cutting",
+      "Aluminum/semi-rigid ducting pipe installation",
+      "Lamps, wiring and main PCB repair",
+    ],
+    workHi: [
+      "फिल्टर की डीप केमिकल सफाई और तेल हटाना",
+      "मोटर रिपेयर और रिवाइंडिंग (वारंटी के साथ)",
+      "टच पैनल और मोशन सेंसर की खराबी ठीक करना",
+      "ऑटो-क्लीन हीटिंग एलिमेंट की मरम्मत",
+      "सक्शन फैन और कैपेसिटर बदलना",
+      "नई चिमनी इंस्टॉलेशन और कोर कटिंग",
+      "एल्युमीनियम/सेमी-रिजिड डक्ट पाइप फिटिंग",
+      "एलईडी लैंप, वायरिंग और पीसीबी रिपेयर",
+    ],
+    faqs: [
+      {
+        qEn: "How often should my kitchen chimney filters be cleaned?",
+        aEn: "For standard baffle filter chimneys, cleaning is recommended every 2-3 months depending on how much oily food you cook. Filterless auto-clean chimneys like the Sunflame SF-Genial require deep chemical cleaning once or twice a year to maintain peak suction efficiency.",
+        qHi: "किचन चिमनी के फिल्टर की सफाई कितने समय में करानी चाहिए?",
+        aHi: "बफल्स फिल्टर वाली चिमनी के लिए हर 2-3 महीने में सफाई की सलाह दी जाती है। सनफ्लेम एसएफ-जेनियल जैसी फिल्टरलेस ऑटो-क्लीन चिमनी के लिए साल में एक या दो बार डीप केमिकल सर्विसिंग पर्याप्त होती है ताकि सक्शन पावर कमजोर न हो।"
+      },
+      {
+        qEn: "What are the charges for chimney installation and ducting in Bhilai?",
+        aEn: "Chimney installation charges depend on whether ducting is already in place or needs core cutting in the wall. Standard wall-mounting ranges from ₹500 to ₹1000, and ducting pipe costs vary based on length and material (aluminum vs. expandable plastic). Call 91099 18786 for an exact quote.",
+        qHi: "भिलाई में चिमनी इंस्टॉलेशन और डक्टिंग का खर्च कितना आता है?",
+        aHi: "चिमनी इंस्टॉलेशन का खर्च इस बात पर निर्भर करता है कि डक्ट पहले से मौजूद है या दीवार में कोर कटिंग (छेद) करनी होगी। सामान्य माउंटिंग का चार्ज ₹500 से ₹1000 तक होता है। पाइप का खर्च उसकी लंबाई और मटेरियल पर निर्भर करता है। सही अनुमान के लिए 91099 18786 पर संपर्क करें।"
+      },
+      {
+        qEn: "Do you repair Sunflame motion sensor and auto-clean chimneys?",
+        aEn: "Yes, at KGN Home Appliances we repair Sunflame's advanced filterless motion-sensor chimneys (like SF-Genial). We fix sensor touch faults, auto-clean heating coil issues, and replace motors or PCBs if damaged.",
+        qHi: "क्या आप सनफ्लेम मोशन सेंसर और ऑटो-क्लीन चिमनी की रिपेयर करते हैं?",
+        aHi: "हाँ, KGN होम अप्लायंसेज में हम सनफ्लेम की एडवांस फिल्टरलेस मोशन-सेंसर चिमनी (जैसे SF-Genial) की रिपेयर करते हैं। हम मोशन सेंसर की खराबी, ऑटो-क्लीन हीटिंग कॉइल की दिक्कत और जरूरत पड़ने पर पीसीबी या मोटर बदलते हैं।"
+      },
+      {
+        qEn: "Do you provide home service for chimney repair in Smriti Nagar?",
+        aEn: "Absolutely. Chimney repair, filter cleaning, and duct installation are entirely done at your home in Smriti Nagar, Junwani, Supela, and Durg. You don't need to dismantle or carry the chimney anywhere.",
+        qHi: "क्या स्मृति नगर में चिमनी रिपेयर के लिए होम सर्विस मिलती है?",
+        aHi: "हाँ, बिल्कुल। चिमनी रिपेयर, फिल्टर क्लीनिंग और डक्ट का काम आपके घर पर ही (स्मृति नगर, जुनवानी, सुपेला, नेहरू नगर आदि में) किया जाता है। आपको चिमनी उतारने या कहीं ले जाने की कोई आवश्यकता नहीं है।"
+      }
+    ],
+    relatedBlogSlugs: [],
+    relatedCategoryId: "other",
+  },
 ]
 
 // --- Generated service × locality pages -----------------------------------
