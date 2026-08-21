@@ -746,6 +746,149 @@ export const servicePages: ServiceLandingPage[] = [
     relatedBlogSlugs: [],
     relatedCategoryId: "other",
   },
+  {
+    slug: "ro-filter-near-me",
+    serviceId: "water-purifier-service",
+    h1En: "RO Filter Service & Repair Near Me",
+    h1Hi: "मेरे पास RO फ़िल्टर सर्विस और रिपेयर",
+    metaTitle: "RO Filter Service Near Me | Water Purifier Repair & Filters",
+    metaDescription:
+      "RO filter service and repair near you. Professional filter replacement (sediment, carbon, membrane) on Junwani Road, Bhilai, serving Smriti Nagar & nearby areas. Call 91099 18786.",
+    keywords: [
+      "ro filter near me",
+      "kgn home appliances junwani rd",
+      "smriti nagar",
+      "bhilai",
+      "ro filter service near me",
+      "water purifier filter change bhilai",
+      "ro repair shop junwani road",
+      "aquaguard filter service bhilai",
+      "kent ro filter replacement bhilai",
+      "ro filter change cost bhilai",
+      "आरओ फ़िल्टर सर्विस",
+    ],
+    introEn: [
+      "Looking for professional RO filter service near me? At KGN Home Appliance & Services, located on Junwani Road, Bhilai, we specialize in complete water purifier filter replacements, including sediment filters, carbon filters, and RO membranes. We serve homeowners across Bhilai, including Smriti Nagar, Junwani, Nehru Nagar, and Supela, ensuring clean and safe drinking water.",
+      "Our experienced technicians handle filter service for all major brands like Kent, Aquaguard, Luminous, and more. Visit our shop or call us for hassle-free doorstep service at your home.",
+    ],
+    introHi: [
+      "क्या आप अपने आस-पास प्रोफेशनल RO फ़िल्टर सर्विस ढूंढ रहे हैं? जुनवानी रोड, भिलाई पर KGN होम अप्लायंस एंड सर्विसेज में हम वॉटर प्यूरीफायर फ़िल्टर बदलने (सेडिमेंट फ़िल्टर, कार्बन फ़िल्टर और RO मेम्ब्रेन) में माहिर हैं। हम स्मृति नगर, जुनवानी, नेहरू नगर और सुपेला सहित पूरे भिलाई में घरों को सेवा देते हैं।",
+      "हमारे अनुभवी टेक्नीशियन केंट, एक्वागार्ड, ल्यूमिनस जैसे सभी बड़े ब्रांडों की सर्विस करते हैं। हमारी दुकान पर आएं या घर पर ही आसान डोरस्टेप सर्विस के लिए कॉल करें।",
+    ],
+    workEn: [
+      "Sediment filter replacement",
+      "Activated carbon filter change",
+      "RO membrane replacement",
+      "TDS checking and water taste adjustment",
+      "UF and UV filter service",
+      "FR (Flow Restrictor) replacement",
+      "RO pump and adapter repair",
+      "Doorstep service in Smriti Nagar & Bhilai",
+    ],
+    workHi: [
+      "सेडिमेंट फ़िल्टर बदलना",
+      "एक्टिवेटेड कार्बन फ़िल्टर बदलना",
+      "RO मेम्ब्रेन बदलना",
+      "TDS जाँच और पानी का स्वाद सेट करना",
+      "UF और UV फ़िल्टर सर्विस",
+      "FR (फ्लो रिस्ट्रिक्टर) बदलना",
+      "RO पंप और अडैप्टर रिपेयर",
+      "स्मृति नगर और भिलाई में घर पर सर्विस",
+    ],
+    faqs: [
+      {
+        qEn: "Where is your RO filter service shop located?",
+        aEn: "Our shop, KGN Home Appliance & Services, is located in front of Shikhar Complex, near Surya Mall, Junwani Road, Bhilai. We are very close to Smriti Nagar and offer both counter drop-off and doorstep visits.",
+        qHi: "आपकी RO फ़िल्टर सर्विस की दुकान कहाँ है?",
+        aHi: "हमारी दुकान, KGN होम अप्लायंस एंड सर्विसेज, शिखर कॉम्प्लेक्स के सामने, सूर्या मॉल के पास, जुनवानी रोड, भिलाई में स्थित है। हम स्मृति नगर के बहुत करीब हैं और काउंटर ड्रॉप-ऑफ व डोरस्टेप सेवा दोनों प्रदान करते हैं।",
+      },
+      {
+        qEn: "How do I know if my RO filters need replacement?",
+        aEn: "If the water taste changes, flow becomes extremely slow, or your purifier shows a filter change alert, it is time for a service. Typically, sediment and carbon filters are replaced every 6–12 months.",
+        qHi: "मुझे कैसे पता चलेगा कि मेरे RO फ़िल्टर को बदलने की आवश्यकता है?",
+        aHi: "यदि पानी का स्वाद बदल जाता है, पानी का बहाव बहुत धीमा हो जाता है, या आपका प्यूरीफायर फ़िल्टर बदलने का अलर्ट दिखाता है, तो यह सर्विस का समय है। आमतौर पर, सेडिमेंट और कार्बन फ़िल्टर हर 6-12 महीने में बदले जाते हैं।",
+      },
+      {
+        qEn: "Do you provide doorstep RO filter service in Smriti Nagar and Bhilai?",
+        aEn: "Yes, we provide same-day or next-day doorstep RO service across Smriti Nagar, Junwani, Nehru Nagar, Kohka, and other areas of Bhilai. Call 91099 18786 to book.",
+        qHi: "क्या आप स्मृति नगर और भिलाई में घर पर RO फ़िल्टर सर्विस देते हैं?",
+        aHi: "हाँ, हम स्मृति नगर, जुनवानी, नेहरू नगर, कोहका और भिलाई के अन्य क्षेत्रों में उसी दिन या अगले दिन होम RO सर्विस प्रदान करते हैं। बुकिंग के लिए 91099 18786 पर कॉल करें।",
+      },
+    ],
+    relatedBlogSlugs: ["ro-uv-uf-water-purifier-guide"],
+    relatedCategoryId: "water-purifiers",
+  },
+  {
+    slug: "ro-near-me-bhilai",
+    serviceId: "water-purifier-service",
+    h1En: "RO Service & Repair Near Me in Bhilai",
+    h1Hi: "भिलाई में मेरे पास RO सर्विस और रिपेयर",
+    metaTitle: "RO Service Near Me in Bhilai | Water Purifier Repair Shop",
+    metaDescription:
+      "RO service near you in Bhilai. Doorstep repair, installation, and filter changes by KGN Home Appliances on Junwani Road. Proudly serving Smriti Nagar, Junwani, and Durg. Call 91099 18786.",
+    keywords: [
+      "ro near me bhilai",
+      "kgn home appliances junwani rd",
+      "smriti nagar",
+      "bhilai",
+      "ro service in bhilai",
+      "ro repair bhilai",
+      "water purifier installation bhilai",
+      "ro filter change bhilai",
+      "best ro repair service bhilai",
+      "आरओ सर्विस भिलाई",
+    ],
+    introEn: [
+      "Need reliable RO service near me in Bhilai? KGN Home Appliance & Services on Junwani Road is your trusted local destination for water purifier repairs, installations, and regular servicing. We serve residential areas across Bhilai, including Smriti Nagar, Junwani, Nehru Nagar, Supela, and Durg.",
+      "We service and repair all major brands of RO systems (Kent, Aquaguard, Luminous, etc.) using genuine parts and filters. Book a home visit today and get your water purifier checked by experts.",
+    ],
+    introHi: [
+      "भिलाई में भरोसेमंद RO सर्विस चाहिए? जुनवानी रोड पर KGN होम अप्लायंस एंड सर्विसेज वॉटर प्यूरीफायर रिपेयर, इंस्टॉलेशन और रेगुलर सर्विस के लिए आपका स्थानीय ठिकाना है। हम स्मृति नगर, जुनवानी, नेहरू नगर, सुपेला और दुर्ग सहित पूरे भिलाई में सेवा देते हैं।",
+      "हम असली पार्ट्स और फ़िल्टर का उपयोग करके सभी प्रमुख RO सिस्टम (केंट, एक्वागार्ड, ल्यूमिनस आदि) की सर्विस और मरम्मत करते हैं। आज ही होम विज़िट बुक करें और एक्सपर्ट्स से अपना वॉटर प्यूरीफायर चेक करवाएं।",
+    ],
+    workEn: [
+      "RO water purifier repair & servicing",
+      "New RO system installation & shifting",
+      "High-quality filter and membrane replacement",
+      "Water leakage and plumbing connection fixes",
+      "Booster pump and power adapter replacement",
+      "Auto-cut off and float valve repair",
+      "TDS control & alkaline cartridge upgrade",
+      "Doorstep repair visits across Bhilai and Durg",
+    ],
+    workHi: [
+      "RO वॉटर प्यूरीफायर रिपेयर और सर्विसिंग",
+      "नया RO सिस्टम इंस्टॉलेशन और शिफ्टिंग",
+      "हाई-क्वालिटी फ़िल्टर और मेम्ब्रेन बदलाव",
+      "पानी का रिसाव और प्लंबिंग कनेक्शन ठीक करना",
+      "बूस्टर पंप और पावर अडैप्टर बदलना",
+      "ऑटो-कट ऑफ और फ्लोट वाल्व रिपेयर",
+      "TDS कंट्रोल और अल्कलाइन कार्ट्रिज अपग्रेड",
+      "भिलाई और दुर्ग में घर पर रिपेयर विज़िट",
+    ],
+    faqs: [
+      {
+        qEn: "Do you offer doorstep RO repair in Bhilai and Smriti Nagar?",
+        aEn: "Yes, we offer doorstep repair and service for RO systems in Smriti Nagar, Junwani, Nehru Nagar, Supela, Risali, and Durg. Our technician will visit your home with all the necessary tools and spares.",
+        qHi: "क्या आप भिलाई और स्मृति नगर में घर पर RO रिपेयर की सुविधा देते हैं?",
+        aHi: "हाँ, हम स्मृति नगर, जुनवानी, नेहरू नगर, सुपेला, रिसाली और दुर्ग में RO सिस्टम के लिए होम रिपेयर और सर्विस प्रदान करते हैं। हमारे टेक्नीशियन सभी आवश्यक टूल्स और स्पेयर पार्ट्स के साथ आपके घर आएंगे।",
+      },
+      {
+        qEn: "What are your service charges for RO systems?",
+        aEn: "Our visit and diagnostic charges are minimal, and if you get the repair done by us, we adjust the charges. Contact us at 91099 18786 for pricing details for filters and pumps.",
+        qHi: "RO सिस्टम के लिए आपकी सर्विस फीस क्या है?",
+        aHi: "हमारी विज़िट और जाँच शुल्क बहुत कम है, और यदि आप हमसे रिपेयर करवाते हैं, तो हम इसे एडजस्ट कर लेते हैं। फ़िल्टर और पंप की कीमत के लिए 91099 18786 पर संपर्क करें।",
+      },
+      {
+        qEn: "Where is KGN Home Appliances located?",
+        aEn: "We are located on Junwani Road, right in front of Shikhar Complex near Surya Mall, Bhilai. We are open every day of the week to serve you.",
+        qHi: "KGN होम अप्लायंसेज कहाँ स्थित है?",
+        aHi: "हम जुनवानी रोड पर, शिखर कॉम्प्लेक्स के सामने, सूर्या मॉल के पास, भिलाई में स्थित हैं। हम आपकी सेवा के लिए सप्ताह के हर दिन खुले रहते हैं।",
+      },
+    ],
+    relatedBlogSlugs: ["ro-uv-uf-water-purifier-guide"],
+    relatedCategoryId: "water-purifiers",
+  },
 ]
 
 // --- Generated service × locality pages -----------------------------------
@@ -806,9 +949,11 @@ function buildComboPage(parent: ServiceLandingPage, area: ServiceAreaPage): Serv
 }
 
 /** One page per service per locality — e.g. mixer-grinder-repair-smriti-nagar-bhilai-near-me. */
-export const serviceAreaComboPages: ServiceLandingPage[] = servicePages.flatMap((p) =>
-  serviceAreaPages.map((a) => buildComboPage(p, a)),
-)
+export const serviceAreaComboPages: ServiceLandingPage[] = servicePages
+  .filter((p) => p.slug.endsWith(MAIN_SLUG_SUFFIX))
+  .flatMap((p) =>
+    serviceAreaPages.map((a) => buildComboPage(p, a)),
+  )
 
 /** Every service landing page, hand-written and generated. */
 export const allServicePages: ServiceLandingPage[] = [...servicePages, ...serviceAreaComboPages]
