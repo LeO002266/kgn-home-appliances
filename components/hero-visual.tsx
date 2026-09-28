@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ShieldCheck, MessageCircle, Phone, Sparkles, MapPin, ChevronRight, Blend, Droplets, Store, Flame } from "lucide-react"
+import { ShieldCheck, MessageCircle, Phone, Sparkles, MapPin, ChevronRight, Blend, Droplets, Store, Flame, Navigation2 } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -24,6 +24,21 @@ interface ShowcaseItem {
 }
 
 const showcaseItems: ShowcaseItem[] = [
+  // ── STOREFRONT FIRST — the main highlight ──
+  {
+    id: "storefront",
+    titleEn: "KGN Junwani Road Showroom",
+    titleHi: "KGN जुनवानी रोड शोरूम",
+    categoryEn: "Visit Our Store in Bhilai",
+    categoryHi: "हमारी दुकान पर आएं — भिलाई",
+    specsEn: "Opp. Shikhar Complex • Near Surya Mall • Open Daily",
+    specsHi: "शिखर कॉम्प्लेक्स के सामने • सूर्या मॉल के पास • रोज़ खुला",
+    badgeEn: "Our Store",
+    badgeHi: "हमारी दुकान",
+    image: "/storefront.jpg",
+    isStore: true,
+    TabIcon: Store,
+  },
   {
     id: "peacock-stove",
     titleEn: "Peacock 3-Burner Glass Stove",
@@ -65,20 +80,6 @@ const showcaseItems: ShowcaseItem[] = [
     image: "/products/havells-mixer-750.jpg",
     link: "/products/havells-mixer-750",
     TabIcon: Blend,
-  },
-  {
-    id: "storefront",
-    titleEn: "KGN Junwani Road Showroom",
-    titleHi: "KGN जुनवानी रोड शोरूम",
-    categoryEn: "Visit Us in Bhilai",
-    categoryHi: "हमारी दुकान पर आएं",
-    specsEn: "Opp. Shikhar Complex, Near Surya Mall",
-    specsHi: "शिखर कॉम्प्लेक्स के सामने, सूर्या मॉल के पास",
-    badgeEn: "Our Store",
-    badgeHi: "हमारी दुकान",
-    image: "/storefront.jpg",
-    isStore: true,
-    TabIcon: Store,
   },
 ]
 
@@ -186,11 +187,18 @@ export function HeroVisual() {
             {hi ? current.badgeHi : current.badgeEn}
           </div>
 
-          {/* Warranty badge top-right */}
-          <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full border border-border/70 bg-card/95 px-2 py-0.5 text-[11px] font-semibold text-foreground shadow backdrop-blur-sm">
-            <ShieldCheck className="h-3 w-3 text-primary" />
-            {hi ? "वारंटी" : "Warranty"}
-          </div>
+          {/* Top-right badge: Warranty for products, Location for store */}
+          {current.isStore ? (
+            <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full border border-border/70 bg-card/95 px-2 py-0.5 text-[11px] font-semibold text-foreground shadow backdrop-blur-sm">
+              <MapPin className="h-3 w-3 text-primary" />
+              {hi ? "जुनवानी रोड" : "Junwani Rd"}
+            </div>
+          ) : (
+            <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full border border-border/70 bg-card/95 px-2 py-0.5 text-[11px] font-semibold text-foreground shadow backdrop-blur-sm">
+              <ShieldCheck className="h-3 w-3 text-primary" />
+              {hi ? "वारंटी" : "Warranty"}
+            </div>
+          )}
         </div>
 
         {/* ── Info & CTA ── */}
@@ -216,36 +224,60 @@ export function HeroVisual() {
             {hi ? current.specsHi : current.specsEn}
           </p>
 
-          {/* Action buttons */}
+          {/* Action buttons — context-aware for store vs product */}
           <div className="mt-3 flex items-center gap-2">
-            <a
-              href={enquiryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] px-3 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#1ebe5b] active:scale-[0.98]"
-            >
-              <MessageCircle className="h-3.5 w-3.5" />
-              {hi ? "बेस्ट कीमत पूछें" : "WhatsApp for Price"}
-            </a>
-
-            <a
-              href={`tel:${businessConfig.contact.phone}`}
-              className="inline-flex items-center justify-center gap-1 rounded-xl border border-border/80 bg-secondary/60 px-3 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-primary/50 hover:bg-secondary active:scale-[0.98]"
-              aria-label="Call store"
-            >
-              <Phone className="h-3.5 w-3.5 text-primary" />
-              <span className="sm:hidden">{businessConfig.contact.phoneDisplay}</span>
-              <span className="hidden sm:inline">{hi ? "कॉल करें" : "Call"}</span>
-            </a>
-
-            {current.link && (
-              <Link
-                href={current.link}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border/80 bg-secondary/40 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
-                aria-label="View product details"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Link>
+            {current.isStore ? (
+              // Store slide: Directions + Call
+              <>
+                <a
+                  href={businessConfig.googleMaps.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-3 py-2.5 text-xs font-bold text-primary-foreground shadow-sm transition-all hover:opacity-90 active:scale-[0.98]"
+                >
+                  <Navigation2 className="h-3.5 w-3.5" />
+                  {hi ? "रास्ता देखें" : "Get Directions"}
+                </a>
+                <a
+                  href={`tel:${businessConfig.contact.phone}`}
+                  className="flex-1 inline-flex items-center justify-center gap-1 rounded-xl border border-border/80 bg-secondary/60 px-3 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-primary/50 hover:bg-secondary active:scale-[0.98]"
+                  aria-label="Call store"
+                >
+                  <Phone className="h-3.5 w-3.5 text-primary" />
+                  {hi ? "कॉल करें" : "Call Store"}
+                </a>
+              </>
+            ) : (
+              // Product slides: WhatsApp + Call + Details
+              <>
+                <a
+                  href={enquiryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] px-3 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#1ebe5b] active:scale-[0.98]"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" />
+                  {hi ? "बेस्ट कीमत पूछें" : "WhatsApp for Price"}
+                </a>
+                <a
+                  href={`tel:${businessConfig.contact.phone}`}
+                  className="inline-flex items-center justify-center gap-1 rounded-xl border border-border/80 bg-secondary/60 px-3 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-primary/50 hover:bg-secondary active:scale-[0.98]"
+                  aria-label="Call store"
+                >
+                  <Phone className="h-3.5 w-3.5 text-primary" />
+                  <span className="sm:hidden">{businessConfig.contact.phoneDisplay}</span>
+                  <span className="hidden sm:inline">{hi ? "कॉल करें" : "Call"}</span>
+                </a>
+                {current.link && (
+                  <Link
+                    href={current.link}
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border/80 bg-secondary/40 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+                    aria-label="View product details"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                )}
+              </>
             )}
           </div>
         </div>
