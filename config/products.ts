@@ -52,6 +52,8 @@ export type BrandId =
   | "Symphony"
   | "Usha"
   | "Link"
+  | "Surya"
+  | "Orient"
 
 export const categories: { id: CategoryId; nameEn: string; nameHi: string }[] = [
   { id: "mixer-grinders", nameEn: "Mixer Grinders", nameHi: "मिक्सर ग्राइंडर" },
@@ -211,6 +213,24 @@ export const brands: {
     introHi:
       "भिलाई में लिंक ताले — घर और दुकान की सुरक्षा के लिए हैवी-ड्यूटी, असली ताले। जुनवानी रोड स्थित KGN होम अप्लायंस एंड सर्विसेज पर उपलब्ध।",
   },
+  {
+    id: "Surya",
+    slug: "surya",
+    nameHi: "सूर्या",
+    introEn:
+      "Buy Surya gas stoves, induction cooktops, and heavy dry irons at KGN Home Appliance & Services on Junwani Road, Bhilai. Durable, ISI-standard appliances with official warranty.",
+    introHi:
+      "जुनवानी रोड, भिलाई स्थित KGN होम अप्लायंस एंड सर्विसेज पर सूर्या गैस चूल्हा, इंडक्शन कुकटॉप और हैवी ड्राई आयरन खरीदें। टिकाऊ बनावट और आधिकारिक वारंटी के साथ।",
+  },
+  {
+    id: "Orient",
+    slug: "orient",
+    nameHi: "ओरिएंट",
+    introEn:
+      "Shop Orient Electric ceiling fans in Bhilai. High-speed, 100% copper motors with official brand warranty and doorstep delivery across Bhilai and Durg.",
+    introHi:
+      "भिलाई में ओरिएंट इलेक्ट्रिक सीलिंग फैन खरीदें। हाई-स्पीड, 100% कॉपर मोटर आधिकारिक ब्रांड वारंटी और भिलाई-दुर्ग में घर तक डिलीवरी के साथ।",
+  },
 ]
 
 export function getBrand(slug: string) {
@@ -232,9 +252,9 @@ export const products: Product[] = [
   { id: "maharaja-mixer-500", nameEn: "Maharaja Whiteline Mixer Grinder 500W", nameHi: "महाराजा व्हाइटलाइन मिक्सर ग्राइंडर 500W", brand: "Maharaja", category: "mixer-grinders" },
   { id: "panasonic-mixer-550", nameEn: "Panasonic Mixer Grinder 550W", nameHi: "पैनासोनिक मिक्सर ग्राइंडर 550W", brand: "Panasonic", category: "mixer-grinders" },
   { id: "inalsa-mixer-750", nameEn: "Inalsa Mixer Grinder 750W", nameHi: "इनाल्सा मिक्सर ग्राइंडर 750W", brand: "Inalsa", category: "mixer-grinders" },
-
-  // Gas Stoves
   { id: "prestige-stove-3b", nameEn: "Prestige Glass Top 3 Burner", nameHi: "प्रेस्टीज ग्लास टॉप 3 बर्नर", brand: "Prestige", category: "gas-stoves", badgeEn: "Best Seller", badgeHi: "बेस्टसेलर", featured: true },
+  { id: "surya-glass-stove-2b", nameEn: "Surya 2 Burner Toughened Glass Stove", nameHi: "सूर्या 2 बर्नर टफन्ड ग्लास चूल्हा", brand: "Surya", category: "gas-stoves", badgeEn: "New Arrival", badgeHi: "नया आगमन", featured: true },
+  { id: "peacock-glass-stove-3b", nameEn: "Peacock Designer 3 Burner Glass Stove", nameHi: "पीकॉक डिज़ाइनर 3 बर्नर ग्लास चूल्हा", category: "gas-stoves", badgeEn: "Designer", badgeHi: "डिज़ाइनर", featured: true },
   { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", brand: "Butterfly", category: "gas-stoves" },
   { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", featured: true },
 
@@ -243,7 +263,7 @@ export const products: Product[] = [
   { id: "gas-regulator", nameEn: "LPG Gas Regulator", nameHi: "LPG गैस रेगुलेटर", category: "kitchen-accessories" },
   { id: "stove-burner-brass", nameEn: "Brass Stove Burner (Spare Part)", nameHi: "पीतल स्टोव बर्नर (स्पेयर पार्ट)", category: "kitchen-accessories" },
   { id: "gas-lighter", nameEn: "Gas Lighter / Igniter", nameHi: "गैस लाइटर / इग्नाइटर", category: "kitchen-accessories" },
-  { id: "butane-fuel-can", nameEn: "Butane Fuel Can", nameHi: "ब्यूटेन फ्यूल कैन", category: "kitchen-accessories" },
+  { id: "butane-fuel-can", nameEn: "Butane Fuel Can", nameHi: "ब्यूटेन फ्यूल कैन", category: "kitchen-accessories", badgeEn: "Threaded Valve", badgeHi: "थ्रेडेड वाल्व" },
   { id: "gas-safety-valve", nameEn: "Gas Safety Valve", nameHi: "गैस सेफ्टी वाल्व", category: "kitchen-accessories" },
   { id: "kitchen-tool-set", nameEn: "Kitchen Tool Set (Tongs, Ladles & More)", nameHi: "किचन टूल सेट (चिमटा, कलछी और अधिक)", category: "kitchen-accessories" },
   { id: "chopping-board", nameEn: "Wooden Chopping Board", nameHi: "लकड़ी का चॉपिंग बोर्ड", category: "kitchen-accessories" },
@@ -256,12 +276,12 @@ export const products: Product[] = [
   // Kitchenware & Cookware
   { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware" },
   { id: "casserole-set", nameEn: "Insulated Casserole Set", nameHi: "इंसुलेटेड कैसरोल सेट", category: "kitchenware" },
-  { id: "insulated-hotpot", nameEn: "Insulated Hotpot", nameHi: "इंसुलेटेड हॉटपॉट", category: "kitchenware" },
+  { id: "insulated-hotpot", nameEn: "Insulated Hotpot", nameHi: "इंसुलेटेड हॉटपॉट", category: "kitchenware", badgeEn: "Food Grade", badgeHi: "फूड ग्रेड" },
   { id: "nonstick-cookware-set", nameEn: "Non-Stick Cookware Set", nameHi: "नॉन-स्टिक कुकवेयर सेट", category: "kitchenware" },
   { id: "steel-kadai", nameEn: "Stainless Steel Kadai", nameHi: "स्टेनलेस स्टील कढ़ाई", category: "kitchenware" },
 
   // Water Bottles & Tiffins
-  { id: "copper-water-bottle-1l", nameEn: "Copper Water Bottle 1L", nameHi: "तांबे की पानी की बोतल 1L", category: "bottles-tiffins", featured: true },
+  { id: "copper-water-bottle-1l", nameEn: "Copper Water Bottle 1L", nameHi: "तांबे की पानी की बोतल 1L", category: "bottles-tiffins", badgeEn: "Pure Copper", badgeHi: "शुद्ध तांबा", featured: true },
   { id: "steel-tiffin-set", nameEn: "Steel Tiffin Box Set", nameHi: "स्टील टिफिन बॉक्स सेट", category: "bottles-tiffins" },
   { id: "thermos-flask-1l", nameEn: "Thermos Flask 1L", nameHi: "थर्मस फ्लास्क 1L", category: "bottles-tiffins" },
   { id: "steel-water-bottle-1l", nameEn: "Stainless Steel Water Bottle 1L", nameHi: "स्टेनलेस स्टील पानी की बोतल 1L", category: "bottles-tiffins", featured: true },
@@ -270,6 +290,7 @@ export const products: Product[] = [
 
   // Cleaning Tools
   { id: "floor-mop-spin", nameEn: "Spin Mop with Bucket", nameHi: "स्पिन मॉप विद बकेट", category: "cleaning-tools" },
+  { id: "cloth-drying-stand", nameEn: "Stainless Steel Folding Cloth Drying Stand", nameHi: "स्टेनलेस स्टील फोल्डिंग कपड़ा सुखाने का स्टैंड", category: "cleaning-tools", badgeEn: "Heavy Duty", badgeHi: "हैवी ड्यूटी", featured: true },
   { id: "floor-wiper", nameEn: "Floor Wiper / Squeegee", nameHi: "फ्लोर वाइपर / स्क्वीजी", category: "cleaning-tools" },
   { id: "cleaning-bucket", nameEn: "Plastic Cleaning Bucket with Wringer", nameHi: "प्लास्टिक क्लीनिंग बकेट विद रिंगर", category: "cleaning-tools" },
   { id: "broom-set", nameEn: "Broom & Brush Set", nameHi: "झाड़ू और ब्रश सेट", category: "cleaning-tools" },
@@ -277,13 +298,20 @@ export const products: Product[] = [
 
   // Hardware & Locks
   { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", brand: "Link", category: "hardware-locks" },
+  { id: "aluminum-step-ladder", nameEn: "6-Step Heavy Duty Aluminum Ladder", nameHi: "6-स्टेप हैवी ड्यूटी एल्युमिनियम सीढ़ी", category: "hardware-locks", badgeEn: "Anti-Skid", badgeHi: "एंटी-स्किड", featured: true },
   { id: "door-lock-mortise", nameEn: "Mortise Door Lock", nameHi: "मोर्टिस डोर लॉक", category: "hardware-locks" },
   { id: "kitchen-knife-set", nameEn: "Stainless Steel Kitchen Knife Set", nameHi: "स्टेनलेस स्टील किचन नाइफ सेट", category: "hardware-locks" },
   { id: "steel-door-hinges", nameEn: "Steel Door Hinges (Pack of 4)", nameHi: "स्टील डोर हिंज (4 का पैक)", category: "hardware-locks" },
 
   // Water Purifiers
-  { id: "ro-purifier-10l", nameEn: "RO Water Purifier 10L", nameHi: "RO वॉटर प्यूरीफायर 10L", category: "water-purifiers", featured: true },
+  { id: "starx-royal-ro-purifier", nameEn: "Star X Royal Plus RO+UV+UF Purifier", nameHi: "स्टार X रॉयल प्लस RO+UV+UF प्यूरीफायर", category: "water-purifiers", badgeEn: "Copper+Zinc", badgeHi: "कॉपर+ज़िंक", featured: true },
+  { id: "sky-purolex-gold-purifier", nameEn: "Sky Purolex Gold RO Purifier", nameHi: "स्काई प्योरोलेक्स गोल्ड RO प्यूरीफायर", category: "water-purifiers", badgeEn: "Premium", badgeHi: "प्रीमियम", featured: true },
+  { id: "starx-black-ro-purifier", nameEn: "Star X Black & Gold RO Purifier", nameHi: "स्टार X ब्लैक एंड गोल्ड RO प्यूरीफायर", category: "water-purifiers", badgeEn: "Popular", badgeHi: "लोकप्रिय" },
+  { id: "ro-purifier-10l", nameEn: "RO Water Purifier 10L", nameHi: "RO वॉटर प्यूरीफायर 10L", category: "water-purifiers" },
   { id: "uv-purifier", nameEn: "UV + UF Water Purifier", nameHi: "UV + UF वॉटर प्यूरीफायर", category: "water-purifiers" },
+  { id: "aqua-spun-filter-candle", nameEn: "Aqua 10\" PP Spun Filter Candle (5 Micron)", nameHi: "एक्वा 10\" PP स्पन फिल्टर कैंडल (5 माइक्रोन)", category: "water-purifiers" },
+  { id: "purosis-inline-filters", nameEn: "Purosis 8\" In-Line Filter Set (Sediment+Carbon)", nameHi: "प्योरोसिस 8\" इन-लाइन फिल्टर सेट (सेडिमेंट+कार्बन)", category: "water-purifiers" },
+  { id: "lucent-ro-control-panel", nameEn: "Lucent Intelligent RO Control Panel 1:1", nameHi: "लूसेंट इंटेलिजेंट RO कंट्रोल पैनल 1:1", category: "water-purifiers" },
 
   // Geysers & Water Heaters
   { id: "bajaj-geyser-15l", nameEn: "Bajaj Storage Geyser 15L", nameHi: "बजाज स्टोरेज गीज़र 15L", brand: "Bajaj", category: "water-heaters", featured: true },
@@ -291,20 +319,22 @@ export const products: Product[] = [
   { id: "immersion-rod-1500", nameEn: "Immersion Rod 1500W", nameHi: "इमर्शन रॉड 1500W", category: "water-heaters" },
 
   // Fans & Coolers
+  { id: "orient-fan-1200", nameEn: "Orient Rapid Air Deco Ceiling Fan 1200mm", nameHi: "ओरिएंट रैपिड एयर डेको सीलिंग फैन 1200mm", brand: "Orient", category: "fans-coolers", badgeEn: "100% Copper", badgeHi: "100% कॉपर", featured: true },
   { id: "bajaj-fan-400", nameEn: "Bajaj Pedestal Fan 400mm", nameHi: "बजाज पेडेस्टल फैन 400mm", brand: "Bajaj", category: "fans-coolers", featured: true },
   { id: "crompton-ceiling", nameEn: "Crompton Ceiling Fan 1200mm", nameHi: "क्रॉम्पटन सीलिंग फैन 1200mm", brand: "Crompton", category: "fans-coolers" },
   { id: "symphony-cooler-45", nameEn: "Symphony Air Cooler 45L", nameHi: "सिम्फनी एयर कूलर 45L", brand: "Symphony", category: "fans-coolers" },
 
   // Other
+  { id: "induction-cooktop", nameEn: "Surya Gold Plus Induction Cooktop", nameHi: "सूर्या गोल्ड प्लस इंडक्शन कुकटॉप", brand: "Surya", category: "other", badgeEn: "Touch Panel", badgeHi: "टच पैनल", featured: true },
+  { id: "surya-macho-iron-1000", nameEn: "Surya Macho Plus Dry Iron 1000W", nameHi: "सूर्या माचो प्लस ड्राई आयरन 1000W", brand: "Surya", category: "other", badgeEn: "Heavy Weight", badgeHi: "हैवी वेट" },
+  { id: "led-torch-lamp", nameEn: "Wipro Lifelite LED Rechargeable Torch", nameHi: "विप्रो लाइफलाइट LED रिचार्जेबल टॉर्च", category: "other", badgeEn: "Rechargeable", badgeHi: "रिचार्जेबल" },
   { id: "usha-iron-1100", nameEn: "Usha Iron 1100W", nameHi: "उषा इस्त्री 1100W", brand: "Usha", category: "other" },
   { id: "bajaj-heater-2000", nameEn: "Bajaj Room Heater 2000W", nameHi: "बजाज रूम हीटर 2000W", brand: "Bajaj", category: "other" },
-  { id: "room-heater-parts", nameEn: "Room Heater Spare Parts", nameHi: "रूम हीटर स्पेयर पार्ट्स", category: "other" },
+  { id: "room-heater-parts", nameEn: "Room Heater Spare Parts", nameHi: "रूम हीटर स्पेयर पार्ट्स", category: "other", badgeEn: "Genuine Spares", badgeHi: "असली स्पेयर" },
   { id: "crompton-pump-1hp", nameEn: "Crompton Water Pump 1HP", nameHi: "क्रॉम्पटन वॉटर पंप 1HP", brand: "Crompton", category: "other" },
-  { id: "induction-cooktop", nameEn: "Induction Cooktop", nameHi: "इंडक्शन कुकटॉप", category: "other", featured: true },
-  { id: "kitchen-chimney", nameEn: "Kitchen Chimney", nameHi: "किचन चिमनी", category: "other" },
-  { id: "otg-oven", nameEn: "OTG Oven", nameHi: "OTG ओवन", category: "other" },
-  { id: "electric-rice-cooker", nameEn: "Electric Rice Cooker", nameHi: "इलेक्ट्रिक राइस कुकर", category: "other" },
-  { id: "led-torch-lamp", nameEn: "LED Torch & Emergency Lamp", nameHi: "LED टॉर्च और इमरजेंसी लैंप", category: "other" },
+  { id: "kitchen-chimney", nameEn: "Kitchen Chimney", nameHi: "किचन चिमनी", category: "other", badgeEn: "Touch Panel", badgeHi: "टच पैनल", featured: true },
+  { id: "otg-oven", nameEn: "OTG Oven", nameHi: "OTG ओवन", category: "other", badgeEn: "Multi-Function", badgeHi: "मल्टी-फंक्शन", featured: true },
+  { id: "electric-rice-cooker", nameEn: "Electric Rice Cooker", nameHi: "इलेक्ट्रिक राइस कुकर", category: "other", badgeEn: "Auto Warm", badgeHi: "ऑटो वार्म", featured: true },
 ]
 
 // Generic, honest selling points per category (store-level claims, no invented specs)
