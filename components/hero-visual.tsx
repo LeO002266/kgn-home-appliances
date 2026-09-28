@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheck, MessageCircle, Phone, Sparkles, MapPin, ChevronRight, Blend, Droplets, Store, Flame } from "lucide-react"
@@ -87,16 +87,42 @@ export function HeroVisual() {
   const hi = language === "hi"
   const [activeIdx, setActiveIdx] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
   const current = showcaseItems[activeIdx]
+  const total = showcaseItems.length
 
   useEffect(() => {
     if (isPaused) return
     const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % showcaseItems.length)
+      setActiveIdx((prev) => (prev + 1) % total)
     }, 4500)
     return () => clearInterval(timer)
-  }, [isPaused])
+  }, [isPaused, total])
+
+  const goNext = () => setActiveIdx((prev) => (prev + 1) % total)
+  const goPrev = () => setActiveIdx((prev) => (prev - 1 + total) % total)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+    setIsPaused(true)
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
+    // Only treat as horizontal swipe if horizontal movement > 40px and dominates vertical
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) goNext()
+      else goPrev()
+    }
+    touchStartX.current = null
+    touchStartY.current = null
+    setIsPaused(false)
+  }
 
   const enquiryUrl = getWhatsAppUrl(
     `${businessConfig.whatsappMessages.priceEnquiry} ${current.titleEn}. ${
@@ -109,6 +135,8 @@ export function HeroVisual() {
       className="relative w-full max-w-xl mx-auto"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Ambient glow */}
       <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-primary/25 via-accent/20 to-primary/10 blur-2xl opacity-70" aria-hidden="true" />
