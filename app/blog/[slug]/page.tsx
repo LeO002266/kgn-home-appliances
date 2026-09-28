@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { BlogPostContent } from "@/components/blog-post-content"
 import { blogPosts, getBlogPost, postPlainText } from "@/config/blog"
 import { businessConfig } from "@/config/business"
@@ -109,13 +108,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     : null
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
       <BlogPostContent slug={post.slug} />
-    </LanguageProvider>
+    </>
   )
 }

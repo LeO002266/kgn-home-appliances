@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { AreaPageContent } from "@/components/area-page-content"
 import { serviceAreaPages, getAreaPage } from "@/config/areas"
 import { businessConfig } from "@/config/business"
@@ -86,17 +85,17 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: base },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${base}/services` },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: `${base}/service-areas` },
       { "@type": "ListItem", position: 3, name: area.nameEn, item: url },
     ],
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <AreaPageContent slug={area.slug} />
-    </LanguageProvider>
+    </>
   )
 }

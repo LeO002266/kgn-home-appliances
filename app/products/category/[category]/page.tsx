@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { CategoryPageContent } from "@/components/category-page-content"
 import {
   categories,
@@ -109,10 +108,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <CategoryPageContent categoryId={cat.id as CategoryId} />
-    </LanguageProvider>
+    </>
   )
 }

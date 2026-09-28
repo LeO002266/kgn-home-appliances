@@ -16,9 +16,6 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     // Vercel optimizes and re-encodes on the fly, so the hero photo (the LCP
     // element on mobile) ships as AVIF/WebP instead of a ~460 KB JPEG.

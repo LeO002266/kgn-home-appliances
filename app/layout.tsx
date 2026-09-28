@@ -4,6 +4,8 @@ import { Inter, Fraunces } from "next/font/google"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { businessConfig } from "@/config/business"
+import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/context/language-context"
 import "./globals.css"
 
 // Optional — set in .env.local / Vercel env vars. Both are no-ops when unset.
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(businessConfig.siteUrl),
   title: {
     default: "KGN Home Appliances & Repairing in Bhilai, Chhattisgarh",
-    template: "%s | KGN Home Appliance & Services, Bhilai",
+    template: "%s | KGN Home Appliance & Services",
   },
   description:
     "Home appliance shop on Junwani Road, Bhilai — mixer grinders, gas stoves, water purifiers, geysers, fans, kitchenware, cleaning tools & hardware. Appliance repair, servicing & gas pipeline work. Call 91099-18786 for best price.",
@@ -174,10 +176,14 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
         {gaId && (
           <>

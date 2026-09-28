@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { ProductDetailContent } from "@/components/product-detail-content"
 import {
   products,
@@ -112,10 +111,10 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ProductDetailContent productId={product.id} />
-    </LanguageProvider>
+    </>
   )
 }

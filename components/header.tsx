@@ -7,6 +7,7 @@ import { Menu, X, ShoppingBag, Phone } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
 import { LanguageSwitcher } from "./language-switcher"
+import { ThemeToggle } from "./theme-toggle"
 import { LogoMark } from "./logo"
 import { useScrollSpy } from "@/hooks/use-scroll-spy"
 import { cn } from "@/lib/utils"
@@ -88,6 +89,7 @@ export function Header() {
               </span>
               {businessConfig.contact.phoneDisplay}
             </a>
+            <ThemeToggle />
             <LanguageSwitcher />
             <Link
               href="/products"
@@ -98,8 +100,9 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Phone & tablet: switcher + hamburger */}
+          {/* Phone & tablet: switcher + theme + hamburger */}
           <div className="flex lg:hidden items-center gap-1.5">
+            <ThemeToggle />
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}

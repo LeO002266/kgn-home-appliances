@@ -34,8 +34,8 @@ export function AreaPageContent({ slug }: { slug: string }) {
               {t("nav.home")}
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href="/services" className="hover:text-primary transition-colors">
-              {t("services.title")}
+            <Link href="/service-areas" className="hover:text-primary transition-colors">
+              {hi ? "सर्विस एरिया" : "Service Areas"}
             </Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-foreground font-medium">{hi ? area.nameHi : area.nameEn}</span>

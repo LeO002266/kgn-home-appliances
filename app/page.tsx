@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { PageContent } from "@/components/page-content"
-import { LanguageProvider } from "@/context/language-context"
 import { faqs } from "@/config/faqs"
 import { businessConfig } from "@/config/business"
 import { categories, categoryUrl } from "@/config/products"
@@ -81,9 +80,7 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <LanguageProvider>
-        <PageContent />
-      </LanguageProvider>
+      <PageContent />
     </>
   )
 }

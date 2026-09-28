@@ -126,7 +126,7 @@ export function ContactSection() {
     },
     {
       icon: MessageCircle,
-      iconClass: "bg-green-500/10 text-green-600",
+      iconClass: "bg-green-500/10 text-green-600 dark:text-green-400",
       label: t("contact.whatsapp"),
       value: businessConfig.contact.whatsappDisplay,
       href: whatsappUrl,
@@ -210,7 +210,7 @@ export function ContactSection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-green-500 bg-green-50 px-6 py-2.5 text-sm font-semibold text-green-700 hover:bg-green-100 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-green-500/50 bg-green-50 dark:bg-green-950/40 px-6 py-2.5 text-sm font-semibold text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/50 transition-colors"
               >
                 <MessageCircle className="h-4 w-4" />
                 {t("contact.whatsapp")}

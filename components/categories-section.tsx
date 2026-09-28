@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home, Star } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { categories, categoryUrl, products, productImageFileExists, type CategoryId } from "@/config/products"
@@ -86,13 +87,13 @@ function CategoryTileImage({ catId, alt }: { catId: CategoryId; alt: string }) {
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={categoryImages[catId]}
       alt={alt}
-      loading="lazy"
+      fill
+      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
       onError={() => setFailed(true)}
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      className="object-cover transition-transform duration-500 group-hover:scale-105"
     />
   )
 }

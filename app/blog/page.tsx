@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { LanguageProvider } from "@/context/language-context"
 import { BlogIndexContent } from "@/components/blog-index-content"
 import { getSortedPosts } from "@/config/blog"
 import { businessConfig } from "@/config/business"
@@ -65,10 +64,10 @@ export default function BlogPage() {
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <BlogIndexContent />
-    </LanguageProvider>
+    </>
   )
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import {
   CookingPot,
   Blend,
@@ -75,13 +76,13 @@ export function ProductImage({
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={getProductImage(product)}
       alt={alt}
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      className="object-cover transition-transform duration-500 group-hover:scale-105"
       onError={() => setFailed(true)}
-      loading="lazy"
     />
   )
 }

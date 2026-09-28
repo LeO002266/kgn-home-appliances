@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { LanguageProvider } from "@/context/language-context"
 import { ProductsPageContent } from "@/components/products-page-content"
 import { products, categories, categoryUrl } from "@/config/products"
 import { businessConfig } from "@/config/business"
@@ -57,10 +56,10 @@ export default function ProductsPage() {
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ProductsPageContent />
-    </LanguageProvider>
+    </>
   )
 }

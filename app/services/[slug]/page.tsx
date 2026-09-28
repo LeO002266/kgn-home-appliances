@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { ServiceLandingContent } from "@/components/service-landing-content"
 import { allServicePages, getServicePage } from "@/config/service-pages"
 import { serviceAreas } from "@/config/services"
@@ -97,11 +96,11 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ServiceLandingContent slug={page.slug} />
-    </LanguageProvider>
+    </>
   )
 }

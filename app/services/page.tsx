@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { LanguageProvider } from "@/context/language-context"
 import { ServicesPageContent } from "@/components/services-page-content"
 import { services, serviceAreas } from "@/config/services"
 import { businessConfig } from "@/config/business"
@@ -78,10 +77,10 @@ export default function ServicesPage() {
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ServicesPageContent />
-    </LanguageProvider>
+    </>
   )
 }

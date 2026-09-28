@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { LanguageProvider } from "@/context/language-context"
 import { BrandPageContent } from "@/components/brand-page-content"
 import { brands, getBrand, getBrandProducts, productUrl } from "@/config/products"
 import { businessConfig } from "@/config/business"
@@ -78,10 +77,10 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
   }
 
   return (
-    <LanguageProvider>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <BrandPageContent slug={b.slug} />
-    </LanguageProvider>
+    </>
   )
 }

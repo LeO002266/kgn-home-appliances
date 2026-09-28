@@ -11,22 +11,22 @@ export function MobileCtaBar() {
 
   return (
     <>
-      <div className="h-16 md:hidden" aria-hidden="true" />
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-card/95 backdrop-blur-md md:hidden">
+      <div className="h-20 md:hidden" aria-hidden="true" />
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-border bg-card/95 px-3 pt-2.5 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
         <a
           href={`tel:${businessConfig.contact.phone}`}
-          className="flex items-center justify-center gap-2 py-4 text-sm font-bold text-primary active:bg-secondary"
+          className="flex items-center justify-center gap-2 rounded-xl border border-primary/20 bg-primary/5 py-2.5 text-sm font-bold text-primary active:bg-primary/10 transition-colors"
         >
-          <Phone className="h-5 w-5" />
+          <Phone className="h-4 w-4" />
           {t("contact.call_now")}
         </a>
         <a
           href={getWhatsAppUrl(businessConfig.whatsappMessages.general)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-[#25D366] py-4 text-sm font-bold text-white active:bg-[#1ebe5b]"
+          className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-2.5 text-sm font-bold text-white shadow-sm active:bg-[#1ebe5b] transition-colors"
         >
-          <MessageCircle className="h-5 w-5" />
+          <MessageCircle className="h-4 w-4" />
           {t("contact.whatsapp")}
         </a>
       </div>
