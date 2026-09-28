@@ -38,14 +38,17 @@ export function HeroVisual() {
 
   return (
     <div className="relative w-full max-w-xl mx-auto">
-      <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-secondary via-card to-accent/10 shadow-xl">
+      {/* Ambient glow behind image */}
+      <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/10 blur-xl opacity-75" aria-hidden="true" />
+
+      <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-br from-secondary via-card to-accent/10 shadow-2xl">
         {!imageFailed ? (
           <Image
             src={imageSources[imageIndex]}
             alt="KGN Home Appliance & Services store on Junwani Road, Bhilai"
             fill
             priority
-            className="object-cover"
+            className="object-cover transition-transform duration-700 hover:scale-102"
             sizes="(max-width: 1024px) 100vw, 50vw"
             onError={() => setImageIndex((i) => i + 1)}
           />
@@ -68,23 +71,23 @@ export function HeroVisual() {
 
       <a
         href={`tel:${businessConfig.contact.phone}`}
-        className="absolute -bottom-4 left-4 sm:-bottom-5 sm:left-8 flex items-center gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 sm:px-5 sm:py-4 shadow-lg backdrop-blur-sm max-w-[calc(100%-2rem)] transition-colors hover:border-primary/50"
+        className="absolute -bottom-4 left-4 sm:-bottom-5 sm:left-6 flex items-center gap-3 rounded-2xl border border-border/80 bg-card/95 px-4 py-3 sm:px-5 sm:py-3.5 shadow-xl backdrop-blur-md max-w-[calc(100%-2rem)] transition-all hover:border-primary/50 hover:shadow-2xl hover:-translate-y-0.5"
       >
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Phone className="h-5 w-5" />
         </span>
         <span>
-          <span className="block text-lg sm:text-xl font-bold text-primary leading-tight">
+          <span className="block text-lg sm:text-xl font-bold text-foreground leading-tight tracking-tight">
             {businessConfig.contact.phoneDisplay}
           </span>
-          <span className="block text-xs sm:text-sm text-muted-foreground">{t("hero.call_for_price")}</span>
+          <span className="block text-xs sm:text-sm font-medium text-primary">{t("hero.call_for_price")}</span>
         </span>
       </a>
 
-      {/* Factual badge — no invented rating. */}
-      <div className="absolute -top-3 right-4 sm:-top-4 sm:right-8 flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 shadow-md">
+      {/* Factual warranty badge */}
+      <div className="absolute -top-3 right-4 sm:-top-4 sm:right-6 flex items-center gap-1.5 rounded-full border border-border/80 bg-card/95 px-3.5 py-1.5 shadow-lg backdrop-blur-md">
         <ShieldCheck className="h-4 w-4 text-primary" />
-        <span className="text-sm font-semibold text-foreground">{t("hero.warranty_badge")}</span>
+        <span className="text-xs sm:text-sm font-semibold text-foreground">{t("hero.warranty_badge")}</span>
       </div>
     </div>
   )

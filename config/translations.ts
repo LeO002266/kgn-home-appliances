@@ -117,7 +117,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.description":
       "Mixer grinders, gas stoves, coolers, geysers and kitchen essentials from Bajaj, Prestige, Usha, Hawkins and more — with repair at the same counter and doorstep service across Bhilai & Durg.",
     "hero.one_counter": "Sales & repair at one counter",
-    "hero.cta_shop": "Shop Products",
+    "hero.cta_shop": "Explore Products",
     "hero.cta_repair": "Book a Repair",
     "hero.cta_browse": "Browse Categories",
     "hero.free_delivery": "Free delivery in Bhilai",
@@ -126,6 +126,18 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.rating_label": "customer rating",
     "hero.warranty_badge": "Genuine • Warranty",
     "hero.gas_pipeline": "Gas pipeline work done",
+    "hero.trust_landmark": "Opp. Shikhar Complex, Junwani Rd",
+    "hero.trust_free_del": "Free Delivery across Bhilai-Durg",
+    "hero.trust_warranty": "100% Genuine Brand Warranty",
+    "hero.trust_repair": "Doorstep Repair & Gas Pipeline",
+
+    // Featured Tabs
+    "products.tab_all": "All Featured",
+    "products.tab_kitchen": "Kitchen & Stoves",
+    "products.tab_cooling": "Fans & Coolers",
+    "products.tab_water": "Purifiers & Geysers",
+    "products.tab_essentials": "Home Essentials",
+    "products.filtered_empty": "No featured products in this category right now.",
 
     // Categories
     "categories.title": "Shop by Category",
@@ -146,6 +158,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "specialty.gas_desc":
       "Glass top & steel stoves from trusted brands, with gas pipeline fitting, burner repair and installation at your home.",
     "specialty.cta": "Shop Now",
+    "specialty.cap_sales_title": "Showroom Demo & Sales",
+    "specialty.cap_sales_desc": "Live demonstrations and brand comparisons at our Junwani Road showroom.",
+    "specialty.cap_spares_title": "Genuine Spare Parts",
+    "specialty.cap_spares_desc": "Jars, blades, couplers, gas burners and gaskets available off the shelf.",
+    "specialty.cap_pipeline_title": "Doorstep Pipeline & Repair",
+    "specialty.cap_pipeline_desc": "Certified LPG gas pipeline fitting, leak testing, and doorstep technician visits.",
 
     // Category Names
     "category.fans": "Fans & Coolers",
@@ -347,7 +365,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.description":
       "बजाज, प्रेस्टीज, उषा, हॉकिन्स और अन्य ब्रांड के मिक्सर ग्राइंडर, गैस चूल्हे, कूलर, गीज़र और किचन का सामान — उसी काउंटर पर रिपेयर, और भिलाई व दुर्ग में घर पर सर्विस।",
     "hero.one_counter": "बिक्री और रिपेयर एक ही काउंटर पर",
-    "hero.cta_shop": "उत्पाद खरीदें",
+    "hero.cta_shop": "उत्पाद देखें",
     "hero.cta_repair": "रिपेयर बुक करें",
     "hero.cta_browse": "श्रेणियाँ देखें",
     "hero.free_delivery": "भिलाई में मुफ्त डिलीवरी",
@@ -356,6 +374,18 @@ export const translations: Record<Language, Record<string, string>> = {
     "hero.rating_label": "ग्राहक रेटिंग",
     "hero.warranty_badge": "असली • वारंटी",
     "hero.gas_pipeline": "गैस पाइपलाइन का काम किया जाता है",
+    "hero.trust_landmark": "शिखर कॉम्प्लेक्स के सामने, जुनवानी रोड",
+    "hero.trust_free_del": "भिलाई-दुर्ग में मुफ्त डिलीवरी",
+    "hero.trust_warranty": "100% असली ब्रांड वारंटी",
+    "hero.trust_repair": "घर पर रिपेयर और गैस पाइपलाइन सेवा",
+
+    // Featured Tabs
+    "products.tab_all": "सभी फीचर्ड",
+    "products.tab_kitchen": "किचन और गैस चूल्हा",
+    "products.tab_cooling": "पंखे और कूलर",
+    "products.tab_water": "प्यूरीफायर और गीज़र",
+    "products.tab_essentials": "घरेलू उपयोगी सामान",
+    "products.filtered_empty": "इस श्रेणी में अभी कोई फीचर्ड उत्पाद नहीं है।",
 
     // Categories
     "categories.title": "श्रेणी के अनुसार खरीदें",
@@ -376,6 +406,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "specialty.gas_desc":
       "भरोसेमंद ब्रांड्स के ग्लास टॉप और स्टील चूल्हे, साथ में गैस पाइपलाइन फिटिंग, बर्नर रिपेयर और घर पर इंस्टॉलेशन।",
     "specialty.cta": "अभी खरीदें",
+    "specialty.cap_sales_title": "शोरूम डेमो और बिक्री",
+    "specialty.cap_sales_desc": "जुनवानी रोड की दुकान पर लाइव डेमो और सभी प्रमुख ब्रांड्स की तुलना।",
+    "specialty.cap_spares_title": "असली स्पेयर पार्ट्स",
+    "specialty.cap_spares_desc": "जार, ब्लेड, कपलर, गैस बर्नर और रबर गैस्केट काउंटर पर तुरंत उपलब्ध।",
+    "specialty.cap_pipeline_title": "घर पर पाइपलाइन और रिपेयर",
+    "specialty.cap_pipeline_desc": "सर्टिफाइड LPG गैस पाइपलाइन फिटिंग, लीक टेस्टिंग और घर पर सर्विस।",
 
     // Category Names
     "category.fans": "पंखे और कूलर",
