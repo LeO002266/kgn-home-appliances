@@ -1,7 +1,8 @@
 "use client"
 
 import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
+import { HeroStore } from "@/components/hero-store"
+import { ProductSlider } from "@/components/product-slider"
 import { BrandsStrip } from "@/components/brands-strip"
 import { SpecialtyHighlight } from "@/components/specialty-highlight"
 import { CategoriesSection } from "@/components/categories-section"
@@ -20,7 +21,8 @@ export function PageContent() {
     <>
       <main className="min-h-screen bg-background">
         <Header />
-        <Hero />
+        <HeroStore />
+        <ProductSlider />
         <BrandsStrip />
         <SpecialtyHighlight />
         <CategoriesSection />
