@@ -3,11 +3,28 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ShieldCheck, MessageCircle, Phone, Sparkles, MapPin, ChevronRight, Blend, Droplets, Store, Flame, Navigation2 } from "lucide-react"
+import {
+  ShieldCheck,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  MapPin,
+  ChevronRight,
+  Store,
+  Navigation2,
+} from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
+import {
+  products,
+  categories,
+  hasProductPhoto,
+  getProductImage,
+  productUrl,
+} from "@/config/products"
 
-interface ShowcaseItem {
+// ─── Types ────────────────────────────────────────────────────────────────────
+interface SlideItem {
   id: string
   titleEn: string
   titleHi: string
@@ -20,82 +37,92 @@ interface ShowcaseItem {
   image: string
   link?: string
   isStore?: boolean
-  TabIcon: typeof Blend
 }
 
-const showcaseItems: ShowcaseItem[] = [
-  // ── STOREFRONT FIRST — the main highlight ──
-  {
-    id: "storefront",
-    titleEn: "KGN Junwani Road Showroom",
-    titleHi: "KGN जुनवानी रोड शोरूम",
-    categoryEn: "Visit Our Store in Bhilai",
-    categoryHi: "हमारी दुकान पर आएं — भिलाई",
-    specsEn: "Opp. Shikhar Complex • Near Surya Mall • Open Daily",
-    specsHi: "शिखर कॉम्प्लेक्स के सामने • सूर्या मॉल के पास • रोज़ खुला",
-    badgeEn: "Our Store",
-    badgeHi: "हमारी दुकान",
-    image: "/storefront.jpg",
-    isStore: true,
-    TabIcon: Store,
-  },
-  {
-    id: "peacock-stove",
-    titleEn: "Peacock 3-Burner Glass Stove",
-    titleHi: "पीकॉक 3 बर्नर ग्लास चूल्हा",
-    categoryEn: "Gas Stoves & Pipeline",
-    categoryHi: "गैस चूल्हा और पाइपलाइन",
-    specsEn: "Toughened Glass • Heavy Brass Burners • Pipeline Ready",
-    specsHi: "टफन्ड ग्लास • हैवी ब्रास बर्नर • पाइपलाइन रेडी",
-    badgeEn: "Best Seller",
-    badgeHi: "बेस्टसेलर",
-    image: "/products/peacock-glass-stove-3b.jpg",
-    link: "/products/peacock-glass-stove-3b",
-    TabIcon: Flame,
-  },
-  {
-    id: "starx-ro",
-    titleEn: "StarX Royal Plus RO+UV+UF",
-    titleHi: "स्टार X रॉयल प्लस RO+UV+UF",
-    categoryEn: "Water Purifiers & Service",
-    categoryHi: "वॉटर प्यूरीफायर और सर्विस",
-    specsEn: "Copper+Zinc+Alkaline • 12L • Free Service",
-    specsHi: "कॉपर+जिंक+एल्कलाइन • 12L • फ्री सर्विस",
-    badgeEn: "Top Rated",
-    badgeHi: "टॉप रेटेड",
-    image: "/products/starx-royal-ro-purifier.jpg",
-    link: "/products/starx-royal-ro-purifier",
-    TabIcon: Droplets,
-  },
-  {
-    id: "havells-mixer",
-    titleEn: "Havells Mixer Grinder 750W",
-    titleHi: "हैवेल्स मिक्सर ग्राइंडर 750W",
-    categoryEn: "Mixer Grinders & Spares",
-    categoryHi: "मिक्सर ग्राइंडर और पार्ट्स",
-    specsEn: "750W Copper Motor • 4 Jars • Spares In-Store",
-    specsHi: "750W कॉपर मोटर • 4 जार • पार्ट्स उपलब्ध",
-    badgeEn: "Power Pick",
-    badgeHi: "पावर पिक",
-    image: "/products/havells-mixer-750.jpg",
-    link: "/products/havells-mixer-750",
-    TabIcon: Blend,
-  },
-]
+// ─── Storefront slide (always first) ─────────────────────────────────────────
+const STORE_SLIDE: SlideItem = {
+  id: "storefront",
+  titleEn: "KGN Junwani Road Showroom",
+  titleHi: "KGN जुनवानी रोड शोरूम",
+  categoryEn: "Visit Our Store in Bhilai",
+  categoryHi: "हमारी दुकान पर आएं — भिलाई",
+  specsEn: "Opp. Shikhar Complex • Near Surya Mall • Open Daily",
+  specsHi: "शिखर कॉम्प्लेक्स के सामने • सूर्या मॉल के पास • रोज़ खुला",
+  badgeEn: "Our Store",
+  badgeHi: "हमारी दुकान",
+  image: "/storefront.jpg",
+  isStore: true,
+}
 
+// ─── Build product slides from the full catalog ───────────────────────────────
+/** Pick up to `max` featured products that have a real photo. */
+function buildProductSlides(max = 6): SlideItem[] {
+  const catMap = Object.fromEntries(
+    categories.map((c) => [c.id, { en: c.nameEn, hi: c.nameHi }]),
+  )
+
+  return products
+    .filter((p) => p.featured && hasProductPhoto(p))
+    .map<SlideItem>((p) => ({
+      id: p.id,
+      titleEn: p.nameEn,
+      titleHi: p.nameHi,
+      categoryEn: catMap[p.category]?.en ?? p.category,
+      categoryHi: catMap[p.category]?.hi ?? p.category,
+      specsEn: [
+        p.brand ? `${p.brand}` : "",
+        catMap[p.category]?.en ?? "",
+        "Genuine · Warranty Included",
+      ]
+        .filter(Boolean)
+        .join(" • "),
+      specsHi: [
+        p.brand ? `${p.brand}` : "",
+        catMap[p.category]?.hi ?? "",
+        "असली · वारंटी शामिल",
+      ]
+        .filter(Boolean)
+        .join(" • "),
+      badgeEn: p.badgeEn ?? "In Stock",
+      badgeHi: p.badgeHi ?? "उपलब्ध",
+      image: getProductImage(p),
+      link: productUrl(p.id),
+    }))
+    .slice(0, max)
+}
+
+/** Fisher-Yates shuffle (in-place). */
+function shuffle<T>(arr: T[]): T[] {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
 export function HeroVisual() {
   const { language } = useLanguage()
   const hi = language === "hi"
+
+  // Build slides once on client mount (shuffle product slides so they're different per visit)
+  const [slides, setSlides] = useState<SlideItem[]>([STORE_SLIDE])
   const [activeIdx, setActiveIdx] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const touchStartX = useRef<number | null>(null)
   const touchStartY = useRef<number | null>(null)
 
-  const current = showcaseItems[activeIdx]
-  const total = showcaseItems.length
-
   useEffect(() => {
-    if (isPaused) return
+    const productSlides = shuffle(buildProductSlides(8))
+    setSlides([STORE_SLIDE, ...productSlides])
+  }, [])
+
+  const total = slides.length
+  const current = slides[activeIdx]
+
+  // Auto-cycle
+  useEffect(() => {
+    if (isPaused || total <= 1) return
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % total)
     }, 4500)
@@ -105,17 +132,16 @@ export function HeroVisual() {
   const goNext = () => setActiveIdx((prev) => (prev + 1) % total)
   const goPrev = () => setActiveIdx((prev) => (prev - 1 + total) % total)
 
+  // Touch swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX
     touchStartY.current = e.touches[0].clientY
     setIsPaused(true)
   }
-
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null || touchStartY.current === null) return
     const dx = e.changedTouches[0].clientX - touchStartX.current
     const dy = e.changedTouches[0].clientY - touchStartY.current
-    // Only treat as horizontal swipe if horizontal movement > 40px and dominates vertical
     if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
       if (dx < 0) goNext()
       else goPrev()
@@ -140,44 +166,60 @@ export function HeroVisual() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Ambient glow */}
-      <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-primary/25 via-accent/20 to-primary/10 blur-2xl opacity-70" aria-hidden="true" />
+      <div
+        className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-primary/25 via-accent/20 to-primary/10 blur-2xl opacity-70"
+        aria-hidden="true"
+      />
 
       {/* Card */}
       <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 bg-card shadow-2xl">
 
-        {/* ── Tab Bar ── compact on mobile: icon only, full label on sm+ */}
-        <div className="flex items-center border-b border-border/60 bg-secondary/50">
-          {showcaseItems.map((item, idx) => {
-            const Icon = item.TabIcon
-            const isActive = activeIdx === idx
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setActiveIdx(idx)}
-                aria-label={hi ? item.badgeHi : item.badgeEn}
-                className={`flex flex-1 flex-col sm:flex-row items-center justify-center gap-1 px-1.5 py-2.5 sm:px-3 sm:py-3 text-[11px] sm:text-xs font-semibold transition-all cursor-pointer border-b-2 ${
-                  isActive
-                    ? "border-primary text-primary bg-card"
-                    : "border-transparent text-muted-foreground hover:text-foreground hover:bg-card/60"
-                }`}
-              >
-                <Icon className={`h-4 w-4 sm:h-3.5 sm:w-3.5 shrink-0 ${isActive ? "text-primary" : ""}`} />
-                <span className="hidden sm:inline leading-tight text-center">{hi ? item.badgeHi : item.badgeEn}</span>
-              </button>
-            )
-          })}
+        {/* ── Top bar: slide counter + nav arrows ── */}
+        <div className="flex items-center justify-between gap-2 border-b border-border/60 bg-secondary/50 px-3 py-2">
+          <div className="flex items-center gap-1.5">
+            {current.isStore ? (
+              <Store className="h-3.5 w-3.5 text-primary" />
+            ) : (
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
+            )}
+            <span className="text-[11px] font-bold uppercase tracking-wider text-primary leading-none">
+              {current.isStore
+                ? (hi ? "हमारा शोरूम" : "Our Showroom")
+                : (hi ? current.categoryHi : current.categoryEn)}
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="text-[11px] text-muted-foreground tabular-nums">
+              {activeIdx + 1}/{total}
+            </span>
+            <button
+              type="button"
+              onClick={goPrev}
+              aria-label="Previous"
+              className="h-6 w-6 rounded-full border border-border/60 bg-card flex items-center justify-center hover:bg-secondary transition-colors"
+            >
+              <ChevronRight className="h-3 w-3 rotate-180 text-foreground" />
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              aria-label="Next"
+              className="h-6 w-6 rounded-full border border-border/60 bg-card flex items-center justify-center hover:bg-secondary transition-colors"
+            >
+              <ChevronRight className="h-3 w-3 text-foreground" />
+            </button>
+          </div>
         </div>
 
         {/* ── Product Image Stage ── */}
         <div className="relative w-full bg-white" style={{ height: "220px" }}>
-          {/* Product image */}
           <Image
+            key={current.id}
             src={current.image}
             alt={hi ? current.titleHi : current.titleEn}
             fill
-            priority
-            className={`${current.isStore ? "object-cover" : "object-contain"} p-3 transition-all duration-500`}
+            priority={activeIdx === 0}
+            className={`${current.isStore ? "object-cover" : "object-contain"} p-3 transition-opacity duration-500`}
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
 
@@ -187,7 +229,7 @@ export function HeroVisual() {
             {hi ? current.badgeHi : current.badgeEn}
           </div>
 
-          {/* Top-right badge: Warranty for products, Location for store */}
+          {/* Top-right badge */}
           {current.isStore ? (
             <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full border border-border/70 bg-card/95 px-2 py-0.5 text-[11px] font-semibold text-foreground shadow backdrop-blur-sm">
               <MapPin className="h-3 w-3 text-primary" />
@@ -199,21 +241,17 @@ export function HeroVisual() {
               {hi ? "वारंटी" : "Warranty"}
             </div>
           )}
+
+          {/* Swipe hint (only on touch devices, first slide, fades after) */}
+          {activeIdx === 0 && (
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 rounded-full bg-black/40 px-2.5 py-1 text-[10px] text-white sm:hidden animate-fade-out">
+              ← {hi ? "स्वाइप करें" : "Swipe"} →
+            </div>
+          )}
         </div>
 
         {/* ── Info & CTA ── */}
         <div className="border-t border-border/60 bg-card p-3 sm:p-4">
-          {/* Category + location row */}
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-primary leading-none">
-              {hi ? current.categoryHi : current.categoryEn}
-            </span>
-            <span className="inline-flex items-center gap-0.5 text-[11px] text-muted-foreground">
-              <MapPin className="h-2.5 w-2.5 text-primary" />
-              {hi ? "जुनवानी रोड" : "Junwani Road"}
-            </span>
-          </div>
-
           {/* Title */}
           <h3 className="text-sm sm:text-base font-bold text-foreground leading-snug">
             {hi ? current.titleHi : current.titleEn}
@@ -224,10 +262,9 @@ export function HeroVisual() {
             {hi ? current.specsHi : current.specsEn}
           </p>
 
-          {/* Action buttons — context-aware for store vs product */}
+          {/* Action buttons */}
           <div className="mt-3 flex items-center gap-2">
             {current.isStore ? (
-              // Store slide: Directions + Call
               <>
                 <a
                   href={businessConfig.googleMaps.url}
@@ -248,7 +285,6 @@ export function HeroVisual() {
                 </a>
               </>
             ) : (
-              // Product slides: WhatsApp + Call + Details
               <>
                 <a
                   href={enquiryUrl}
@@ -283,16 +319,16 @@ export function HeroVisual() {
         </div>
 
         {/* ── Progress Dots ── */}
-        <div className="flex items-center justify-center gap-1.5 py-2 bg-secondary/30 border-t border-border/50">
-          {showcaseItems.map((_, idx) => (
+        <div className="flex items-center justify-center gap-1 py-2 bg-secondary/30 border-t border-border/50 overflow-x-auto px-2">
+          {slides.map((_, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => setActiveIdx(idx)}
               aria-label={`Slide ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              className={`h-1.5 shrink-0 rounded-full transition-all duration-300 cursor-pointer ${
                 activeIdx === idx
-                  ? "w-6 bg-primary"
+                  ? "w-5 bg-primary"
                   : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               }`}
             />

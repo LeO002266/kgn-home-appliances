@@ -172,6 +172,15 @@
   animation: fade-in 0.25s ease-out;
 }
 
+@keyframes fade-out {
+  0%   { opacity: 1; }
+  60%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.animate-fade-out {
+  animation: fade-out 3s ease-out forwards;
+}
+
 /* Smooth in-page navigation; anchored sections stop below the fixed header */
 html {
   scroll-behavior: smooth;
