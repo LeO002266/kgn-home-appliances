@@ -257,12 +257,19 @@ export const products: Product[] = [
   { id: "peacock-glass-stove-3b", nameEn: "Peacock Designer 3 Burner Glass Stove", nameHi: "पीकॉक डिज़ाइनर 3 बर्नर ग्लास चूल्हा", category: "gas-stoves", badgeEn: "Designer", badgeHi: "डिज़ाइनर", featured: true },
   { id: "butterfly-stove-2b", nameEn: "Butterfly 2 Burner Gas Stove", nameHi: "बटरफ्लाई 2 बर्नर गैस चूल्हा", brand: "Butterfly", category: "gas-stoves" },
   { id: "glass-stove-4b", nameEn: "Glass Top 4 Burner Gas Stove", nameHi: "ग्लास टॉप 4 बर्नर गैस चूल्हा", category: "gas-stoves", featured: true },
+  { id: "portable-camping-mini-stove", nameEn: "Portable Camping Folding Mini Gas Stove", nameHi: "पोर्टेबल कैंपिंग फोल्डिंग मिनी गैस चूल्हा", category: "gas-stoves", badgeEn: "Piezo Ignition", badgeHi: "पीज़ो इग्निशन", featured: true },
 
   // Kitchen Accessories — gas pipeline & stove repair materials + everyday kitchen tools
   { id: "lpg-gas-pipe", nameEn: "LPG Gas Pipe (ISI Marked)", nameHi: "LPG गैस पाइप (ISI मार्क)", category: "kitchen-accessories", featured: true },
   { id: "gas-regulator", nameEn: "LPG Gas Regulator", nameHi: "LPG गैस रेगुलेटर", category: "kitchen-accessories" },
   { id: "stove-burner-brass", nameEn: "Brass Stove Burner (Spare Part)", nameHi: "पीतल स्टोव बर्नर (स्पेयर पार्ट)", category: "kitchen-accessories" },
   { id: "gas-lighter", nameEn: "Gas Lighter / Igniter", nameHi: "गैस लाइटर / इग्नाइटर", category: "kitchen-accessories" },
+  { id: "ritu-electronic-gas-lighter", nameEn: "Ritu Electronic Waterproof Gas Lighter", nameHi: "रितु इलेक्ट्रॉनिक वाटरप्रूफ गैस लाइटर", category: "kitchen-accessories", badgeEn: "Waterproof", badgeHi: "वाटरप्रूफ" },
+  { id: "ez-flame-refillable-gas-lighter", nameEn: "EZ Flame Refillable Kitchen Gas Lighter", nameHi: "EZ फ्लेम रिफिलेबल किचन गैस लाइटर", category: "kitchen-accessories", badgeEn: "Refillable", badgeHi: "रिफिलेबल" },
+  { id: "mr-cook-piezo-gas-lighter", nameEn: "Mr. Cook German Piezo Spark Gas Lighter", nameHi: "मिस्टर कुक जर्मन पीज़ो स्पार्क गैस लाइटर", category: "kitchen-accessories", badgeEn: "German Piezo", badgeHi: "जर्मन पीज़ो" },
+  { id: "qwik-fire-steel-lighter", nameEn: "Qwik-Fire Stainless Steel Kitchen Gas Lighter", nameHi: "क्विक-फायर स्टेनलेस स्टील किचन गैस लाइटर", category: "kitchen-accessories", badgeEn: "Stainless Steel", badgeHi: "स्टेनलेस स्टील" },
+  { id: "ritu-regular-smooth-gas-lighter", nameEn: "Ritu Regular Smooth-Touch Gas Lighter", nameHi: "रितु रेगुलर स्मूथ-टच गैस लाइटर", category: "kitchen-accessories", badgeEn: "Soft Grip", badgeHi: "सॉफ्ट ग्रिप" },
+  { id: "lpg-laboratory-bunsen-burner", nameEn: "ISI-Marked Heavy LPG Laboratory Burner", nameHi: "ISI-मार्क हैवी LPG लैबोरेटरी बर्नर", category: "kitchen-accessories", badgeEn: "ISI Marked", badgeHi: "ISI मार्क" },
   { id: "butane-fuel-can", nameEn: "Butane Fuel Can", nameHi: "ब्यूटेन फ्यूल कैन", category: "kitchen-accessories", badgeEn: "Threaded Valve", badgeHi: "थ्रेडेड वाल्व" },
   { id: "gas-safety-valve", nameEn: "Gas Safety Valve", nameHi: "गैस सेफ्टी वाल्व", category: "kitchen-accessories" },
   { id: "kitchen-tool-set", nameEn: "Kitchen Tool Set (Tongs, Ladles & More)", nameHi: "किचन टूल सेट (चिमटा, कलछी और अधिक)", category: "kitchen-accessories" },
@@ -272,8 +279,13 @@ export const products: Product[] = [
   { id: "philips-cooker-5", nameEn: "Philips Pressure Cooker 5L", nameHi: "फिलिप्स प्रेशर कुकर 5L", brand: "Philips", category: "pressure-cookers", featured: true },
   { id: "prestige-cooker-3", nameEn: "Prestige Cooker 3L", nameHi: "प्रेस्टीज कुकर 3L", brand: "Prestige", category: "pressure-cookers" },
   { id: "hawkins-cooker-5", nameEn: "Hawkins Steel Cooker 5L", nameHi: "हॉकिन्स स्टील कुकर 5L", brand: "Hawkins", category: "pressure-cookers" },
+  { id: "united-commercial-cooker-22l", nameEn: "United Commercial Aluminium Cooker 22L", nameHi: "यूनाइटेड कमर्शियल एल्युमिनियम कुकर 22L", category: "pressure-cookers", badgeEn: "22 Litres", badgeHi: "22 लीटर", featured: true },
+  { id: "power-cook-black-pearl-cooker", nameEn: "Power Cook Black Pearl Hard Anodised Cooker", nameHi: "पावर कुक ब्लैक पर्ल हार्ड एनोडाइज्ड कुकर", category: "pressure-cookers", badgeEn: "Hard Anodised", badgeHi: "हार्ड एनोडाइज्ड", featured: true },
 
   // Kitchenware & Cookware
+  { id: "floral-opalware-dinner-set", nameEn: "Floral Opalware Dinner Set", nameHi: "फ्लोरल ओपलवेयर डिनर सेट", category: "kitchenware", badgeEn: "Scratch Resistant", badgeHi: "स्क्रैच रेसिस्टेंट", featured: true },
+  { id: "guneet-brass-lota-kalash-set", nameEn: "Guneet Traditional Brass Lota / Kalash Set of 3", nameHi: "गुनीत पारंपरिक पीतल लोटा / कलश 3 का सेट", category: "kitchenware", badgeEn: "Pure Brass", badgeHi: "शुद्ध पीतल", featured: true },
+  { id: "classic-export-handi-degchi", nameEn: "Classic Export Aluminium Handi / Degchi Pot No. 2", nameHi: "क्लासिक एक्सपोर्ट एल्युमिनियम हांडी / देगची पॉट नं. 2", category: "kitchenware", badgeEn: "Heavy Gauge", badgeHi: "हैवी गेज" },
   { id: "steel-utensil-set", nameEn: "Stainless Steel Utensil Set", nameHi: "स्टेनलेस स्टील बर्तन सेट", category: "kitchenware" },
   { id: "casserole-set", nameEn: "Insulated Casserole Set", nameHi: "इंसुलेटेड कैसरोल सेट", category: "kitchenware" },
   { id: "insulated-hotpot", nameEn: "Insulated Hotpot", nameHi: "इंसुलेटेड हॉटपॉट", category: "kitchenware", badgeEn: "Food Grade", badgeHi: "फूड ग्रेड" },
@@ -290,6 +302,7 @@ export const products: Product[] = [
 
   // Cleaning Tools
   { id: "floor-mop-spin", nameEn: "Spin Mop with Bucket", nameHi: "स्पिन मॉप विद बकेट", category: "cleaning-tools" },
+  { id: "galaxy-cotton-floor-mop", nameEn: "Galaxy Spot Clean Heavy Cotton Floor Mop", nameHi: "गैलेक्सी स्पॉट क्लीन हैवी कॉटन फ्लोर मॉप", category: "cleaning-tools", badgeEn: "100% Cotton", badgeHi: "100% कॉटन" },
   { id: "cloth-drying-stand", nameEn: "Stainless Steel Folding Cloth Drying Stand", nameHi: "स्टेनलेस स्टील फोल्डिंग कपड़ा सुखाने का स्टैंड", category: "cleaning-tools", badgeEn: "Heavy Duty", badgeHi: "हैवी ड्यूटी", featured: true },
   { id: "floor-wiper", nameEn: "Floor Wiper / Squeegee", nameHi: "फ्लोर वाइपर / स्क्वीजी", category: "cleaning-tools" },
   { id: "cleaning-bucket", nameEn: "Plastic Cleaning Bucket with Wringer", nameHi: "प्लास्टिक क्लीनिंग बकेट विद रिंगर", category: "cleaning-tools" },
@@ -297,6 +310,8 @@ export const products: Product[] = [
   { id: "scrub-brush", nameEn: "Multi-Surface Scrub Brush", nameHi: "मल्टी-सरफेस स्क्रब ब्रश", category: "cleaning-tools" },
 
   // Hardware & Locks
+  { id: "heavy-shutter-padlock-set", nameEn: "Heavy-Duty Brass & Steel Shutter Padlocks", nameHi: "हैवी ड्यूटी पीतल और स्टील शटर ताले", category: "hardware-locks", badgeEn: "Hardened Steel", badgeHi: "हार्डन्ड स्टील", featured: true },
+  { id: "round-shutter-disc-lock", nameEn: "Heavy Round Shutter Disc Padlock (70mm SS)", nameHi: "हैवी राउंड शटर डिस्क पैडलॉक (70mm SS)", category: "hardware-locks", badgeEn: "Disc Lock", badgeHi: "डिस्क लॉक" },
   { id: "link-padlock", nameEn: "Link Pad Lock (Heavy Duty)", nameHi: "लिंक ताला (हैवी ड्यूटी)", brand: "Link", category: "hardware-locks" },
   { id: "aluminum-step-ladder", nameEn: "6-Step Heavy Duty Aluminum Ladder", nameHi: "6-स्टेप हैवी ड्यूटी एल्युमिनियम सीढ़ी", category: "hardware-locks", badgeEn: "Anti-Skid", badgeHi: "एंटी-स्किड", featured: true },
   { id: "door-lock-mortise", nameEn: "Mortise Door Lock", nameHi: "मोर्टिस डोर लॉक", category: "hardware-locks" },
@@ -304,12 +319,23 @@ export const products: Product[] = [
   { id: "steel-door-hinges", nameEn: "Steel Door Hinges (Pack of 4)", nameHi: "स्टील डोर हिंज (4 का पैक)", category: "hardware-locks" },
 
   // Water Purifiers
+  { id: "purlex-copper-alkaline-purifier", nameEn: "Purlex Zinc Copper Alkaline Luxury RO Purifier", nameHi: "प्योर्लेक्स ज़िंक कॉपर एल्कलाइन लग्ज़री RO प्यूरीफायर", category: "water-purifiers", badgeEn: "Zinc + Copper", badgeHi: "ज़िंक + कॉपर", featured: true },
+  { id: "aqua-x-audi-purity-purifier", nameEn: "Aqua X Audi Purity Drop RO Water Purifier", nameHi: "एक्वा X ऑडी प्यूरिटी ड्रॉप RO वॉटर प्यूरीफायर", category: "water-purifiers", badgeEn: "12L Tank", badgeHi: "12L टैंक", featured: true },
+  { id: "ai-qua-smart-led-ro-purifier", nameEn: "Ai Qua Smart LED RO+UV+UF+Alkaline Purifier", nameHi: "ऐ क्वा स्मार्ट LED RO+UV+UF+एल्कलाइन प्यूरीफायर", category: "water-purifiers", badgeEn: "Smart LED", badgeHi: "स्मार्ट LED", featured: true },
+  { id: "purlex-ss-commercial-purifier", nameEn: "Purlex Stainless Steel Body RO Purifier", nameHi: "प्योर्लेक्स स्टेनलेस स्टील बॉडी RO प्यूरीफायर", category: "water-purifiers", badgeEn: "SS Body", badgeHi: "SS बॉडी", featured: true },
+  { id: "rt-aqua-commercial-ro-50lph", nameEn: "R&T Aqua Commercial RO Plant 50 LPH (SS Skid)", nameHi: "R&T एक्वा कमर्शियल RO प्लांट 50 LPH (SS स्किड)", category: "water-purifiers", badgeEn: "50 LPH SS", badgeHi: "50 LPH SS", featured: true },
+  { id: "rt-aqua-commercial-ro-100lph", nameEn: "R&T Aqua Commercial RO Plant 100 LPH (Dual Membrane)", nameHi: "R&T एक्वा कमर्शियल RO प्लांट 100 LPH (ड्यूल मेम्ब्रेन)", category: "water-purifiers", badgeEn: "100 LPH Dual", badgeHi: "100 LPH ड्यूल", featured: true },
+  { id: "right-aqua-commercial-ro-25lph", nameEn: "Right Aqua Commercial RO Plant 25 LPH (SS Skid)", nameHi: "राइट एक्वा कमर्शियल RO प्लांट 25 LPH (SS स्किड)", category: "water-purifiers", badgeEn: "25 LPH SS", badgeHi: "25 LPH SS" },
   { id: "starx-royal-ro-purifier", nameEn: "Star X Royal Plus RO+UV+UF Purifier", nameHi: "स्टार X रॉयल प्लस RO+UV+UF प्यूरीफायर", category: "water-purifiers", badgeEn: "Copper+Zinc", badgeHi: "कॉपर+ज़िंक", featured: true },
   { id: "sky-purolex-gold-purifier", nameEn: "Sky Purolex Gold RO Purifier", nameHi: "स्काई प्योरोलेक्स गोल्ड RO प्यूरीफायर", category: "water-purifiers", badgeEn: "Premium", badgeHi: "प्रीमियम", featured: true },
   { id: "starx-black-ro-purifier", nameEn: "Star X Black & Gold RO Purifier", nameHi: "स्टार X ब्लैक एंड गोल्ड RO प्यूरीफायर", category: "water-purifiers", badgeEn: "Popular", badgeHi: "लोकप्रिय" },
   { id: "ro-purifier-10l", nameEn: "RO Water Purifier 10L", nameHi: "RO वॉटर प्यूरीफायर 10L", category: "water-purifiers" },
   { id: "uv-purifier", nameEn: "UV + UF Water Purifier", nameHi: "UV + UF वॉटर प्यूरीफायर", category: "water-purifiers" },
   { id: "aqua-spun-filter-candle", nameEn: "Aqua 10\" PP Spun Filter Candle (5 Micron)", nameHi: "एक्वा 10\" PP स्पन फिल्टर कैंडल (5 माइक्रोन)", category: "water-purifiers" },
+  { id: "wellproo-spun-filter-candle", nameEn: "Wellproo 10\" PP Spun Filter Candle (5 Micron)", nameHi: "वेलप्रू 10\" PP स्पन फिल्टर कैंडल (5 माइक्रोन)", category: "water-purifiers", badgeEn: "5 Micron", badgeHi: "5 माइक्रोन" },
+  { id: "redspread-spun-filter-candle", nameEn: "RedSpread AceZom PP Spun Filter Candle", nameHi: "रेडस्प्रेड AceZom PP स्पन फिल्टर कैंडल", category: "water-purifiers", badgeEn: "High Density", badgeHi: "हाई डेंसिटी" },
+  { id: "bluetrue-spun-filter-candle", nameEn: "BlueTrue AceZom PP Spun Filter Candle (Heavy)", nameHi: "ब्लूट्रू AceZom PP स्पन फिल्टर कैंडल (हैवी)", category: "water-purifiers", badgeEn: "Heavy Spun", badgeHi: "हैवी स्पन" },
+  { id: "bioplus-platinum-carbon-filter", nameEn: "Bio+ Platinum 1100 IV Granular Carbon Filter", nameHi: "बायो+ प्लेटिनम 1100 IV ग्रैन्युलर कार्बन फिल्टर", category: "water-purifiers", badgeEn: "1100 IV Carbon", badgeHi: "1100 IV कार्बन" },
   { id: "purosis-inline-filters", nameEn: "Purosis 8\" In-Line Filter Set (Sediment+Carbon)", nameHi: "प्योरोसिस 8\" इन-लाइन फिल्टर सेट (सेडिमेंट+कार्बन)", category: "water-purifiers" },
   { id: "lucent-ro-control-panel", nameEn: "Lucent Intelligent RO Control Panel 1:1", nameHi: "लूसेंट इंटेलिजेंट RO कंट्रोल पैनल 1:1", category: "water-purifiers" },
 
