@@ -52,7 +52,7 @@ export function HeroStore() {
         <div className="bg-background px-4 sm:px-6 py-10 sm:py-14">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm mb-5">
-              <Star className="h-3.5 w-3.5 fill-accent text-accent" />
+              <ShieldCheck className="h-4 w-4 text-primary" />
               {hi ? "भिलाई का भरोसेमंद होम अप्लायंस स्टोर" : "Bhilai's Trusted Home Appliance Store"}
             </span>
 
@@ -118,7 +118,7 @@ export function HeroStore() {
             {/* Left: text, CTAs, trust items */}
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-4 py-1.5 text-xs xl:text-sm font-medium text-muted-foreground shadow-sm backdrop-blur-sm">
-                <Star className="h-4 w-4 fill-accent text-accent" />
+                <ShieldCheck className="h-4 w-4 text-primary" />
                 {hi ? "भिलाई का भरोसेमंद होम अप्लायंस स्टोर" : "Bhilai's Trusted Home Appliance Store"}
               </span>
 

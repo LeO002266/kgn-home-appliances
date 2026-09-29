@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, Blend, Fan, Droplets, Sparkles, ShoppingBag } from "lucide-react"
+import { ArrowRight, Blend, Fan, Droplets, ShoppingBag } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { ProductCard } from "@/components/product-card"
 import { products, type CategoryId } from "@/config/products"
@@ -49,7 +49,7 @@ export function FeaturedProducts() {
     {
       id: "essentials",
       label: t("products.tab_essentials"),
-      icon: Sparkles,
+      icon: ShoppingBag,
       count: allFeatured.filter((p) => tabCategoryMap.essentials.includes(p.category)).length,
     },
   ]

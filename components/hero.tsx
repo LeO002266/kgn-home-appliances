@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Truck, ShieldCheck, Star, Wrench, Phone, MapPin } from "lucide-react"
+import { ArrowRight, Truck, ShieldCheck, Wrench, Phone, MapPin } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig } from "@/config/business"
 import { HeroVisual } from "@/components/hero-visual"
@@ -26,7 +26,7 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted-foreground shadow-sm backdrop-blur-sm">
-              <Star className="h-4 w-4 fill-accent text-accent" />
+              <ShieldCheck className="h-4 w-4 text-primary" />
               {t("hero.badge")}
             </span>
 

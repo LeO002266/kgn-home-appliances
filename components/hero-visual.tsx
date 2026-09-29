@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   MessageCircle,
   Phone,
-  Sparkles,
   MapPin,
   ChevronRight,
   Store,
@@ -180,7 +179,7 @@ export function HeroVisual() {
             {current.isStore ? (
               <Store className="h-3.5 w-3.5 text-primary" />
             ) : (
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              <span className="h-2 w-2 rounded-full bg-primary" />
             )}
             <span className="text-[11px] font-bold uppercase tracking-wider text-primary leading-none">
               {current.isStore
@@ -224,8 +223,7 @@ export function HeroVisual() {
           />
 
           {/* Badge top-left */}
-          <div className="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-gradient-to-r from-[#ffd54d] via-[#fbc02d] to-[#f0a500] px-2.5 py-1 text-[11px] font-bold text-[#2a1362] shadow">
-            <Sparkles className="h-2.5 w-2.5 fill-[#2a1362]" />
+          <div className="absolute top-2 left-2 z-10 flex items-center rounded-md bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground shadow-xs">
             {hi ? current.badgeHi : current.badgeEn}
           </div>
 

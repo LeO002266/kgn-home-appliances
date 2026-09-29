@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck } from "lucide-react"
+import { MessageCircle, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import {
@@ -116,8 +116,7 @@ export function ProductSlider() {
                     sizes="220px"
                   />
                   {/* Badge */}
-                  <span className="absolute top-2 left-2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#ffd54d] to-[#f0a500] px-2 py-0.5 text-[10px] font-bold text-[#2a1362] shadow">
-                    <Sparkles className="h-2 w-2 fill-[#2a1362]" />
+                  <span className="absolute top-2 left-2 inline-flex items-center rounded-md bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground shadow-xs">
                     {hi ? slide.badgeHi : slide.badgeEn}
                   </span>
                   {/* Warranty */}

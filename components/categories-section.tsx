@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home, Star } from "lucide-react"
+import { ArrowRight, Blend, Flame, Wrench, CookingPot, UtensilsCrossed, GlassWater, SprayCan, Lock, Droplets, ShowerHead, Fan, Home } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { categories, categoryUrl, products, productImageFileExists, type CategoryId } from "@/config/products"
 
@@ -147,8 +147,7 @@ export function CategoriesSection() {
                     {count}
                   </span>
                   {specialtyCategories.has(cat.id) && (
-                    <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-[#ffd54d] to-[#f0a500] px-2.5 py-1 text-[11px] font-bold text-[#2a1362] shadow-sm">
-                      <Star className="h-3 w-3 fill-[#2a1362]" />
+                    <span className="absolute bottom-3 left-3 inline-flex items-center rounded-md bg-primary/95 px-2 py-0.5 text-[11px] font-medium text-primary-foreground shadow-xs">
                       {t("specialty.badge")}
                     </span>
                   )}

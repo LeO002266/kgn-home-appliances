@@ -36,7 +36,7 @@ export const businessConfig = {
     sunday: "10:00 AM - 6:00 PM",
   },
 
-  // Social links (⚠️ replace with your real pages, or remove from footer.tsx if unused)
+  // Social links (replace with your real pages, or remove from footer.tsx if unused)
   social: {
     instagram: "https://www.instagram.com/kgnhomeappliances",
     facebook: "https://www.facebook.com/kgnhomeappliances",
