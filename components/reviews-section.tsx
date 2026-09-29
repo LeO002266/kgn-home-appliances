@@ -1,6 +1,7 @@
 "use client"
 
-import { Star, MessageCircle, ExternalLink, ShieldCheck, MapPin, Wrench } from "lucide-react"
+import { Star, ExternalLink, ShieldCheck, MapPin, Wrench } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -101,7 +102,7 @@ export function ReviewsSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
             >
-              <MessageCircle className="h-4 w-4 text-[#25D366]" />
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               {t("reviews.send_feedback")}
             </a>
           </div>

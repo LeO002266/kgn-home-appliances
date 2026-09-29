@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { MessageCircle, Phone, CheckCircle2, ChevronRight, Truck, ShieldCheck, BadgeCheck, ArrowRight, Tag } from "lucide-react"
+import { Phone, CheckCircle2, ChevronRight, Truck, ShieldCheck, BadgeCheck, ArrowRight, Tag } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -125,7 +126,7 @@ export function ProductDetailContent({ productId }: { productId: string }) {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-md hover:bg-[#1ebe5b] transition-colors active:scale-[0.98]"
                     >
-                      <MessageCircle className="h-5 w-5" />
+                      <WhatsAppIcon className="h-5 w-5" />
                       {t("product.enquire_now")}
                     </a>
                     <a
@@ -143,7 +144,7 @@ export function ProductDetailContent({ productId }: { productId: string }) {
                       {businessConfig.contact.phoneDisplay}
                     </span>
                     <span className="inline-flex items-center gap-2">
-                      <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                      <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                       {businessConfig.contact.whatsappDisplay}
                     </span>
                   </div>

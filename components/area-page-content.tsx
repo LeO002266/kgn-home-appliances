@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight, Phone, MessageCircle, MapPin, Clock, Wrench } from "lucide-react"
+import { ChevronRight, Phone, MapPin, Clock, Wrench } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -66,7 +67,7 @@ export function AreaPageContent({ slug }: { slug: string }) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
             >
-              <MessageCircle className="h-4 w-4" />
+              <WhatsAppIcon className="h-4 w-4" />
               {t("repair.whatsapp")}
             </a>
           </div>
@@ -159,7 +160,7 @@ export function AreaPageContent({ slug }: { slug: string }) {
                   </a>
                 </div>
                 <div className="flex gap-3">
-                  <MessageCircle className="h-5 w-5 shrink-0 text-[#25D366]" />
+                  <WhatsAppIcon className="h-5 w-5 shrink-0 text-[#25D366]" />
                   <a
                     href={getWhatsAppUrl(whatsappMessage)}
                     target="_blank"

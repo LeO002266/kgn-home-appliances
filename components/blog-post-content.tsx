@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight, Clock, Info, Phone, MessageCircle, ArrowRight, ArrowLeft } from "lucide-react"
+import { ChevronRight, Clock, Info, Phone, ArrowRight, ArrowLeft } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -155,7 +156,7 @@ export function BlogPostContent({ slug }: { slug: string }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 {t("repair.whatsapp")}
               </a>
               {relatedCategory && (

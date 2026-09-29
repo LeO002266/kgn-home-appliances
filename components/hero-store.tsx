@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { Navigation2, MessageCircle, Phone, MapPin, Star, ShieldCheck, Truck, Wrench } from "lucide-react"
+import { Navigation2, Phone, MapPin, Star, ShieldCheck, Truck, Wrench } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -85,7 +86,7 @@ export function HeroStore() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#1ebe5b] transition-all active:scale-[0.98]"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 {hi ? "WhatsApp करें" : "WhatsApp Us"}
               </a>
               <a
@@ -151,7 +152,7 @@ export function HeroStore() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#1ebe5b] transition-all active:scale-[0.98]"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4" />
                   {hi ? "WhatsApp करें" : "WhatsApp Us"}
                 </a>
                 <a

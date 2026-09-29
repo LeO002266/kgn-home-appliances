@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from "react"
 import Link from "next/link"
-import { ArrowLeft, Phone, Search, X, SlidersHorizontal, MessageCircle, RotateCcw } from "lucide-react"
+import { ArrowLeft, Phone, Search, X, SlidersHorizontal, RotateCcw } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -267,7 +268,7 @@ export function ProductsPageContent() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1ebe5b] transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4" />
                   {t("products.whatsapp")}
                 </a>
                 <a
@@ -300,7 +301,7 @@ export function ProductsPageContent() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                   {t("products.whatsapp")}
                 </a>
               </div>

@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { ShieldCheck, MessageCircle, Phone } from "lucide-react"
+import { ShieldCheck, Phone } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import type { Product } from "@/config/products"
@@ -74,7 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
             className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-3 py-2 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#1ebe5b] hover:shadow-sm active:scale-[0.98]"
             aria-label={`${t("products.enquire")}: ${name}`}
           >
-            <MessageCircle className="h-3.5 w-3.5" />
+            <WhatsAppIcon className="h-3.5 w-3.5" />
             {t("products.whatsapp")}
           </a>
         </div>

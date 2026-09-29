@@ -1,6 +1,7 @@
 "use client"
 
-import { Phone, MessageCircle } from "lucide-react"
+import { Phone } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -26,7 +27,7 @@ export function MobileCtaBar() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-2.5 text-sm font-bold text-white shadow-sm active:bg-[#1ebe5b] transition-colors"
         >
-          <MessageCircle className="h-4 w-4" />
+          <WhatsAppIcon className="h-4 w-4" />
           {t("contact.whatsapp")}
         </a>
       </div>

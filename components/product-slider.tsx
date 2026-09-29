@@ -3,7 +3,8 @@
 import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { MessageCircle, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react"
+import { ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import {
@@ -136,7 +137,7 @@ export function ProductSlider() {
                   </p>
                   {/* WhatsApp CTA */}
                   <div className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#25D366] px-2.5 py-2 text-[11px] font-bold text-white group-hover:bg-[#1ebe5b] transition-colors">
-                    <MessageCircle className="h-3 w-3" />
+                    <WhatsAppIcon className="h-3 w-3" />
                     {hi ? "कीमत पूछें" : "Ask Price"}
                   </div>
                 </div>

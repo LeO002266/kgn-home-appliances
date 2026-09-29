@@ -5,13 +5,13 @@ import Image from "next/image"
 import Link from "next/link"
 import {
   ShieldCheck,
-  MessageCircle,
   Phone,
   MapPin,
   ChevronRight,
   Store,
   Navigation2,
 } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import {
@@ -290,7 +290,7 @@ export function HeroVisual() {
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25D366] px-3 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#1ebe5b] active:scale-[0.98]"
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
+                  <WhatsAppIcon className="h-3.5 w-3.5" />
                   {hi ? "बेस्ट कीमत पूछें" : "WhatsApp for Price"}
                 </a>
                 <a

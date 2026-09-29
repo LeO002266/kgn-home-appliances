@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle2 } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, CheckCircle2, Send } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -125,7 +126,7 @@ export function ContactSection() {
       href: `tel:${businessConfig.contact.phone}`,
     },
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       iconClass: "bg-green-500/10 text-green-600 dark:text-green-400",
       label: t("contact.whatsapp"),
       value: businessConfig.contact.whatsappDisplay,
@@ -212,7 +213,7 @@ export function ContactSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-green-500/50 bg-green-50 dark:bg-green-950/40 px-6 py-2.5 text-sm font-semibold text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/50 transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 {t("contact.whatsapp")}
               </a>
             </div>
@@ -285,7 +286,7 @@ export function ContactSection() {
                     type="submit"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <WhatsAppIcon className="h-4 w-4" />
                     {t("contact.send")}
                   </button>
                 )}

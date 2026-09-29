@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Wrench, Clock, CheckCircle2, MessageCircle, Phone, Microwave, Blend, Package, Flame, Fan, Zap, Settings, Wind } from "lucide-react"
+import { Wrench, Clock, CheckCircle2, Phone, Microwave, Blend, Package, Flame, Fan, Zap, Settings, Wind } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 
@@ -117,7 +118,7 @@ export function RepairServices() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary/50 transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 {t("repair.whatsapp")}
               </a>
             </div>
@@ -222,7 +223,7 @@ export function RepairServices() {
                   type="submit"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4" />
                   {t("repair.book_cta")}
                 </button>
               )}

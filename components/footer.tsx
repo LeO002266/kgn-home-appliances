@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react"
+import { Instagram, Facebook, Phone } from "lucide-react"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { useLanguage } from "@/context/language-context"
 import { businessConfig, getWhatsAppUrl } from "@/config/business"
 import { getSortedPosts } from "@/config/blog"
@@ -80,7 +81,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#25D366] transition-colors"
               >
-                <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                 {businessConfig.contact.whatsappDisplay}
               </a>
             </div>
@@ -88,7 +89,7 @@ export function Footer() {
               {[
                 { href: businessConfig.social.instagram, Icon: Instagram, label: "Instagram", external: true },
                 { href: businessConfig.social.facebook, Icon: Facebook, label: "Facebook", external: true },
-                { href: getWhatsAppUrl(businessConfig.whatsappMessages.general), Icon: MessageCircle, label: "WhatsApp", external: true },
+                { href: getWhatsAppUrl(businessConfig.whatsappMessages.general), Icon: WhatsAppIcon, label: "WhatsApp", external: true },
                 { href: `tel:${businessConfig.contact.phone}`, Icon: Phone, label: "Call us", external: false },
               ].map(({ href, Icon, label, external }) => (
                 <a
